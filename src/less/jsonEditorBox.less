@@ -1,0 +1,99 @@
+.complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+  pre {
+    min-height: 400px;
+    background-color: #fff;
+  }
+  > Button {
+    position: absolute;
+    top: 0px;
+    right: 40px;
+  }
+}
+.jsonEditorBox {
+  height: 430px;
+  .jsonTabBox {
+    overflow: hidden;
+    .jsonTabTitle {
+      overflow: hidden;
+      height: 30px;
+      padding-left: 10px;
+      font-weight: 700;
+      color: #1DA57A;
+      line-height: 30px;
+      margin-bottom: 5px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .jsonTabCont {
+      width: 100%;
+      height: 400px;
+      -webkit-transition: .5s;
+      -moz-transition: .5s;
+      -ms-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s;
+      position: relative;
+      p {
+        padding-top: 180px;
+        font-size: 40px;
+        font-weight: 700;
+        text-align: center;
+        color: #CCCCD6;
+      }
+      .jsonTabEditCont {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 400px;
+      }
+      .jsonTabContPre {
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        background-color: #fff;
+        overflow-y: scroll;
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+        /* 滚动条的滑轨背景颜色 */
+        &::-webkit-scrollbar {
+          width: 5px;
+          height: 16px;
+          background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ddd;
+          border-radius: 10px;
+        }
+        /* 滑块颜色 */
+      }
+    }
+  }
+  .ant-tabs-bar {
+    margin-bottom: 0;
+  }
+  .jsoneditor {
+    //border: 1px solid #f8f8f8;
+    border: 0;
+  }
+  /*左侧的边*/
+  .ace_gutter {
+    //background: #1DA57A;
+  }
+  /*上面的边*/
+  .jsoneditor-menu {
+    background-color: rgba(29, 165, 122, .8);
+    border-bottom: 1px solid rgba(29, 165, 122, .8);
+    border-radius: 3px;
+  }
+  .ace_content {
+    background-color: #f8f8f8;
+  }
+  .border-bottom {
+    border-bottom: 0;
+  }
+}

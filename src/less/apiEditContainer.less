@@ -1,0 +1,281 @@
+.apiEdit{
+    min-width: 1069px;
+    width: 82%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    } /* 滚动条的滑轨背景颜色 */
+    &::-webkit-scrollbar
+    {
+        width: 5px;
+        height: 16px;
+        background-color:transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #ddd;
+        border-radius:10px;
+    } /* 滑块颜色 */
+    height: 90%;
+    top: 100px;
+    left:240px;
+    position: absolute;
+    //margin-left: 240px;
+    //margin-right: 5px;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    padding:10px;
+    background: #f8f8f8;
+    .apiEditBtnBox{
+        .edit_saveList{
+          margin-left: 10px;
+        }
+    }
+    .edit_parameter_box{
+        font-size: 14px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 15px;
+    }
+    section{
+        min-width: 1200px;
+        border-radius: 5px;
+        background: #fff;
+        margin: 10px 0;
+        padding: 10px;
+        label{
+            padding: 10px;
+            display: block;
+            .edit_name{
+                display: inline-block;
+                min-width: 50px;
+                margin-right: 20px;
+                em{
+                    color: red;
+                    //padding-top:10px;
+                    margin: 5px 5px 0 0;
+                    display: inline-block;
+                }
+            }
+            .edit_input{
+              width: 60%;
+                &.errorTip{
+                    border-color:rgba(255,51,102, 0.9);
+                    outline: 0;
+                    box-shadow: 0 0 0 2px rgba(255,51,102, 0.2);
+                }
+            }
+            .edit_method{
+                min-width: 150px;
+            }
+        }
+        .edit_parameter_list{
+            ul{
+                li{
+                    .list_row{
+                        padding: 10px 0;
+                        overflow: hidden;
+                        height: 50px;
+                        line-height: 50px;
+                        //font-size: 0;
+                        .list_count{
+                            width: 25px;
+                            height: 25px;
+                            line-height: 25px;
+                            display: block;
+                            text-align: center;
+                            float: left;
+                            -webkit-border-radius: 3px;
+                            border-radius: 3px;
+                            background-color: #f2f2f2;
+                            color: #a3a3a3;
+                        }
+                        .close_list{
+                            float: left;
+                            margin:0 5px;
+                            //margin-top: 10px;
+                        }
+                        .edit_method{
+                            float: left;
+                            margin:0 5px;
+                        }
+                        .list_name,.list_explain{
+                            float: left;
+                            display: block;
+                            margin:0 10px;
+                            padding:0;
+                            height: 30px;
+                            line-height: 30px;
+                            .list_input{
+                                width:130px;
+                            }
+                        }
+                        .list_explain .list_input{
+                            width: 230px;
+                        }
+                        .switch_btn{
+                            float: left;
+                            display: block;
+                            margin:5px 10px;
+                        }
+                        .list_addMaybe{
+                            float: left;
+                        }
+                    }
+                    .list_moreCont{
+                        padding-left: 80px;
+                        transition: 1s;
+                        .list_mayBeName{
+                            float: left;
+                            line-height: 30px;
+                        }
+                        .list_mayBeBox{
+                            float: left;
+                            margin-left: 10px;
+                            .paramsList_row{
+                                padding:5px 0;
+                                .edit_method{
+                                    float: left;
+                                    margin:0 5px;
+                                }
+                                .list_count{
+                                    width: 25px;
+                                    height: 25px;
+                                    line-height: 25px;
+                                    display: block;
+                                    text-align: center;
+                                    float: left;
+                                    -webkit-border-radius: 3px;
+                                    border-radius: 3px;
+                                    background-color: #f2f2f2;
+                                    color: #a3a3a3;
+                                }
+                                .close_list{
+                                    float: left;
+                                    margin:0 5px;
+                                    //margin-top: 10px;
+                                }
+                                .switch_btn{
+                                    float: left;
+                                    display: block;
+                                    margin:5px 10px;
+                                }
+                                .list_addMaybe{
+                                    float: left;
+                                }
+
+                                .list_mayBe_name{
+                                    float: left;
+                                    margin:0 5px;
+                                    padding: 0;
+                                    .list_mayBe_input{
+                                        width: 130px;
+                                        margin:0 5px;
+                                    }
+                                    .list_mayBeDescribe_input{
+                                        width: 233px;
+                                        margin:0 5px;
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .list_addBtn{
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top:1px solid #eee;
+        }
+
+        //footer{
+        //    padding-bottom:20px;
+        //}
+    }
+
+    .quillBox{
+        padding: 10px;
+        box-sizing: border-box;
+        .quillBox_title{
+            border-bottom: 1px solid #e5e5e5;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom:5px;
+        }
+    }
+    .jsonEditorBox{
+
+        height: 430px;
+        .jsonTabBox{
+            overflow: hidden;
+            .jsonTabTitle{
+                overflow: hidden;
+                height: 30px;
+                line-height: 30px;
+                margin-bottom: 5px;
+                border-bottom: 1px solid #e5e5e5;
+                li{
+                    float: left;
+                    cursor: pointer;
+                    margin-top: -2px;
+                    text-align: center;
+                    width: 80px;
+                    font-weight: initial;
+                    font-size: 14px;
+                    &.jsonActive{
+                        border-bottom: 2px solid #66bb6a;
+                        color:#66bb6a
+                    }
+                }
+            }
+            .jsonTabCont{
+                width: 100%;
+                height:400px;
+                -webkit-transition: .5s;
+                -moz-transition: .5s;
+                -ms-transition: .5s;
+                -o-transition: .5s;
+                transition: .5s;
+                position: relative;
+                .jsonTabEditCont{
+                    position: absolute;
+                    top:0;
+                    width: 100%;
+                    height:400px;
+                }
+            }
+        }
+        .ant-tabs-bar{
+            margin-bottom:0;
+        }
+        .jsoneditor{
+            //border: 1px solid #f8f8f8;
+            border: 0;
+        }
+        /*左侧的边*/
+        .ace_gutter{
+            //background: #1DA57A;
+        }
+        /*上面的边*/
+        .jsoneditor-menu{
+            background-color: rgba(29,165,122,.8);
+            border-bottom: 1px solid rgba(29,165,122,.8);
+            border-radius: 3px;
+        }
+        .ace_content{
+            background-color: #f8f8f8;
+        }
+        .border-bottom{
+            border-bottom:0;
+        }
+    }
+
+}

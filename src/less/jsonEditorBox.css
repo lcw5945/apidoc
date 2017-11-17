@@ -1,0 +1,95 @@
+.complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+}
+.complete pre {
+  min-height: 400px;
+  background-color: #fff;
+}
+.complete > Button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+.jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont p {
+  padding-top: 180px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: #CCCCD6;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  overflow-y: scroll;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}

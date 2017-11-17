@@ -1,0 +1,309 @@
+.apiDetail {
+  min-width: 1069px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  margin-right: 5px;
+  margin-left: 240px;
+  padding-left: 10px;
+  padding-bottom: 110px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8f8f8;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiDetail::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiDetail::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiDetail::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiDetail > .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+.apiDetail > .buttons > Button {
+  margin-right: 5px;
+}
+.apiDetail > .buttons > div > .more {
+  position: absolute;
+  top: 10px;
+  left: 262px;
+}
+.apiDetail > .buttons > div > .more > Button {
+  margin-right: 5px;
+}
+.apiDetail > .buttons > div > .more > .more-hide {
+  display: none;
+}
+.apiDetail > .buttons > div > .more > .more-hide > Button {
+  display: block;
+  margin-top: 4px;
+}
+.apiDetail > .apiDetail-main > .top-show {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px;
+  background-color: #fff;
+  color: #fff;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-state {
+  float: left;
+  height: 40px;
+  background-color: #1DA57A;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 4px;
+  padding: 0 8px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-small {
+  float: left;
+  width: 40px;
+  text-align: center;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-small > .top-show-protocol {
+  padding: 2px 0px;
+  margin-bottom: 6px;
+  background-color: #28C59A;
+  line-height: 1;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-small > .top-show-dataType {
+  padding: 2px 0px;
+  margin-bottom: 6px;
+  background-color: #2196F3;
+  line-height: 1;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-ul {
+  float: left;
+  color: #000;
+  margin-left: 6px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-ul > li {
+  line-height: 1;
+  padding: 2px 0px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-ul > .top-show-ul-li {
+  margin-bottom: 6px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-time {
+  float: right;
+  margin-right: 50px;
+  color: #000;
+}
+.apiDetail > .apiDetail-main > .requestTable {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.apiDetail > .apiDetail-main > .requestTable .requestTable-key {
+  max-width: 300px;
+}
+.apiDetail > .apiDetail-main > .requestTable .request > .request-index {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background-color: #F8F8F8;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .requestTable .request > .request-value {
+  float: left;
+  width: 50px;
+  height: 20px;
+  background-color: #1DA57A;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .requestTable .request > .gray {
+  background-color: #F8F8F8;
+  color: #999;
+}
+.apiDetail > .apiDetail-main > .requestTable .parameter > .parameter-key {
+  font-weight: bold;
+}
+.apiDetail > .apiDetail-main > .requestTable .parameter > .parameter-dec {
+  color: #999;
+}
+.apiDetail > .apiDetail-main > .requestTable .key > .key-index {
+  width: 100%;
+  margin-bottom: 2px;
+}
+.apiDetail > .apiDetail-main > .requestTable .key > .key-index > span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #F8F8F8;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+.apiDetail > .apiDetail-main > .requestTable .explain > .explain-index {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 2px;
+  line-height: 20px;
+}
+.apiDetail > .apiDetail-main > .requestTable table {
+  background-color: #fff;
+}
+.apiDetail > .apiDetail-main > .complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+}
+.apiDetail > .apiDetail-main > .complete pre {
+  min-height: 400px;
+}
+.apiDetail > .apiDetail-main > .complete > Button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle li {
+  float: left;
+  cursor: pointer;
+  margin-top: -2px;
+  text-align: center;
+  width: 80px;
+  font-weight: initial;
+  font-size: 14px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle li.jsonActive {
+  border-bottom: 2px solid #66bb6a;
+  color: #66bb6a;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: #f8f8f8;
+  overflow-y: scroll;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}
+.apiDetail > .apiDetail-main > .remarks {
+  border-radius: 4px;
+}
+.apiDetail > .apiDetail-main > .remarks > .remarks-title {
+  padding: 8px 0 8px 8px;
+  line-height: 1;
+  border: 1px solid #E9E9E9;
+  background-color: #fff;
+}
+.apiDetail > .apiDetail-main > .remarks > .ql-snow {
+  min-height: 50px;
+  overflow: hidden;
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content {
+  min-height: 50px;
+  background-color: #fff;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}

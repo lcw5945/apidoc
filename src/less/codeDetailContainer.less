@@ -1,0 +1,284 @@
+.codeDetail {
+  min-width: 1069px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  margin-right: 5px;
+  margin-left: 240px;
+  padding-left: 10px;
+  padding-bottom: 110px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8f8f8;
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  /* 滚动条的滑轨背景颜色 */
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 16px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 10px;
+  }
+  /* 滑块颜色 */
+  > .buttons {
+    margin-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+    > Button {
+      float: left;
+      margin-right: 5px;
+    }
+    > div {
+      > .more {
+        position: absolute;
+        top: 10px;
+        left: 194px;
+        z-index: 9;
+        > Button {
+          margin-right: 5px;
+        }
+        > .more-hide {
+          display: none;
+          > Button {
+            display: block;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    > .last-time {
+      float: right;
+      margin-right: 50px;
+      color: #000;
+    }
+  }
+  > .codeDetail-main {
+    > .requestTable {
+      width: 100%;
+      margin-bottom: 20px;
+      color: #fff;
+      .requestTable-key {
+        max-width: 300px;
+      }
+      .request {
+        > .request-index {
+          float: left;
+          width: 20px;
+          height: 20px;
+          margin-right: 4px;
+          background-color: #F8F8F8;
+          text-align: center;
+          line-height: 20px;
+          border-radius: 2px;
+        }
+        > .request-value {
+          float: left;
+          width: 50px;
+          height: 20px;
+          background-color: #1DA57A;
+          text-align: center;
+          line-height: 20px;
+          border-radius: 2px;
+        }
+        > .gray {
+          background-color: #F8F8F8;
+          color: #999;
+        }
+      }
+      .parameter {
+        > .parameter-key {
+          font-weight: bold;
+        }
+        > .parameter-dec {
+          color: #999;
+        }
+      }
+      .key {
+        > .key-index {
+          width: 100%;
+          margin-bottom: 2px;
+          > span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #F8F8F8;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 2px;
+            margin-right: 4px;
+          }
+        }
+      }
+      .explain {
+        > .explain-index {
+          width: 100%;
+          height: 20px;
+          margin-bottom: 2px;
+          line-height: 20px;
+        }
+      }
+      table {
+        background-color: #fff;
+      }
+      .description {
+        max-width: 300px;
+      }
+    }
+    > .complete {
+      width: 100%;
+      margin-bottom: 20px;
+      position: relative;
+      background-color: #fff;
+      pre {
+        min-height: 400px;
+      }
+      > Button {
+        position: absolute;
+        top: 0px;
+        right: 40px;
+      }
+    }
+    > .jsonEditorBox {
+      height: 430px;
+      .jsonTabBox {
+        overflow: hidden;
+        .jsonTabTitle {
+          overflow: hidden;
+          height: 30px;
+          line-height: 30px;
+          margin-bottom: 5px;
+          border-bottom: 1px solid #e5e5e5;
+          li {
+            float: left;
+            cursor: pointer;
+            margin-top: -2px;
+            text-align: center;
+            width: 80px;
+            font-weight: initial;
+            font-size: 14px;
+            &.jsonActive {
+              border-bottom: 2px solid #66bb6a;
+              color: #66bb6a
+            }
+          }
+        }
+        .jsonTabCont {
+          width: 100%;
+          height: 400px;
+          -webkit-transition: .5s;
+          -moz-transition: .5s;
+          -ms-transition: .5s;
+          -o-transition: .5s;
+          transition: .5s;
+          position: relative;
+          .jsonTabEditCont {
+            display: none;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 400px;
+          }
+          .jsonTabContPre {
+            position: absolute;
+            width: 100%;
+            height: 400px;
+            background-color: #f8f8f8;
+            overflow-y: scroll;
+            &::-webkit-scrollbar-track {
+              background-color: transparent;
+            }
+            /* 滚动条的滑轨背景颜色 */
+            &::-webkit-scrollbar {
+              width: 5px;
+              height: 16px;
+              background-color: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: #ddd;
+              border-radius: 10px;
+            }
+            /* 滑块颜色 */
+          }
+        }
+      }
+      .ant-tabs-bar {
+        margin-bottom: 0;
+      }
+      .jsoneditor {
+        //border: 1px solid #f8f8f8;
+        border: 0;
+      }
+      /*左侧的边*/
+      .ace_gutter {
+        //background: #1DA57A;
+      }
+      /*上面的边*/
+      .jsoneditor-menu {
+        background-color: rgba(29, 165, 122, .8);
+        border-bottom: 1px solid rgba(29, 165, 122, .8);
+        border-radius: 3px;
+      }
+      .ace_content {
+        background-color: #f8f8f8;
+      }
+      .border-bottom {
+        border-bottom: 0;
+      }
+    }
+    > .remarks {
+      border-radius: 4px;
+      > .remarks-title {
+        padding: 8px 0 8px 8px;
+        line-height: 1;
+        border: 1px solid #E9E9E9;
+        background-color: #fff;
+      }
+      > .ql-snow {
+        min-height: 50px;
+        overflow: hidden;
+      }
+      .remarks-content {
+        min-height: 50px;
+        background-color: #fff;
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        }
+        /* 滚动条的滑轨背景颜色 */
+        &::-webkit-scrollbar {
+          width: 5px;
+          height: 16px;
+          background-color: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ddd;
+          border-radius: 10px;
+        }
+        /* 滑块颜色 */
+      }
+    }
+  }
+}
+
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}

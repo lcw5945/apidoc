@@ -1,0 +1,254 @@
+.apiEdit {
+  min-width: 1069px;
+  width: 82%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  height: 90%;
+  top: 100px;
+  left: 240px;
+  position: absolute;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding: 10px;
+  background: #f8f8f8;
+}
+.apiEdit::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiEdit::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiEdit::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiEdit .apiEditBtnBox .edit_saveList {
+  margin-left: 10px;
+}
+.apiEdit .edit_parameter_box {
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 15px;
+}
+.apiEdit section {
+  min-width: 1200px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+}
+.apiEdit section label {
+  padding: 10px;
+  display: block;
+}
+.apiEdit section label .edit_name {
+  display: inline-block;
+  min-width: 50px;
+  margin-right: 20px;
+}
+.apiEdit section label .edit_name em {
+  color: red;
+  margin: 5px 5px 0 0;
+  display: inline-block;
+}
+.apiEdit section label .edit_input {
+  width: 60%;
+}
+.apiEdit section label .edit_input.errorTip {
+  border-color: rgba(255, 51, 102, 0.9);
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+}
+.apiEdit section label .edit_method {
+  min-width: 150px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_name,
+.apiEdit section .edit_parameter_list ul li .list_row .list_explain {
+  float: left;
+  display: block;
+  margin: 0 10px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_name .list_input,
+.apiEdit section .edit_parameter_list ul li .list_row .list_explain .list_input {
+  width: 130px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_explain .list_input {
+  width: 230px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_addMaybe {
+  float: left;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont {
+  padding-left: 80px;
+  transition: 1s;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeName {
+  float: left;
+  line-height: 30px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox {
+  float: left;
+  margin-left: 10px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row {
+  padding: 5px 0;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_addMaybe {
+  float: left;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBe_input {
+  width: 130px;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
+  width: 233px;
+  margin: 0 5px;
+}
+.apiEdit section .list_addBtn {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+.apiEdit .quillBox {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.apiEdit .quillBox .quillBox_title {
+  border-bottom: 1px solid #e5e5e5;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.apiEdit .jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.apiEdit .jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabTitle li {
+  float: left;
+  cursor: pointer;
+  margin-top: -2px;
+  text-align: center;
+  width: 80px;
+  font-weight: initial;
+  font-size: 14px;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabTitle li.jsonActive {
+  border-bottom: 2px solid #66bb6a;
+  color: #66bb6a;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.apiEdit .jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.apiEdit .jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.apiEdit .jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.apiEdit .jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.apiEdit .jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}

@@ -1,0 +1,42 @@
+#indexBox > .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  transform: translateX(-150px);
+  -webkit-transform: translateX(-150px);
+}
+#indexBox .menuListBtn {
+  display: block;
+  font-size: 14px;
+  width: 180px;
+  height: 40px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid #00b7a8;
+  background: #00b17d;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  transform: translateX(150px);
+  -webkit-transform: translateX(150px);
+}
+.indexMenuLists li {
+  text-align: center;
+}
+.ProjectList table tbody tr {
+  cursor: pointer;
+}
+.noPoint {
+  cursor: default !important;
+}
+.noPoint:hover {
+  opacity: 1 !important;
+}

@@ -1,0 +1,233 @@
+.nav_ani(){
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+};
+.ProjectSubnav{
+  //position: fixed;
+  //top:50px;
+  //left: 0;
+  width: 240px;
+  height: 100%;
+  .nav_ani();
+  header{
+
+  }
+  position: absolute;
+  top:101px;
+  left: 0;
+  float: left;
+  overflow: hidden;
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid #dcdcdc;
+  &.dabaseClass{
+    top:50px;
+    .searchBox{
+      display: none;
+    }
+    .asideBox{
+      //position: absolute;
+        top:85px;
+      //left: 0px;
+      //height: 100%;
+      //width: 100%;
+    }
+  }
+  .closeMb{
+    display: none;
+    .nav_ani();
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:40px;
+    left: 0;
+    background: #fff;
+    z-index:99;
+  }
+  header{
+    height: 40px;
+    line-height:40px;
+    border-bottom: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    background:#f5f5f5;
+    color: #444;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+  }
+  .searchBox{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    position: relative;
+      input{
+        display: block;
+        margin: 10px auto;
+        outline: none;
+        //width: 90%;
+        height: 33px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        -webkit-border-radius: 17px;
+        border-radius: 17px;
+        text-indent: 10px;
+      }
+      .searchIcon{
+        position: absolute;
+        top: 11px;
+        left: 21px;
+      }
+  }
+  aside{
+      .nav_ani();
+      .asideTitleBox{
+        width: 240px;
+        padding:0 10px;
+        height: 44px;
+        line-height:44px;
+        border-bottom: 1px solid #dcdcdc;
+
+        .asideTitle{
+            color: #555;
+            font-weight: 700;
+            float: left;
+          }
+          .aside_addBtn{
+            float: right;
+            color: #4caf50;
+            cursor: pointer;
+          }
+      }
+    .asideBox{
+        position: absolute;
+        top:150px;
+        left: 0;
+        height: 100%;
+        width:100%;
+
+      .asideCont{
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0 55px 0;
+        //box-sizing: border-box;
+        border-right: 1px solid #dcdcdc;
+        background: #fff;
+        width: 240px;
+        height:66%;
+        //height: calc((100%) - (27px));
+        overflow-y: auto;
+        overflow-x: hidden;
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+        } /* 滚动条的滑轨背景颜色 */
+        &::-webkit-scrollbar
+        {
+          width: 5px;
+          height: 16px;
+          background-color:transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #ddd;
+          border-radius:10px;
+        } /* 滑块颜色 */
+        //z-index: 99;
+        .all_dataBtn{
+          &:hover{
+            background: #eeeeee !important;
+          }
+          height: 44px;
+          line-height:44px;
+          padding:0 15px;
+          cursor: pointer;
+          span{
+            margin-left: 10px;
+            color: #555;
+            font-size:12px;
+          }
+        }
+        .recycle_dataBtn{
+          &:hover{
+            background: #eeeeee !important;
+          }
+          height: 44px;
+          line-height:44px;
+          cursor: pointer;
+          padding:0 15px;
+          span{
+            margin-left: 10px;
+            color: #555;
+            font-size:12px;
+          }
+        }
+        .api_group{
+          .group_name{
+            height: 44px;
+            line-height:44px;
+            cursor: pointer;
+            color: #555;
+            padding:0 15px;
+            .group_name_title{
+              display: inline-block;
+              max-width: 165px;
+              white-space:nowrap;
+              text-overflow:ellipsis;
+              overflow: hidden;
+              word-wrap:break-word;
+            }
+            a{
+              color: #555;
+            }
+            position: relative;
+            &:hover{
+                background: #eeeeee !important;
+            }
+            &:hover .group_icon{
+                display: block;
+            }
+            .group_icon{
+                float: right;
+                display: none;
+                font-size:10px;
+                padding: 17px 10px 10px 10px;
+            }
+            .group_editBox{
+              display: none;
+              position: absolute;
+              top:-6px;
+              right: -10px;
+              width: 100px;
+              height: 62px;
+              border: 1px solid #dcdcdc;
+              box-shadow: -5px 5px 15px #ededed;
+              background: #fff;
+              text-align: center;
+              box-sizing: border-box;
+              z-index: 999;
+              &:hover{
+                display: block;
+              }
+              .group_btn{
+                height: 30px;
+                line-height:30px;
+                &:hover{
+                    background: #eee;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  //.add_modalBox{
+  //    .ant-modal-footer{
+  //      text-align: left;
+  //    }
+  //}
+}

@@ -1,0 +1,4542 @@
+/*
+ reset antd
+*/
+.login {
+  height: 100%;
+}
+.login .sy_top {
+  height: 30%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+.login .btmLogin {
+  width: 100%;
+  top: 30%;
+  position: absolute;
+}
+.login .sy_bottom {
+  text-align: center;
+  position: relative;
+  height: 200px;
+}
+.login .sy_bottom .logo {
+  margin: auto auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translate(-150px, 100px);
+  -webkit-transform: translate(-150px, 100px);
+}
+.login .sy_bottom .ant-form {
+  width: 280px;
+  margin: auto auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translate(150px, 50px);
+  -webkit-transform: translate(150px, 50px);
+}
+.login .sy_bottom .ant-form .has-error {
+  text-align: left;
+}
+.login .sy_bottom h1 {
+  font-size: 25px;
+  color: #333;
+  font-weight: normal;
+  padding: 50px 0;
+}
+.login .sy_bottom li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.login .companyName {
+  position: fixed;
+  width: 100%;
+  color: #ccc;
+  bottom: 10px ;
+  text-align: center;
+  font-size: 16px;
+}
+.login .ul-wrap .ant-btn {
+  margin-right: 10px;
+}
+.login .ul-wrap .ant-input {
+  height: 32px;
+}
+.login .ul-wrap .ant-spin-spinning {
+  left: 0;
+}
+#indexBox > .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  transform: translateX(-150px);
+  -webkit-transform: translateX(-150px);
+}
+#indexBox .menuListBtn {
+  display: block;
+  font-size: 14px;
+  width: 180px;
+  height: 40px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid #00b7a8;
+  background: #00b17d;
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto auto;
+  transform: translateX(150px);
+  -webkit-transform: translateX(150px);
+}
+.indexMenuLists li {
+  text-align: center;
+}
+.ProjectList table tbody tr {
+  cursor: pointer;
+}
+.noPoint {
+  cursor: default !important;
+}
+.noPoint:hover {
+  opacity: 1 !important;
+}
+#toolBox > .toolBox-area {
+  padding-top: 50px;
+  margin-left: 50px;
+}
+#toolBox > .toolBox-area > .content {
+  margin-bottom: 14px;
+}
+#toolBox > .toolBox-area > .content > h6 {
+  font-size: 20px;
+  line-height: 1;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+#toolBox > .toolBox-area > .content > a > .box {
+  float: left;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-top: 14px;
+  margin-right: 14px;
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #000;
+  cursor: pointer;
+}
+#toolBox > .toolBox-area > .content > a > .box > .box-title {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+#toolBox > .toolBox-area > .content > a > .box > .box-explain {
+  font-size: 14px;
+  line-height: 1;
+}
+#toolBox > .toolBox-area > .content > a > .box:hover {
+  background-color: #00B7A8;
+  color: #fff;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.subNav {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  background-color: #fcfcfc;
+}
+.subNav ul li {
+  text-align: center;
+  width: 115.5px;
+  padding-right: 5px;
+  cursor: pointer;
+  float: left;
+  color: #333;
+}
+.subNav ul li span {
+  margin-left: 5px;
+}
+.subNav ul li.subNavChoose {
+  background: #f6f6f6;
+  color: #43a047;
+}
+.ProjectSubnav {
+  width: 240px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: absolute;
+  top: 101px;
+  left: 0;
+  float: left;
+  overflow: hidden;
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid #dcdcdc;
+}
+.ProjectSubnav.dabaseClass {
+  top: 50px;
+}
+.ProjectSubnav.dabaseClass .searchBox {
+  display: none;
+}
+.ProjectSubnav.dabaseClass .asideBox {
+  top: 85px;
+}
+.ProjectSubnav .closeMb {
+  display: none;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  z-index: 99;
+}
+.ProjectSubnav header {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #dcdcdc;
+  box-sizing: border-box;
+  background: #f5f5f5;
+  color: #444;
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+}
+.ProjectSubnav .searchBox {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  position: relative;
+}
+.ProjectSubnav .searchBox input {
+  display: block;
+  margin: 10px auto;
+  outline: none;
+  height: 33px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  -webkit-border-radius: 17px;
+  border-radius: 17px;
+  text-indent: 10px;
+}
+.ProjectSubnav .searchBox .searchIcon {
+  position: absolute;
+  top: 11px;
+  left: 21px;
+}
+.ProjectSubnav aside {
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+.ProjectSubnav aside .asideTitleBox {
+  width: 240px;
+  padding: 0 10px;
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 1px solid #dcdcdc;
+}
+.ProjectSubnav aside .asideTitleBox .asideTitle {
+  color: #555;
+  font-weight: 700;
+  float: left;
+}
+.ProjectSubnav aside .asideTitleBox .aside_addBtn {
+  float: right;
+  color: #4caf50;
+  cursor: pointer;
+}
+.ProjectSubnav aside .asideBox {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.ProjectSubnav aside .asideBox .asideCont {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0 55px 0;
+  border-right: 1px solid #dcdcdc;
+  background: #fff;
+  width: 240px;
+  height: 66%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.ProjectSubnav aside .asideBox .asideCont::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.ProjectSubnav aside .asideBox .asideCont::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.ProjectSubnav aside .asideBox .asideCont::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.ProjectSubnav aside .asideBox .asideCont .all_dataBtn {
+  height: 44px;
+  line-height: 44px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+.ProjectSubnav aside .asideBox .asideCont .all_dataBtn:hover {
+  background: #eeeeee !important;
+}
+.ProjectSubnav aside .asideBox .asideCont .all_dataBtn span {
+  margin-left: 10px;
+  color: #555;
+  font-size: 12px;
+}
+.ProjectSubnav aside .asideBox .asideCont .recycle_dataBtn {
+  height: 44px;
+  line-height: 44px;
+  cursor: pointer;
+  padding: 0 15px;
+}
+.ProjectSubnav aside .asideBox .asideCont .recycle_dataBtn:hover {
+  background: #eeeeee !important;
+}
+.ProjectSubnav aside .asideBox .asideCont .recycle_dataBtn span {
+  margin-left: 10px;
+  color: #555;
+  font-size: 12px;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name {
+  height: 44px;
+  line-height: 44px;
+  cursor: pointer;
+  color: #555;
+  padding: 0 15px;
+  position: relative;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name .group_name_title {
+  display: inline-block;
+  max-width: 165px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name a {
+  color: #555;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name:hover {
+  background: #eeeeee !important;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name:hover .group_icon {
+  display: block;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name .group_icon {
+  float: right;
+  display: none;
+  font-size: 10px;
+  padding: 17px 10px 10px 10px;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name .group_editBox {
+  display: none;
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  width: 100px;
+  height: 62px;
+  border: 1px solid #dcdcdc;
+  box-shadow: -5px 5px 15px #ededed;
+  background: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name .group_editBox:hover {
+  display: block;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name .group_editBox .group_btn {
+  height: 30px;
+  line-height: 30px;
+}
+.ProjectSubnav aside .asideBox .asideCont .api_group .group_name .group_editBox .group_btn:hover {
+  background: #eee;
+}
+.apiList {
+  min-width: 1069px;
+  margin-left: 250px;
+  margin-right: 5px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding-left: 10px;
+}
+.managerList .list {
+  margin-bottom: 10px;
+}
+.managerList .list li {
+  margin-bottom: 5px;
+}
+.apiList .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.apiList Button {
+  margin-right: 5px;
+}
+.evn_name {
+  width: 120px!important;
+  display: inline-block;
+  margin-right: 10px!important;
+}
+.evn_uri {
+  width: 270px!important;
+  display: inline-block;
+  margin-right: 10px!important;
+}
+.saveButton {
+  background: #1DA57A;
+  color: #fff;
+}
+.api-container {
+  position: absolute;
+  top: 151px;
+  left: 260px;
+  width: 80%;
+  max-height: 76%;
+  overflow-y: auto;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.api-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.api-container::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.api-container::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.api-container tr {
+  cursor: pointer;
+}
+.apiEdit {
+  min-width: 1069px;
+  width: 82%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  height: 90%;
+  top: 100px;
+  left: 240px;
+  position: absolute;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding: 10px;
+  background: #f8f8f8;
+}
+.apiEdit::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiEdit::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiEdit::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiEdit .apiEditBtnBox .edit_saveList {
+  margin-left: 10px;
+}
+.apiEdit .edit_parameter_box {
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 15px;
+}
+.apiEdit section {
+  min-width: 1200px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+}
+.apiEdit section label {
+  padding: 10px;
+  display: block;
+}
+.apiEdit section label .edit_name {
+  display: inline-block;
+  min-width: 50px;
+  margin-right: 20px;
+}
+.apiEdit section label .edit_name em {
+  color: red;
+  margin: 5px 5px 0 0;
+  display: inline-block;
+}
+.apiEdit section label .edit_input {
+  width: 60%;
+}
+.apiEdit section label .edit_input.errorTip {
+  border-color: rgba(255, 51, 102, 0.9);
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+}
+.apiEdit section label .edit_method {
+  min-width: 150px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_name,
+.apiEdit section .edit_parameter_list ul li .list_row .list_explain {
+  float: left;
+  display: block;
+  margin: 0 10px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_name .list_input,
+.apiEdit section .edit_parameter_list ul li .list_row .list_explain .list_input {
+  width: 130px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_explain .list_input {
+  width: 230px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiEdit section .edit_parameter_list ul li .list_row .list_addMaybe {
+  float: left;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont {
+  padding-left: 80px;
+  transition: 1s;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeName {
+  float: left;
+  line-height: 30px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox {
+  float: left;
+  margin-left: 10px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row {
+  padding: 5px 0;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_addMaybe {
+  float: left;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBe_input {
+  width: 130px;
+  margin: 0 5px;
+}
+.apiEdit section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
+  width: 233px;
+  margin: 0 5px;
+}
+.apiEdit section .list_addBtn {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+.apiEdit .quillBox {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.apiEdit .quillBox .quillBox_title {
+  border-bottom: 1px solid #e5e5e5;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.apiEdit .jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.apiEdit .jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabTitle li {
+  float: left;
+  cursor: pointer;
+  margin-top: -2px;
+  text-align: center;
+  width: 80px;
+  font-weight: initial;
+  font-size: 14px;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabTitle li.jsonActive {
+  border-bottom: 2px solid #66bb6a;
+  color: #66bb6a;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.apiEdit .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.apiEdit .jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.apiEdit .jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.apiEdit .jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.apiEdit .jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.apiEdit .jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}
+.ProjectList {
+  min-width: 1069px;
+  margin-left: 5px;
+  margin-right: 5px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding-left: 10px;
+}
+.ProjectList .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.ProjectList Button {
+  margin-right: 5px;
+}
+._confirm_submit {
+  position: absolute;
+  bottom: 27px;
+  right: 33px;
+  width: 76px;
+  height: 38px;
+  z-index: 2;
+}
+.ProjectList .ant-table-column-sorter {
+  display: none;
+}
+.apiview-login label {
+  display: block;
+  margin: 15px 0 10px;
+}
+.mainNav {
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+.mainNav > .apicode {
+  float: left;
+  margin-left: 20px;
+  height: 40px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.mainNav > .apicode > img {
+  height: 100%;
+}
+.mainNav > .projectManageBtn {
+  float: left;
+  margin-left: 30px;
+  text-decoration: none;
+  display: inline-block;
+  width: 100px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  color: #acacac;
+  padding: 5px 8px;
+  text-align: center;
+  margin-top: 9px;
+  cursor: pointer;
+}
+.mainNav > .projectManageBtn > span .inbox {
+  margin-right: 5px;
+}
+.mainNav > .projectManageBtn:hover {
+  background: #00b17d;
+  color: #fff;
+}
+.mainNav > .navActive {
+  border: 1px solid #00b7a8;
+  color: #00b7a8;
+}
+.mainNav > .userInfoMenu {
+  width: 100px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  color: #acacac;
+  padding: 6px 38px;
+  text-align: center;
+  margin-top: 9px;
+  cursor: pointer;
+  height: auto;
+  margin-right: 50px;
+  float: right;
+}
+.mainNav > .userInfoMenu:hover {
+  background: #00b17d;
+  color: #fff;
+}
+.navUserName {
+  cursor: inherit !important;
+  background: none !important;
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+.navUserName:hover {
+  background: none !important;
+}
+.codeList {
+  min-width: 1069px;
+  margin-left: 250px;
+  margin-right: 5px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding-left: 10px;
+}
+.codeList .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.codeList Button {
+  margin-right: 5px;
+}
+.cooperationDialog {
+  width: 300px !important;
+  position: relative;
+}
+.cooperationDialog .ant-modal-footer {
+  display: none !important;
+}
+.cooperationDialog .ant-modal-body {
+  height: 450px;
+}
+.cooperationList {
+  font-size: 18px;
+  line-height: 40px;
+}
+.cooperationList > .adminName {
+  margin-left: 10px;
+  display: block;
+  width: 200px;
+  padding-right: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cooperationList > .adminName:after {
+  content: "♔";
+  color: #f0ad4e;
+  margin-left: 10px;
+}
+.cooperationList > li {
+  border-top: 1px dashed #ccc;
+  padding-left: 10px;
+  overflow: hidden;
+}
+.cooperationList > li > .delCooperation {
+  float: right;
+  font-size: 16px;
+  margin-top: 12px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.cooperationList > li > span {
+  float: left;
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.optionList {
+  display: block;
+  width: 236px;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+}
+.optionList > b {
+  font-weight: normal;
+  display: block;
+  text-align: center;
+}
+.addCooperation {
+  float: right;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.searchInput input {
+  height: 35px;
+}
+.searchInput .ant-input-suffix {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  right: 0;
+  cursor: pointer;
+}
+.searchInput .ant-input-suffix .searchBtn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+.searchInput .ant-input-suffix .searchBtn:before {
+  padding-top: 10px;
+  height: 30px;
+}
+.description {
+  max-width: 400px;
+}
+.code-container tr {
+  cursor: pointer;
+}
+.codeDetail {
+  min-width: 1069px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  margin-right: 5px;
+  margin-left: 240px;
+  padding-left: 10px;
+  padding-bottom: 110px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8f8f8;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.codeDetail::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.codeDetail::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.codeDetail::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.codeDetail > .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+.codeDetail > .buttons > Button {
+  float: left;
+  margin-right: 5px;
+}
+.codeDetail > .buttons > div > .more {
+  position: absolute;
+  top: 10px;
+  left: 194px;
+  z-index: 9;
+}
+.codeDetail > .buttons > div > .more > Button {
+  margin-right: 5px;
+}
+.codeDetail > .buttons > div > .more > .more-hide {
+  display: none;
+}
+.codeDetail > .buttons > div > .more > .more-hide > Button {
+  display: block;
+  margin-top: 4px;
+}
+.codeDetail > .buttons > .last-time {
+  float: right;
+  margin-right: 50px;
+  color: #000;
+}
+.codeDetail > .codeDetail-main > .requestTable {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.codeDetail > .codeDetail-main > .requestTable .requestTable-key {
+  max-width: 300px;
+}
+.codeDetail > .codeDetail-main > .requestTable .request > .request-index {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background-color: #F8F8F8;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+}
+.codeDetail > .codeDetail-main > .requestTable .request > .request-value {
+  float: left;
+  width: 50px;
+  height: 20px;
+  background-color: #1DA57A;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+}
+.codeDetail > .codeDetail-main > .requestTable .request > .gray {
+  background-color: #F8F8F8;
+  color: #999;
+}
+.codeDetail > .codeDetail-main > .requestTable .parameter > .parameter-key {
+  font-weight: bold;
+}
+.codeDetail > .codeDetail-main > .requestTable .parameter > .parameter-dec {
+  color: #999;
+}
+.codeDetail > .codeDetail-main > .requestTable .key > .key-index {
+  width: 100%;
+  margin-bottom: 2px;
+}
+.codeDetail > .codeDetail-main > .requestTable .key > .key-index > span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #F8F8F8;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+.codeDetail > .codeDetail-main > .requestTable .explain > .explain-index {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 2px;
+  line-height: 20px;
+}
+.codeDetail > .codeDetail-main > .requestTable table {
+  background-color: #fff;
+}
+.codeDetail > .codeDetail-main > .requestTable .description {
+  max-width: 300px;
+}
+.codeDetail > .codeDetail-main > .complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+}
+.codeDetail > .codeDetail-main > .complete pre {
+  min-height: 400px;
+}
+.codeDetail > .codeDetail-main > .complete > Button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle li {
+  float: left;
+  cursor: pointer;
+  margin-top: -2px;
+  text-align: center;
+  width: 80px;
+  font-weight: initial;
+  font-size: 14px;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle li.jsonActive {
+  border-bottom: 2px solid #66bb6a;
+  color: #66bb6a;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: #f8f8f8;
+  overflow-y: scroll;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.codeDetail > .codeDetail-main > .jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}
+.codeDetail > .codeDetail-main > .remarks {
+  border-radius: 4px;
+}
+.codeDetail > .codeDetail-main > .remarks > .remarks-title {
+  padding: 8px 0 8px 8px;
+  line-height: 1;
+  border: 1px solid #E9E9E9;
+  background-color: #fff;
+}
+.codeDetail > .codeDetail-main > .remarks > .ql-snow {
+  min-height: 50px;
+  overflow: hidden;
+}
+.codeDetail > .codeDetail-main > .remarks .remarks-content {
+  min-height: 50px;
+  background-color: #fff;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.codeDetail > .codeDetail-main > .remarks .remarks-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.codeDetail > .codeDetail-main > .remarks .remarks-content::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.codeDetail > .codeDetail-main > .remarks .remarks-content::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+div.jsoneditor .jsoneditor-search input {
+  height: auto;
+  border: inherit;
+}
+div.jsoneditor .jsoneditor-search input:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+div.jsoneditor table {
+  border-collapse: collapse;
+  width: auto;
+}
+div.jsoneditor td,
+div.jsoneditor th {
+  padding: 0;
+  display: table-cell;
+  text-align: left;
+  vertical-align: inherit;
+  border-radius: inherit;
+}
+div.jsoneditor-field,
+div.jsoneditor-readonly,
+div.jsoneditor-value {
+  border: 1px solid transparent;
+  min-height: 16px;
+  min-width: 32px;
+  padding: 2px;
+  margin: 1px;
+  word-wrap: break-word;
+  float: left;
+}
+div.jsoneditor-field p,
+div.jsoneditor-value p {
+  margin: 0;
+}
+div.jsoneditor-value {
+  word-break: break-word;
+}
+div.jsoneditor-readonly {
+  min-width: 16px;
+  color: gray;
+}
+div.jsoneditor-empty {
+  border-color: #d3d3d3;
+  border-style: dashed;
+  border-radius: 2px;
+}
+div.jsoneditor-field.jsoneditor-empty::after,
+div.jsoneditor-value.jsoneditor-empty::after {
+  pointer-events: none;
+  color: #d3d3d3;
+  font-size: 8pt;
+}
+div.jsoneditor-field.jsoneditor-empty::after {
+  content: "field";
+}
+div.jsoneditor-value.jsoneditor-empty::after {
+  content: "value";
+}
+a.jsoneditor-value.jsoneditor-url,
+div.jsoneditor-value.jsoneditor-url {
+  color: green;
+  text-decoration: underline;
+}
+a.jsoneditor-value.jsoneditor-url {
+  display: inline-block;
+  padding: 2px;
+  margin: 2px;
+}
+a.jsoneditor-value.jsoneditor-url:focus,
+a.jsoneditor-value.jsoneditor-url:hover {
+  color: #ee422e;
+}
+div.jsoneditor td.jsoneditor-separator {
+  padding: 3px 0;
+  vertical-align: top;
+  color: gray;
+}
+div.jsoneditor-field.jsoneditor-highlight,
+div.jsoneditor-field[contenteditable=true]:focus,
+div.jsoneditor-field[contenteditable=true]:hover,
+div.jsoneditor-value.jsoneditor-highlight,
+div.jsoneditor-value[contenteditable=true]:focus,
+div.jsoneditor-value[contenteditable=true]:hover {
+  background-color: #ffffab;
+  border: 1px solid #ff0;
+  border-radius: 2px;
+}
+div.jsoneditor-field.jsoneditor-highlight-active,
+div.jsoneditor-field.jsoneditor-highlight-active:focus,
+div.jsoneditor-field.jsoneditor-highlight-active:hover,
+div.jsoneditor-value.jsoneditor-highlight-active,
+div.jsoneditor-value.jsoneditor-highlight-active:focus,
+div.jsoneditor-value.jsoneditor-highlight-active:hover {
+  background-color: #fe0;
+  border: 1px solid #ffc700;
+  border-radius: 2px;
+}
+div.jsoneditor-value.jsoneditor-string {
+  color: green;
+}
+div.jsoneditor-value.jsoneditor-array,
+div.jsoneditor-value.jsoneditor-object {
+  min-width: 16px;
+  color: grey;
+}
+div.jsoneditor-value.jsoneditor-number {
+  color: #ee422e;
+}
+div.jsoneditor-value.jsoneditor-boolean {
+  color: #ff8c00;
+}
+div.jsoneditor-value.jsoneditor-null {
+  color: #004ed0;
+}
+div.jsoneditor-value.jsoneditor-invalid {
+  color: #000;
+}
+div.jsoneditor-tree button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent url(../assets/images/jsoneditor-icons.svg);
+}
+div.jsoneditor-mode-form tr.jsoneditor-expandable td.jsoneditor-tree,
+div.jsoneditor-mode-view tr.jsoneditor-expandable td.jsoneditor-tree {
+  cursor: pointer;
+}
+div.jsoneditor-tree button.jsoneditor-collapsed {
+  background-position: 0 -48px;
+}
+div.jsoneditor-tree button.jsoneditor-expanded {
+  background-position: 0 -72px;
+}
+div.jsoneditor-tree button.jsoneditor-contextmenu {
+  background-position: -48px -72px;
+}
+div.jsoneditor-tree button.jsoneditor-contextmenu.jsoneditor-selected,
+div.jsoneditor-tree button.jsoneditor-contextmenu:focus,
+div.jsoneditor-tree button.jsoneditor-contextmenu:hover,
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-contextmenu {
+  background-position: -48px -48px;
+}
+div.jsoneditor-tree :focus {
+  outline: 0;
+}
+div.jsoneditor-tree button:focus {
+  background-color: #f5f5f5;
+  outline: #e5e5e5 solid 1px;
+}
+div.jsoneditor-tree button.jsoneditor-invisible {
+  visibility: hidden;
+  background: 0 0;
+}
+div.jsoneditor {
+  color: #1a1a1a;
+  border: 1px solid #3883fa;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0;
+  line-height: 100%;
+}
+div.jsoneditor-tree table.jsoneditor-tree {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0;
+}
+div.jsoneditor-outer {
+  position: static;
+  width: 100%;
+  height: 100%;
+  margin: -35px 0 0 0;
+  padding: 35px 0 0 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.ace-jsoneditor,
+textarea.jsoneditor-text {
+  min-height: 150px;
+}
+div.jsoneditor-tree {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+}
+textarea.jsoneditor-text {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline-width: 0;
+  border: none;
+  background-color: #fff;
+  resize: none;
+}
+tr.jsoneditor-highlight,
+tr.jsoneditor-selected {
+  background-color: #e6e6e6;
+}
+tr.jsoneditor-selected button.jsoneditor-contextmenu,
+tr.jsoneditor-selected button.jsoneditor-dragarea {
+  visibility: hidden;
+}
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-contextmenu,
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-dragarea {
+  visibility: visible;
+}
+div.jsoneditor-tree button.jsoneditor-dragarea {
+  background: url(../assets/images/jsoneditor-icons.svg) -72px -72px;
+  cursor: move;
+}
+div.jsoneditor-tree button.jsoneditor-dragarea:focus,
+div.jsoneditor-tree button.jsoneditor-dragarea:hover,
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-dragarea {
+  background-position: -72px -48px;
+}
+div.jsoneditor td,
+div.jsoneditor th,
+div.jsoneditor tr {
+  padding: 0;
+  margin: 0;
+}
+div.jsoneditor td {
+  vertical-align: top;
+}
+div.jsoneditor td.jsoneditor-tree {
+  vertical-align: top;
+}
+.jsoneditor-schema-error,
+div.jsoneditor td,
+div.jsoneditor textarea,
+div.jsoneditor th,
+div.jsoneditor-field,
+div.jsoneditor-value {
+  font-family: droid sans mono, consolas, monospace, courier new, courier, sans-serif;
+  font-size: 10pt;
+  color: #1a1a1a;
+}
+.jsoneditor-schema-error {
+  cursor: default;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+  width: 24px;
+}
+div.jsoneditor-tree .jsoneditor-schema-error {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  background: url(../assets/images/jsoneditor-icons.svg) -168px -48px;
+}
+.jsoneditor-schema-error .jsoneditor-popover {
+  background-color: #4c4c4c;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: none;
+  padding: 7px 10px;
+  position: absolute;
+  width: 200px;
+  z-index: 4;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-above {
+  bottom: 32px;
+  left: -98px;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-below {
+  top: 32px;
+  left: -98px;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-left {
+  top: -7px;
+  right: 32px;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-right {
+  top: -7px;
+  left: 32px;
+}
+.jsoneditor-schema-error .jsoneditor-popover:before {
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  content: '';
+  display: block;
+  left: 50%;
+  margin-left: -7px;
+  position: absolute;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-above:before {
+  border-top: 7px solid #4c4c4c;
+  bottom: -7px;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-below:before {
+  border-bottom: 7px solid #4c4c4c;
+  top: -7px;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-left:before {
+  border-left: 7px solid #4c4c4c;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  content: '';
+  top: 19px;
+  right: -14px;
+  left: inherit;
+  margin-left: inherit;
+  margin-top: -7px;
+  position: absolute;
+}
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-right:before {
+  border-right: 7px solid #4c4c4c;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  content: '';
+  top: 19px;
+  left: -14px;
+  margin-left: inherit;
+  margin-top: -7px;
+  position: absolute;
+}
+.jsoneditor-schema-error:focus .jsoneditor-popover,
+.jsoneditor-schema-error:hover .jsoneditor-popover {
+  display: block;
+  -webkit-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+  -moz-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+  -ms-animation: fade-in 0.3s linear 1, move-up 0.3s linear 1;
+}
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.jsoneditor .jsoneditor-text-errors {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffef8b;
+  border-top: 1px solid gold;
+}
+.jsoneditor .jsoneditor-text-errors td {
+  padding: 3px 6px;
+  vertical-align: middle;
+}
+.jsoneditor-text-errors .jsoneditor-schema-error {
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  background: url(../assets/images/jsoneditor-icons.svg) -168px -48px;
+}
+div.jsoneditor-contextmenu-root {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+div.jsoneditor-contextmenu {
+  position: absolute;
+  box-sizing: content-box;
+  z-index: 99999;
+}
+div.jsoneditor-contextmenu li,
+div.jsoneditor-contextmenu ul {
+  box-sizing: content-box;
+  position: relative;
+}
+div.jsoneditor-contextmenu ul {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 128px;
+  background: #fff;
+  border: 1px solid #d3d3d3;
+  box-shadow: 2px 2px 12px rgba(128, 128, 128, 0.3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+div.jsoneditor-contextmenu ul li button {
+  position: relative;
+  padding: 0 4px 0 0;
+  margin: 0;
+  width: 128px;
+  height: auto;
+  border: none;
+  cursor: pointer;
+  color: #4d4d4d;
+  background: 0 0;
+  font-size: 10pt;
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+  text-align: left;
+}
+div.jsoneditor-contextmenu ul li button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+div.jsoneditor-contextmenu ul li button:focus,
+div.jsoneditor-contextmenu ul li button:hover {
+  color: #1a1a1a;
+  background-color: #f5f5f5;
+  outline: 0;
+}
+div.jsoneditor-contextmenu ul li button.jsoneditor-default {
+  width: 96px;
+}
+div.jsoneditor-contextmenu ul li button.jsoneditor-expand {
+  float: right;
+  width: 32px;
+  height: 24px;
+  border-left: 1px solid #e5e5e5;
+}
+div.jsoneditor-contextmenu div.jsoneditor-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-image: url(../assets/images/jsoneditor-icons.svg);
+}
+div.jsoneditor-contextmenu ul li ul div.jsoneditor-icon {
+  margin-left: 24px;
+}
+div.jsoneditor-contextmenu div.jsoneditor-text {
+  padding: 4px 0 4px 24px;
+  word-wrap: break-word;
+}
+div.jsoneditor-contextmenu div.jsoneditor-text.jsoneditor-right-margin {
+  padding-right: 24px;
+}
+div.jsoneditor-contextmenu ul li button div.jsoneditor-expand {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  background: url(../assets/images/jsoneditor-icons.svg) 0 -72px;
+  opacity: 0.4;
+}
+div.jsoneditor-contextmenu ul li button.jsoneditor-expand:focus div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li button.jsoneditor-expand:hover div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li button:focus div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li button:hover div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li.jsoneditor-selected div.jsoneditor-expand {
+  opacity: 1;
+}
+div.jsoneditor-contextmenu div.jsoneditor-separator {
+  height: 0;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-remove > div.jsoneditor-icon {
+  background-position: -24px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-remove:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-remove:hover > div.jsoneditor-icon {
+  background-position: -24px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-append > div.jsoneditor-icon {
+  background-position: 0 -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-append:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-append:hover > div.jsoneditor-icon {
+  background-position: 0 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-insert > div.jsoneditor-icon {
+  background-position: 0 -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-insert:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-insert:hover > div.jsoneditor-icon {
+  background-position: 0 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-duplicate > div.jsoneditor-icon {
+  background-position: -48px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-duplicate:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-duplicate:hover > div.jsoneditor-icon {
+  background-position: -48px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-sort-asc > div.jsoneditor-icon {
+  background-position: -168px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-sort-asc:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-sort-asc:hover > div.jsoneditor-icon {
+  background-position: -168px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-sort-desc > div.jsoneditor-icon {
+  background-position: -192px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-sort-desc:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-sort-desc:hover > div.jsoneditor-icon {
+  background-position: -192px 0;
+}
+div.jsoneditor-contextmenu ul li button.jsoneditor-selected,
+div.jsoneditor-contextmenu ul li button.jsoneditor-selected:focus,
+div.jsoneditor-contextmenu ul li button.jsoneditor-selected:hover {
+  color: #fff;
+  background-color: #ee422e;
+}
+div.jsoneditor-contextmenu ul li {
+  overflow: hidden;
+}
+div.jsoneditor-contextmenu ul li ul {
+  display: none;
+  position: relative;
+  left: -10px;
+  top: 0;
+  border: none;
+  box-shadow: inset 0 0 10px rgba(128, 128, 128, 0.5);
+  padding: 0 10px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+div.jsoneditor-contextmenu ul li ul li button {
+  padding-left: 24px;
+  animation: all ease-in-out 1s;
+}
+div.jsoneditor-contextmenu ul li ul li button:focus,
+div.jsoneditor-contextmenu ul li ul li button:hover {
+  background-color: #f5f5f5;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-string > div.jsoneditor-icon {
+  background-position: -144px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-string.jsoneditor-selected > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-string:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-string:hover > div.jsoneditor-icon {
+  background-position: -144px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-auto > div.jsoneditor-icon {
+  background-position: -120px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-auto.jsoneditor-selected > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-auto:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-auto:hover > div.jsoneditor-icon {
+  background-position: -120px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-object > div.jsoneditor-icon {
+  background-position: -72px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-object.jsoneditor-selected > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-object:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-object:hover > div.jsoneditor-icon {
+  background-position: -72px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-array > div.jsoneditor-icon {
+  background-position: -96px -24px;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-array.jsoneditor-selected > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-array:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-array:hover > div.jsoneditor-icon {
+  background-position: -96px 0;
+}
+div.jsoneditor-contextmenu button.jsoneditor-type-modes > div.jsoneditor-icon {
+  background-image: none;
+  width: 6px;
+}
+div.jsoneditor-menu {
+  width: 100%;
+  height: 35px;
+  padding: 2px;
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #3883fa;
+  border-bottom: 1px solid #3883fa;
+}
+div.jsoneditor-menu > button,
+div.jsoneditor-menu > div.jsoneditor-modes > button {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  padding: 0;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background: transparent url(../assets/images/jsoneditor-icons.svg);
+  color: #fff;
+  opacity: .8;
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  float: left;
+}
+div.jsoneditor-menu > button:hover,
+div.jsoneditor-menu > div.jsoneditor-modes > button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+div.jsoneditor-menu > button:active,
+div.jsoneditor-menu > button:focus,
+div.jsoneditor-menu > div.jsoneditor-modes > button:active,
+div.jsoneditor-menu > div.jsoneditor-modes > button:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+div.jsoneditor-menu > button:disabled,
+div.jsoneditor-menu > div.jsoneditor-modes > button:disabled {
+  opacity: 0.5;
+}
+div.jsoneditor-menu > button.jsoneditor-collapse-all {
+  background-position: 0 -96px;
+}
+div.jsoneditor-menu > button.jsoneditor-expand-all {
+  background-position: 0 -120px;
+}
+div.jsoneditor-menu > button.jsoneditor-undo {
+  background-position: -24px -96px;
+}
+div.jsoneditor-menu > button.jsoneditor-undo:disabled {
+  background-position: -24px -120px;
+}
+div.jsoneditor-menu > button.jsoneditor-redo {
+  background-position: -48px -96px;
+}
+div.jsoneditor-menu > button.jsoneditor-redo:disabled {
+  background-position: -48px -120px;
+}
+div.jsoneditor-menu > button.jsoneditor-compact {
+  background-position: -72px -96px;
+}
+div.jsoneditor-menu > button.jsoneditor-format {
+  background-position: -72px -120px;
+}
+div.jsoneditor-menu > div.jsoneditor-modes {
+  display: inline-block;
+  float: left;
+}
+div.jsoneditor-menu > div.jsoneditor-modes > button {
+  background-image: none;
+  width: auto;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+div.jsoneditor-menu > button.jsoneditor-separator,
+div.jsoneditor-menu > div.jsoneditor-modes > button.jsoneditor-separator {
+  margin-left: 10px;
+}
+div.jsoneditor-menu a {
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  color: #fff;
+  opacity: .8;
+  vertical-align: middle;
+}
+div.jsoneditor-menu a:hover {
+  opacity: 1;
+}
+div.jsoneditor-menu a.jsoneditor-poweredBy {
+  font-size: 8pt;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+}
+table.jsoneditor-search div.jsoneditor-results,
+table.jsoneditor-search input {
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  color: #1a1a1a;
+  background: 0 0;
+}
+table.jsoneditor-search div.jsoneditor-results {
+  color: #fff;
+  padding-right: 5px;
+  line-height: 24px;
+}
+table.jsoneditor-search {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table.jsoneditor-search div.jsoneditor-frame {
+  border: 1px solid transparent;
+  background-color: #fff;
+  padding: 0 2px;
+  margin: 0;
+}
+table.jsoneditor-search div.jsoneditor-frame table {
+  border-collapse: collapse;
+}
+table.jsoneditor-search input {
+  width: 120px;
+  border: none;
+  outline: 0;
+  margin: 1px;
+  line-height: 20px;
+}
+table.jsoneditor-search button {
+  width: 16px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: url(../assets/images/jsoneditor-icons.svg);
+  vertical-align: top;
+}
+table.jsoneditor-search button:hover {
+  background-color: transparent;
+}
+table.jsoneditor-search button.jsoneditor-refresh {
+  width: 18px;
+  background-position: -99px -73px;
+}
+table.jsoneditor-search button.jsoneditor-next {
+  cursor: pointer;
+  background-position: -124px -73px;
+}
+table.jsoneditor-search button.jsoneditor-next:hover {
+  background-position: -124px -49px;
+}
+table.jsoneditor-search button.jsoneditor-previous {
+  cursor: pointer;
+  background-position: -148px -73px;
+  margin-right: 2px;
+}
+table.jsoneditor-search button.jsoneditor-previous:hover {
+  background-position: -148px -49px;
+}
+div.jsoneditor div.autocomplete.dropdown {
+  position: absolute;
+  background: #fff;
+  box-shadow: 2px 2px 12px rgba(128, 128, 128, 0.3);
+  border: 1px solid #d3d3d3;
+  z-index: 100;
+  overflow-x: hidden;
+  overflow-y: auto;
+  cursor: default;
+  margin: 0;
+  padding-left: 2pt;
+  padding-right: 5pt;
+  text-align: left;
+  outline: 0;
+  font-family: droid sans mono, consolas, monospace, courier new, courier, sans-serif;
+  font-size: 10pt;
+}
+div.jsoneditor div.autocomplete.dropdown .item {
+  color: #333;
+}
+div.jsoneditor div.autocomplete.dropdown .item.hover {
+  background-color: #ddd;
+}
+div.jsoneditor div.autocomplete.hint {
+  color: #aaa;
+  top: 4px;
+  left: 4px;
+}
+.apiDetail {
+  min-width: 1069px;
+  width: 84%;
+  height: 100%;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  margin-right: 5px;
+  margin-left: 240px;
+  padding-left: 10px;
+  padding-bottom: 110px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8f8f8;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiDetail::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiDetail::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiDetail::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiDetail > .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+.apiDetail > .buttons > Button {
+  margin-right: 5px;
+}
+.apiDetail > .buttons > div > .more {
+  position: absolute;
+  top: 10px;
+  left: 262px;
+}
+.apiDetail > .buttons > div > .more > Button {
+  margin-right: 5px;
+}
+.apiDetail > .buttons > div > .more > .more-hide {
+  display: none;
+}
+.apiDetail > .buttons > div > .more > .more-hide > Button {
+  display: block;
+  margin-top: 4px;
+}
+.apiDetail > .apiDetail-main > .top-show {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px;
+  background-color: #fff;
+  color: #fff;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-state {
+  float: left;
+  height: 40px;
+  background-color: #1DA57A;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 4px;
+  padding: 0 8px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-small {
+  float: left;
+  width: 40px;
+  text-align: center;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-small > .top-show-protocol {
+  padding: 2px 0px;
+  margin-bottom: 6px;
+  background-color: #28C59A;
+  line-height: 1;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-small > .top-show-dataType {
+  padding: 2px 0px;
+  margin-bottom: 6px;
+  background-color: #2196F3;
+  line-height: 1;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-ul {
+  float: left;
+  color: #000;
+  margin-left: 6px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-ul > li {
+  line-height: 1;
+  padding: 2px 0px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-ul > .top-show-ul-li {
+  margin-bottom: 6px;
+}
+.apiDetail > .apiDetail-main > .top-show > .top-show-time {
+  float: right;
+  margin-right: 50px;
+  color: #000;
+}
+.apiDetail > .apiDetail-main > .requestTable {
+  width: 100%;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.apiDetail > .apiDetail-main > .requestTable .requestTable-key {
+  max-width: 300px;
+}
+.apiDetail > .apiDetail-main > .requestTable .request > .request-index {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  background-color: #F8F8F8;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .requestTable .request > .request-value {
+  float: left;
+  width: 50px;
+  height: 20px;
+  background-color: #1DA57A;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+}
+.apiDetail > .apiDetail-main > .requestTable .request > .gray {
+  background-color: #F8F8F8;
+  color: #999;
+}
+.apiDetail > .apiDetail-main > .requestTable .parameter > .parameter-key {
+  font-weight: bold;
+}
+.apiDetail > .apiDetail-main > .requestTable .parameter > .parameter-dec {
+  color: #999;
+}
+.apiDetail > .apiDetail-main > .requestTable .key > .key-index {
+  width: 100%;
+  margin-bottom: 2px;
+}
+.apiDetail > .apiDetail-main > .requestTable .key > .key-index > span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #F8F8F8;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 2px;
+  margin-right: 4px;
+}
+.apiDetail > .apiDetail-main > .requestTable .explain > .explain-index {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 2px;
+  line-height: 20px;
+}
+.apiDetail > .apiDetail-main > .requestTable table {
+  background-color: #fff;
+}
+.apiDetail > .apiDetail-main > .complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+}
+.apiDetail > .apiDetail-main > .complete pre {
+  min-height: 400px;
+}
+.apiDetail > .apiDetail-main > .complete > Button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle li {
+  float: left;
+  cursor: pointer;
+  margin-top: -2px;
+  text-align: center;
+  width: 80px;
+  font-weight: initial;
+  font-size: 14px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabTitle li.jsonActive {
+  border-bottom: 2px solid #66bb6a;
+  color: #66bb6a;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: #f8f8f8;
+  overflow-y: scroll;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.apiDetail > .apiDetail-main > .jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}
+.apiDetail > .apiDetail-main > .remarks {
+  border-radius: 4px;
+}
+.apiDetail > .apiDetail-main > .remarks > .remarks-title {
+  padding: 8px 0 8px 8px;
+  line-height: 1;
+  border: 1px solid #E9E9E9;
+  background-color: #fff;
+}
+.apiDetail > .apiDetail-main > .remarks > .ql-snow {
+  min-height: 50px;
+  overflow: hidden;
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content {
+  min-height: 50px;
+  background-color: #fff;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiDetail > .apiDetail-main > .remarks .remarks-content::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.user-c-box {
+  width: 100%;
+  height: 400px;
+}
+.user-c-box h3 {
+  font-weight: bold;
+}
+.user-c-box .ant-card {
+  margin: 0 auto;
+}
+.user-c-box .ant-form .ant-form-item-label {
+  padding: 0;
+}
+.user-c-box .ant-form .ant-form-item-label label {
+  line-height: 30px;
+}
+.userList {
+  width: 80%;
+  margin: 40px auto 0;
+}
+.userList h3 {
+  font-weight: bold;
+}
+.userList .ant-btn-danger {
+  margin-left: 15px;
+}
+/*!
+ * Quill Editor v1.0.0
+ * https://quilljs.com/
+ * Copyright (c) 2014, Jason Chen
+ * Copyright (c) 2013, salesforce.com
+ */
+.quill {
+  height: 320px;
+}
+.ql-container {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 260px;
+  box-sizing: border-box;
+  margin: 0px;
+  position: relative;
+}
+.ql-clipboard {
+  left: -100000px;
+  height: 1px;
+  overflow-y: hidden;
+  position: absolute;
+  top: 50%;
+}
+.ql-clipboard p {
+  margin: 0;
+  padding: 0;
+}
+.ql-editor {
+  box-sizing: border-box;
+  cursor: text;
+  line-height: 1.42;
+  height: 260px;
+  outline: none;
+  overflow-y: auto;
+  padding: 12px 15px;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+  margin: 0;
+  padding: 0;
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol,
+.ql-editor ul {
+  padding-left: 1.5em;
+}
+.ql-editor ol > li,
+.ql-editor ul > li {
+  list-style-type: none;
+}
+.ql-editor ul > li::before {
+  content: '\25CF';
+}
+.ql-editor li::before {
+  display: inline-block;
+  margin-right: 0.3em;
+  text-align: right;
+  white-space: nowrap;
+  width: 1.2em;
+}
+.ql-editor li:not(.ql-direction-rtl)::before {
+  margin-left: -1.5em;
+}
+.ql-editor ol li,
+.ql-editor ul li {
+  padding-left: 1.5em;
+}
+.ql-editor ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  counter-increment: list-num;
+}
+.ql-editor ol li:before {
+  content: counter(list-num, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+  counter-increment: list-1;
+}
+.ql-editor ol li.ql-indent-1:before {
+  content: counter(list-1, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-1 {
+  counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-2 {
+  counter-increment: list-2;
+}
+.ql-editor ol li.ql-indent-2:before {
+  content: counter(list-2, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-2 {
+  counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-3 {
+  counter-increment: list-3;
+}
+.ql-editor ol li.ql-indent-3:before {
+  content: counter(list-3, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-3 {
+  counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-4 {
+  counter-increment: list-4;
+}
+.ql-editor ol li.ql-indent-4:before {
+  content: counter(list-4, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-4 {
+  counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-5 {
+  counter-increment: list-5;
+}
+.ql-editor ol li.ql-indent-5:before {
+  content: counter(list-5, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-5 {
+  counter-reset: list-6 list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-6 {
+  counter-increment: list-6;
+}
+.ql-editor ol li.ql-indent-6:before {
+  content: counter(list-6, decimal) '. ';
+}
+.ql-editor ol li.ql-indent-6 {
+  counter-reset: list-7 list-8 list-9;
+}
+.ql-editor ol li.ql-indent-7 {
+  counter-increment: list-7;
+}
+.ql-editor ol li.ql-indent-7:before {
+  content: counter(list-7, lower-alpha) '. ';
+}
+.ql-editor ol li.ql-indent-7 {
+  counter-reset: list-8 list-9;
+}
+.ql-editor ol li.ql-indent-8 {
+  counter-increment: list-8;
+}
+.ql-editor ol li.ql-indent-8:before {
+  content: counter(list-8, lower-roman) '. ';
+}
+.ql-editor ol li.ql-indent-8 {
+  counter-reset: list-9;
+}
+.ql-editor ol li.ql-indent-9 {
+  counter-increment: list-9;
+}
+.ql-editor ol li.ql-indent-9:before {
+  content: counter(list-9, decimal) '. ';
+}
+.ql-editor .ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 3em;
+}
+.ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 4.5em;
+}
+.ql-editor .ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 3em;
+}
+.ql-editor li.ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 4.5em;
+}
+.ql-editor .ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 6em;
+}
+.ql-editor li.ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 7.5em;
+}
+.ql-editor .ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 6em;
+}
+.ql-editor li.ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 7.5em;
+}
+.ql-editor .ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 9em;
+}
+.ql-editor li.ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 10.5em;
+}
+.ql-editor .ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 9em;
+}
+.ql-editor li.ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 10.5em;
+}
+.ql-editor .ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 12em;
+}
+.ql-editor li.ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 13.5em;
+}
+.ql-editor .ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 12em;
+}
+.ql-editor li.ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 13.5em;
+}
+.ql-editor .ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 15em;
+}
+.ql-editor li.ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 16.5em;
+}
+.ql-editor .ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 15em;
+}
+.ql-editor li.ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 16.5em;
+}
+.ql-editor .ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 18em;
+}
+.ql-editor li.ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 19.5em;
+}
+.ql-editor .ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 18em;
+}
+.ql-editor li.ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 19.5em;
+}
+.ql-editor .ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 21em;
+}
+.ql-editor li.ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 22.5em;
+}
+.ql-editor .ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 21em;
+}
+.ql-editor li.ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 22.5em;
+}
+.ql-editor .ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 24em;
+}
+.ql-editor li.ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 25.5em;
+}
+.ql-editor .ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 24em;
+}
+.ql-editor li.ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 25.5em;
+}
+.ql-editor .ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 27em;
+}
+.ql-editor li.ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 28.5em;
+}
+.ql-editor .ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 27em;
+}
+.ql-editor li.ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 28.5em;
+}
+.ql-editor .ql-video {
+  display: block;
+  max-width: 100%;
+}
+.ql-editor .ql-video.ql-align-center {
+  margin: 0 auto;
+}
+.ql-editor .ql-video.ql-align-right {
+  margin: 0 0 0 auto;
+}
+.ql-editor .ql-bg-black {
+  background-color: #000;
+}
+.ql-editor .ql-bg-red {
+  background-color: #e60000;
+}
+.ql-editor .ql-bg-orange {
+  background-color: #f90;
+}
+.ql-editor .ql-bg-yellow {
+  background-color: #ff0;
+}
+.ql-editor .ql-bg-green {
+  background-color: #008a00;
+}
+.ql-editor .ql-bg-blue {
+  background-color: #06c;
+}
+.ql-editor .ql-bg-purple {
+  background-color: #93f;
+}
+.ql-editor .ql-color-white {
+  color: #fff;
+}
+.ql-editor .ql-color-red {
+  color: #e60000;
+}
+.ql-editor .ql-color-orange {
+  color: #f90;
+}
+.ql-editor .ql-color-yellow {
+  color: #ff0;
+}
+.ql-editor .ql-color-green {
+  color: #008a00;
+}
+.ql-editor .ql-color-blue {
+  color: #06c;
+}
+.ql-editor .ql-color-purple {
+  color: #93f;
+}
+.ql-editor .ql-font-serif {
+  font-family: Georgia, Times New Roman, serif;
+}
+.ql-editor .ql-font-monospace {
+  font-family: Monaco, Courier New, monospace;
+}
+.ql-editor .ql-size-small {
+  font-size: 0.75em;
+}
+.ql-editor .ql-size-large {
+  font-size: 1.5em;
+}
+.ql-editor .ql-size-huge {
+  font-size: 2.5em;
+}
+.ql-editor .ql-direction-rtl {
+  direction: rtl;
+  text-align: inherit;
+}
+.ql-editor .ql-align-center {
+  text-align: center;
+}
+.ql-editor .ql-align-justify {
+  text-align: justify;
+}
+.ql-editor .ql-align-right {
+  text-align: right;
+}
+.ql-editor.ql-blank::before {
+  color: rgba(0, 0, 0, 0.6);
+  content: attr(data-placeholder);
+  font-style: italic;
+  pointer-events: none;
+  position: absolute;
+}
+.ql-snow.ql-toolbar:after,
+.ql-snow .ql-toolbar:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 24px;
+  outline: none;
+  padding: 3px 5px;
+  width: 28px;
+}
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+  float: left;
+  height: 100%;
+}
+.ql-snow.ql-toolbar input.ql-image[type=file],
+.ql-snow .ql-toolbar input.ql-image[type=file] {
+  display: none;
+}
+.ql-snow.ql-toolbar button:hover,
+.ql-snow .ql-toolbar button:hover,
+.ql-snow.ql-toolbar button.ql-active,
+.ql-snow .ql-toolbar button.ql-active,
+.ql-snow.ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active,
+.ql-snow.ql-toolbar .ql-picker-item:hover,
+.ql-snow .ql-toolbar .ql-picker-item:hover,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected {
+  color: #06c;
+}
+.ql-snow.ql-toolbar button:hover .ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+.ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+  fill: #06c;
+}
+.ql-snow.ql-toolbar button:hover .ql-stroke,
+.ql-snow .ql-toolbar button:hover .ql-stroke,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+.ql-snow.ql-toolbar button:hover .ql-stroke-mitter,
+.ql-snow .ql-toolbar button:hover .ql-stroke-mitter,
+.ql-snow.ql-toolbar button.ql-active .ql-stroke-mitter,
+.ql-snow .ql-toolbar button.ql-active .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-mitter,
+.ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-mitter,
+.ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-mitter {
+  stroke: #06c;
+}
+.ql-snow {
+  box-sizing: border-box;
+}
+.ql-snow * {
+  box-sizing: border-box;
+}
+.ql-snow .ql-hidden {
+  display: none;
+}
+.ql-snow .ql-out-bottom,
+.ql-snow .ql-out-top {
+  visibility: hidden;
+}
+.ql-snow .ql-tooltip {
+  position: absolute;
+}
+.ql-snow .ql-tooltip a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.ql-snow .ql-formats {
+  display: inline-block;
+  vertical-align: middle;
+}
+.ql-snow .ql-formats:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+.ql-snow .ql-toolbar.snow,
+.ql-snow .ql-stroke {
+  fill: none;
+  stroke: #444;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+.ql-snow .ql-stroke-mitter {
+  fill: none;
+  stroke: #444;
+  stroke-mitterlimit: 10;
+  stroke-width: 2;
+}
+.ql-snow .ql-fill,
+.ql-snow .ql-stroke.ql-fill {
+  fill: #444;
+}
+.ql-snow .ql-empty {
+  fill: none;
+}
+.ql-snow .ql-even {
+  fill-rule: evenodd;
+}
+.ql-snow .ql-thin,
+.ql-snow .ql-stroke.ql-thin {
+  stroke-width: 1;
+}
+.ql-snow .ql-transparent {
+  opacity: 0.4;
+}
+.ql-snow .ql-direction svg:last-child {
+  display: none;
+}
+.ql-snow .ql-direction.ql-active svg:last-child {
+  display: inline;
+}
+.ql-snow .ql-direction.ql-active svg:first-child {
+  display: none;
+}
+.ql-snow .ql-editor h1 {
+  font-size: 2em;
+}
+.ql-snow .ql-editor h2 {
+  font-size: 1.5em;
+}
+.ql-snow .ql-editor h3 {
+  font-size: 1.17em;
+}
+.ql-snow .ql-editor h4 {
+  font-size: 1em;
+}
+.ql-snow .ql-editor h5 {
+  font-size: 0.83em;
+}
+.ql-snow .ql-editor h6 {
+  font-size: 0.67em;
+}
+.ql-snow .ql-editor a {
+  text-decoration: underline;
+}
+.ql-snow .ql-editor blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+}
+.ql-snow .ql-editor code,
+.ql-snow .ql-editor pre {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+.ql-snow .ql-editor pre {
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+.ql-snow .ql-editor code {
+  font-size: 85%;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+.ql-snow .ql-editor code:before,
+.ql-snow .ql-editor code:after {
+  content: "\A0";
+  letter-spacing: -2px;
+}
+.ql-snow .ql-editor pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+}
+.ql-snow .ql-editor img {
+  max-width: 100%;
+}
+.ql-snow .ql-picker {
+  color: #444;
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  height: 24px;
+  position: relative;
+  vertical-align: middle;
+}
+.ql-snow .ql-picker-label {
+  cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  padding-left: 8px;
+  padding-right: 2px;
+  position: relative;
+  width: 100%;
+}
+.ql-snow .ql-picker-label::before {
+  display: inline-block;
+  line-height: 22px;
+}
+.ql-snow .ql-picker-options {
+  background-color: #fff;
+  display: none;
+  min-width: 100%;
+  padding: 4px 8px;
+  position: absolute;
+  white-space: nowrap;
+}
+.ql-snow .ql-picker-options .ql-picker-item {
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  color: #ccc;
+  z-index: 2;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+  fill: #ccc;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+  stroke: #ccc;
+}
+.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  display: block;
+  margin-top: -1px;
+  top: 100%;
+  z-index: 1;
+}
+.ql-snow .ql-color-picker,
+.ql-snow .ql-icon-picker {
+  width: 28px;
+}
+.ql-snow .ql-color-picker .ql-picker-label,
+.ql-snow .ql-icon-picker .ql-picker-label {
+  padding: 2px 4px;
+}
+.ql-snow .ql-color-picker .ql-picker-label svg,
+.ql-snow .ql-icon-picker .ql-picker-label svg {
+  right: 4px;
+}
+.ql-snow .ql-icon-picker .ql-picker-options {
+  padding: 4px 0px;
+}
+.ql-snow .ql-icon-picker .ql-picker-item {
+  height: 24px;
+  width: 24px;
+  padding: 2px 4px;
+}
+.ql-snow .ql-color-picker .ql-picker-options {
+  padding: 3px 5px;
+  width: 152px;
+}
+.ql-snow .ql-color-picker .ql-picker-item {
+  border: 1px solid transparent;
+  float: left;
+  height: 16px;
+  margin: 2px;
+  padding: 0px;
+  width: 16px;
+}
+.ql-snow .ql-color-picker .ql-picker-item.ql-primary-color {
+  margin-bottom: toolbarPadding;
+}
+.ql-snow .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg {
+  position: absolute;
+  margin-top: -9px;
+  right: 0;
+  top: 50%;
+  width: 18px;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
+  content: attr(data-label);
+}
+.ql-snow .ql-picker.ql-header {
+  width: 98px;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  content: 'Normal';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="1"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  content: 'Heading 1';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="2"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: 'Heading 2';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="3"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  content: 'Heading 3';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="4"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  content: 'Heading 4';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="5"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  content: 'Heading 5';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-value="6"]::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  content: 'Heading 6';
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  font-size: 2em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  font-size: 1.5em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  font-size: 1.17em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  font-size: 1em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  font-size: 0.83em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  font-size: 0.67em;
+}
+.ql-snow .ql-picker.ql-font {
+  width: 108px;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item::before {
+  content: 'Sans Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: 'Serif';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: 'Monospace';
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  font-family: Georgia, Times New Roman, serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  font-family: Monaco, Courier New, monospace;
+}
+.ql-snow .ql-picker.ql-size {
+  width: 98px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  content: 'Normal';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=small]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  content: 'Small';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=large]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  content: 'Large';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-value=huge]::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  content: 'Huge';
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  font-size: 10px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  font-size: 18px;
+}
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  font-size: 32px;
+}
+.ql-snow .ql-color-picker.ql-background .ql-picker-item {
+  background-color: #fff;
+}
+.ql-snow .ql-color-picker.ql-color .ql-picker-item {
+  background-color: #000;
+}
+.ql-toolbar.ql-snow {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+}
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: 15px;
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+  border: 1px solid transparent;
+}
+.ql-toolbar.ql-snow .ql-picker-options {
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 8px;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  border-color: #ccc;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  border-color: #ccc;
+}
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item.ql-selected,
+.ql-toolbar.ql-snow .ql-color-picker .ql-picker-item:hover {
+  border-color: #000;
+}
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: 0px;
+}
+.ql-snow .ql-tooltip {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px #ddd;
+  color: #444;
+  margin-top: 10px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+.ql-snow .ql-tooltip::before {
+  content: "Visit URL:";
+  line-height: 26px;
+  margin-right: 8px;
+}
+.ql-snow .ql-tooltip input[type=text] {
+  display: none;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  height: 26px;
+  margin: 0px;
+  padding: 3px 5px;
+  width: 170px;
+}
+.ql-snow .ql-tooltip a.ql-preview {
+  display: inline-block;
+  max-width: 200px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+.ql-snow .ql-tooltip a.ql-action::after {
+  border-right: 1px solid #ccc;
+  content: 'Edit';
+  margin-left: 16px;
+  padding-right: 8px;
+}
+.ql-snow .ql-tooltip a.ql-remove::before {
+  content: 'Remove';
+  margin-left: 8px;
+}
+.ql-snow .ql-tooltip a {
+  line-height: 26px;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-preview,
+.ql-snow .ql-tooltip.ql-editing a.ql-remove {
+  display: none;
+}
+.ql-snow .ql-tooltip.ql-editing input[type=text] {
+  display: inline-block;
+}
+.ql-snow .ql-tooltip.ql-editing a.ql-action::after {
+  border-right: 0px;
+  content: 'Save';
+  padding-right: 0px;
+}
+.ql-snow .ql-tooltip[data-mode=link]::before {
+  content: "Enter link:";
+}
+.ql-snow .ql-tooltip[data-mode=formula]::before {
+  content: "Enter formula:";
+}
+.ql-snow .ql-tooltip[data-mode=video]::before {
+  content: "Enter video:";
+}
+.ql-snow a {
+  color: #06c;
+}
+.ql-container.ql-snow {
+  border: 1px solid #ccc;
+}
+.tableList {
+  min-width: 1069px;
+  margin-left: 250px;
+  margin-right: 5px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding-left: 10px;
+}
+.tableList .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.tableList .buttons .allCounts {
+  padding: 6px 15px;
+  border-radius: 6px;
+  border: 1px solid #acacac;
+}
+.tableList Button {
+  margin-right: 5px;
+}
+.tableList .descBtn {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid #acacac;
+}
+.tableList .descDetailBtn {
+  cursor: pointer;
+  background: #fff;
+}
+.fieldForm {
+  margin-top: 20px;
+}
+.fieldForm .ant-form-item-label {
+  line-height: 30px;
+}
+.ant-popover-placement-top {
+  max-width: 500px !important;
+}
+.apiTest {
+  min-width: 1069px;
+  width: 84%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  height: 90%;
+  top: 100px;
+  left: 240px;
+  position: absolute;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding: 0 10px;
+  background: #f8f8f8;
+}
+.apiTest::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiTest::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiTest::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiTest > .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+.apiTest > .buttons > Button {
+  margin-right: 5px;
+}
+.apiTest > .buttons > div > .more {
+  position: absolute;
+  top: 10px;
+  left: 262px;
+  z-index: 9;
+}
+.apiTest > .buttons > div > .more > Button {
+  margin-right: 5px;
+}
+.apiTest > .buttons > div > .more > .more-hide {
+  display: none;
+}
+.apiTest > .buttons > div > .more > .more-hide > Button {
+  display: block;
+  margin-top: 4px;
+}
+.apiTest > .apiTest-main > .address {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+.apiTest > .apiTest-main > .address > div {
+  float: left;
+}
+.apiTest > .apiTest-main > .address > .request {
+  width: 80px;
+  padding: 8px 0px 8px 8px;
+}
+.apiTest > .apiTest-main > .address > .request > div {
+  width: 100%;
+}
+.apiTest > .apiTest-main > .address > .colon {
+  font-weight: 700;
+  line-height: 40px;
+  padding: 0 8px;
+}
+.apiTest > .apiTest-main > .address > .url {
+  width: 1000px;
+  padding: 8px 0px;
+}
+.apiTest > .apiTest-main > .address > .api-status {
+  width: 120px;
+  padding: 8px 8px;
+}
+.apiTest > .apiTest-main > .address > .api-status > div {
+  width: 100%;
+}
+.apiTest > .apiTest-main > .address > .send {
+  padding: 8px 0px;
+}
+.apiTest > .apiTest-main > .request-head {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+.apiTest > .apiTest-main > .request-head .request-head-top {
+  width: 96%;
+  height: 34px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 34px;
+  border-bottom: 1px solid #eee;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row .edit_method {
+  float: left;
+  width: 160px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row .list_name {
+  float: left;
+  display: block;
+  margin: 0 10px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row .list_name .list_input {
+  width: 230px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont {
+  padding-left: 135px;
+  transition: 1s;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeName {
+  float: left;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox {
+  float: left;
+  margin-left: 10px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox .paramsList_row {
+  padding: 5px 0;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox .paramsList_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBe_input {
+  width: 160px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-head .request-head-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
+  width: 233px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-parame {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-top {
+  width: 96%;
+  height: 34px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 34px;
+  border-bottom: 1px solid #eee;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row .list_name {
+  float: left;
+  display: block;
+  margin: 0 10px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row .list_name .list_input {
+  width: 300px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont {
+  padding-left: 135px;
+  transition: 1s;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeName {
+  float: left;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox {
+  float: left;
+  margin-left: 10px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox .paramsList_row {
+  padding: 5px 0;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox .paramsList_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBe_input {
+  width: 160px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-parame .request-parame-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
+  width: 233px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .request-header {
+  background-color: #fff;
+  margin-bottom: 10px;
+  line-height: 22px;
+}
+.apiTest > .apiTest-main > .request-header > .request-parame-top {
+  width: 96%;
+  height: 34px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 34px;
+  border-bottom: 1px solid #eee;
+}
+.apiTest > .apiTest-main > .request-header > .switch_btn {
+  margin: 5px 10px;
+}
+.apiTest > .apiTest-main > .complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+}
+.apiTest > .apiTest-main > .complete pre {
+  min-height: 400px;
+}
+.apiTest > .apiTest-main > .complete > Button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+.apiTest > .apiTest-main > .jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont p {
+  padding-top: 180px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: #CCCCD6;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  overflow-y: scroll;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.apiTest > .apiTest-main > .jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}
+.apiTest > .apiTest-main > .history {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+.apiTest > .apiTest-main > .history .history-top {
+  width: 96%;
+  height: 34px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 34px;
+  border-bottom: 1px solid #eee;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row .edit_method {
+  float: left;
+  width: 160px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row .list_name {
+  float: left;
+  display: block;
+  margin: 0 10px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row .list_name > .list-span {
+  margin-right: 50px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont {
+  padding-left: 135px;
+  transition: 1s;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeName {
+  float: left;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox {
+  float: left;
+  margin-left: 10px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row {
+  padding: 5px 0;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBe_input {
+  width: 160px;
+  margin: 0 5px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
+  width: 233px;
+  margin: 0 5px;
+}
+.modal-line {
+  height: 36px;
+}
+.apiTest {
+  min-width: 1069px;
+  width: 84%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+  height: 90%;
+  top: 100px;
+  left: 240px;
+  position: absolute;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding: 0 10px;
+  background: #f8f8f8;
+}
+.apiTest::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.apiTest::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.apiTest::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.apiTest > .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+  position: relative;
+}
+.apiTest > .buttons > Button {
+  margin-right: 5px;
+}
+.apiTest > .buttons > .request {
+  display: inline-block;
+  width: 80px;
+  padding: 8px 0px 8px 8px;
+}
+.apiTest > .buttons > .request > div {
+  width: 100%;
+}
+.apiTest > .buttons > .more {
+  position: absolute;
+  top: 10px;
+  left: 262px;
+  z-index: 9;
+}
+.apiTest > .buttons > .more > Button {
+  margin-right: 5px;
+}
+.apiTest > .buttons > .more > .more-hide {
+  display: none;
+}
+.apiTest > .buttons > .more > .more-hide > Button {
+  display: block;
+  margin-top: 4px;
+}
+.apiTest > .apiPtest-main > .apiPtest-unasked {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.apiTest > .apiPtest-main > .apiPtest-unasked .ant-table-thead {
+  background-color: #fff;
+}
+.apiTest > .apiPtest-main > .apiPtest-unasked > .apiPtest-unasked-title {
+  background-color: #fff;
+}
+.apiTest > .apiPtest-main > .apiPtest-unasked table {
+  width: 100%;
+  background-color: #fff !important;
+}
+.apiTest > .apiPtest-main > .apiPtest-progress {
+  min-height: 70px;
+  transition: .5s;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.apiTest > .apiPtest-main > .apiPtest-progress h3 {
+  margin-bottom: 5px;
+}
+.apiTest > .apiPtest-main > .apiPtest-progress .progress-tips {
+  font-size: 14px;
+  padding: 5px 0;
+  display: block;
+}
+.apiTest > .apiPtest-main > .apiPtest-request {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.apiTest > .apiPtest-main > .apiPtest-request h3 {
+  padding: 3px;
+  margin-bottom: 15px;
+}
+.apiTest > .apiPtest-main > .apiPtest-unasked {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.apiTest > .apiPtest-main > .apiPtest-unasked h3 {
+  width: 80px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px;
+  margin-bottom: 15px;
+  background: rgba(255, 0, 0, 0.6);
+}
+.modal-line {
+  height: 36px;
+}
+.apiDetail-modal ul li {
+  margin: 5px;
+  font-size: 13px;
+}
+.json-container {
+  padding-left: 20px;
+}
+.json-container > textarea {
+  float: left;
+  width: 50%;
+  height: 600px;
+  border: 1px solid #f0f0f0;
+  border-left: 0px none;
+  border-top: 0px none;
+  padding-top: 10px;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+}
+.json-container > .title {
+  float: left;
+  width: 50%;
+  height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.json-container > .title > span {
+  font-size: 16px;
+  line-height: 50px;
+  color: #000;
+  margin-left: 20px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.json-container > .title > .current {
+  color: #3D9EF5;
+}
+.json-container > .content {
+  float: left;
+  width: 50%;
+  height: 550px;
+}
+.json-container > .content > li {
+  display: none;
+  /*上面的边*/
+}
+.json-container > .content > li .jsoneditor {
+  border: 1px solid #66bb6a;
+  color: #66bb6a;
+}
+.json-container > .content > li .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.json-container > .content > .li-show {
+  display: block;
+}
+.json-container > .content > .li-hide {
+  display: none;
+}
+.json-container > .content > .compress {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.md5-container {
+  padding-left: 20px;
+}
+.md5-container > .input {
+  float: left;
+  width: 50%;
+}
+.md5-container > .input > textarea {
+  width: 100%;
+  height: 550px;
+  border: 1px solid #f0f0f0;
+  border-left: 0px none;
+  border-top: 0px none;
+  padding-top: 10px;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+}
+.md5-container > .input > .md5Key {
+  height: 50px;
+}
+.md5-container > .title {
+  float: left;
+  width: 50%;
+  height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.md5-container > .title > span {
+  font-size: 16px;
+  line-height: 50px;
+  color: #000;
+  margin-left: 20px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.md5-container > .title > .current {
+  color: #3D9EF5;
+}
+.md5-container > .content {
+  float: left;
+  width: 50%;
+  height: 550px;
+}
+.md5-container > .content > li {
+  display: none;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.md5-container > .content > .li-show {
+  display: block;
+}
+.md5-container > .content > .li-hide {
+  display: none;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.base64-container {
+  padding-left: 20px;
+}
+.base64-container > textarea {
+  float: left;
+  width: 50%;
+  height: 600px;
+  border: 1px solid #f0f0f0;
+  border-left: 0px none;
+  border-top: 0px none;
+  padding-top: 10px;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+}
+.base64-container > .title {
+  float: left;
+  width: 50%;
+  height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.base64-container > .title > span {
+  font-size: 16px;
+  line-height: 50px;
+  color: #000;
+  margin-left: 20px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+.base64-container > .title > .current {
+  color: #3D9EF5;
+}
+.base64-container > .content {
+  float: left;
+  width: 50%;
+  height: 550px;
+}
+.base64-container > .content > li {
+  display: none;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.base64-container > .content > .li-show {
+  display: block;
+}
+.base64-container > .content > .li-hide {
+  display: none;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.qrcode-container {
+  padding-left: 20px;
+}
+.qrcode-container > textarea {
+  float: left;
+  width: 50%;
+  height: 600px;
+  border: 1px solid #f0f0f0;
+  border-left: 0px none;
+  border-top: 0px none;
+  padding-top: 10px;
+  resize: none;
+  outline: none;
+  font-size: 14px;
+}
+.qrcode-container > .title {
+  float: left;
+  width: 50%;
+  height: 50px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.qrcode-container > .title > span,
+.qrcode-container > .title a {
+  font-size: 16px;
+  line-height: 50px;
+  color: #000;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.qrcode-container > .title a {
+  margin: 0;
+}
+.qrcode-container > .title > span:hover,
+.qrcode-container > .title a:hover {
+  color: #00b7a8;
+}
+.qrcode-container > .title > label {
+  font-size: 16px;
+  line-height: 50px;
+  color: #000;
+  margin-left: 20px;
+}
+.qrcode-container > .title > input {
+  color: #000;
+  font-size: 14px;
+  width: 100px;
+  height: 25px;
+  padding-left: 10px;
+  margin-left: 10px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #555;
+  cursor: text;
+  margin-right: 20px;
+}
+.qrcode-container > .title > .current {
+  color: #3D9EF5;
+}
+.qrcode-container > .content {
+  float: left;
+  width: 50%;
+  height: 550px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.qrcode-container input::-webkit-outer-spin-button,
+.qrcode-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+.qrcode-container input[type="number"] {
+  -moz-appearance: textfield;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.http-container {
+  width: 1200px;
+  height: 95%;
+  margin: 0 auto;
+  padding: 10px 0 30px 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  overflow-y: scroll;
+}
+.http-container table,
+.http-container td,
+.http-container tr {
+  border: 1px solid #ccc;
+}
+.http-container table {
+  border-collapse: collapse;
+}
+.http-container table tr td {
+  padding: 10px;
+}
+.http-container table tr td:first-of-type {
+  width: 100px;
+  text-align: center;
+}
+.http-container table tr:hover {
+  background-color: rgba(206, 206, 206, 0.5);
+}
+#httpBox {
+  height: 100%;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #fff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 4px;
+  background: #cecece;
+}
+#requestParam section {
+  min-width: 1200px;
+  border-radius: 5px;
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+}
+#requestParam section label {
+  padding: 10px;
+  display: block;
+}
+#requestParam section label .edit_name {
+  display: inline-block;
+  min-width: 50px;
+  margin-right: 20px;
+}
+#requestParam section label .edit_name em {
+  color: red;
+  margin: 5px 5px 0 0;
+  display: inline-block;
+}
+#requestParam section label .edit_input {
+  width: 60%;
+}
+#requestParam section label .edit_input.errorTip {
+  border-color: rgba(255, 51, 102, 0.9);
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2);
+}
+#requestParam section label .edit_method {
+  min-width: 60px;
+}
+#requestParam section .edit_parameter_list ul li .list_row {
+  padding: 10px 0;
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+#requestParam section .edit_parameter_list ul li .list_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .list_name,
+#requestParam section .edit_parameter_list ul li .list_row .list_explain {
+  float: left;
+  display: block;
+  margin: 0 10px;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .list_name .list_input,
+#requestParam section .edit_parameter_list ul li .list_row .list_explain .list_input {
+  width: 130px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .list_explain .list_input {
+  width: 230px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+#requestParam section .edit_parameter_list ul li .list_row .list_addMaybe {
+  float: left;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont {
+  padding-left: 80px;
+  transition: 1s;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeName {
+  float: left;
+  line-height: 30px;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox {
+  float: left;
+  margin-left: 10px;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row {
+  padding: 5px 0;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .edit_method {
+  float: left;
+  margin: 0 5px;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_count {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .close_list {
+  float: left;
+  margin: 0 5px;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .switch_btn {
+  float: left;
+  display: block;
+  margin: 5px 10px;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_addMaybe {
+  float: left;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBe_input {
+  width: 130px;
+  margin: 0 5px;
+}
+#requestParam section .edit_parameter_list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
+  width: 233px;
+  margin: 0 5px;
+}
+#requestParam section .list_addBtn {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+.maybeModel > div {
+  margin: 10px 10px 10px 0;
+}
+.maybeModel .list_name,
+.maybeModel .list_explain {
+  float: left;
+  display: block;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+}
+.maybeModel .list_name .list_input,
+.maybeModel .list_explain .list_input {
+  width: 130px;
+}
+.maybeModel .list_explain {
+  margin-left: 10px;
+}
+.maybeModel .list_explain .list_input {
+  width: 180px;
+}
+.maybeModel .list_count {
+  width: 27px;
+  height: 27px;
+  line-height: 27px;
+  display: block;
+  text-align: center;
+  float: left;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  color: #a3a3a3;
+}
+.maybeModel .close_list {
+  float: left;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.maybeModel .maybeModelTitle {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.maybeModel .ant-radio-wrapper {
+  float: left;
+  margin: 5px 0 0 10px;
+}
+.complete {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #fff;
+}
+.complete pre {
+  min-height: 400px;
+  background-color: #fff;
+}
+.complete > Button {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+}
+.jsonEditorBox {
+  height: 430px;
+  /*左侧的边*/
+  /*上面的边*/
+}
+.jsonEditorBox .jsonTabBox {
+  overflow: hidden;
+}
+.jsonEditorBox .jsonTabBox .jsonTabTitle {
+  overflow: hidden;
+  height: 30px;
+  padding-left: 10px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 30px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont {
+  width: 100%;
+  height: 400px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  position: relative;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont p {
+  padding-top: 180px;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: #CCCCD6;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabEditCont {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 400px;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  overflow-y: scroll;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.jsonEditorBox .jsonTabBox .jsonTabCont .jsonTabContPre::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.jsonEditorBox .ant-tabs-bar {
+  margin-bottom: 0;
+}
+.jsonEditorBox .jsoneditor {
+  border: 0;
+}
+.jsonEditorBox .jsoneditor-menu {
+  background-color: rgba(29, 165, 122, 0.8);
+  border-bottom: 1px solid rgba(29, 165, 122, 0.8);
+  border-radius: 3px;
+}
+.jsonEditorBox .ace_content {
+  background-color: #f8f8f8;
+}
+.jsonEditorBox .border-bottom {
+  border-bottom: 0;
+}
+.itemplateEidt {
+  min-width: 1069px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  top: 50px;
+  left: 0px;
+  position: absolute;
+  transition: .5s;
+  padding: 10px;
+  background: #f8f8f8;
+}
+.itemplateEidt > div {
+  width: 80%!important;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+html,
+body {
+  min-width: 290px;
+  -ms-overflow-style: scrollbar;
+  overflow: hidden;
+}
+body {
+  background-color: #e7ebee;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  color: #515151;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased !important;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+#root > div {
+  width: 100%;
+  height: 100%;
+}
+.ant-btn i,
+.ant-btn span {
+  pointer-events: none;
+}
+.ant-select-dropdown-menu-item {
+  height: 30px;
+  line-height: 15px;
+}
+.g-errorTip {
+  border-color: rgba(255, 51, 102, 0.9) !important;
+  outline: 0!important;
+  box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2) !important;
+}
+.g-toolTipBreak {
+  word-break: break-all;
+  word-wrap: break-word;
+}

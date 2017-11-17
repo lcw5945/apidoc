@@ -1,0 +1,63 @@
+.apiList {
+  min-width: 1069px;
+  margin-left: 250px;
+  margin-right: 5px;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  padding-left: 10px;
+}
+.managerList .list {
+  margin-bottom: 10px;
+}
+.managerList .list li {
+  margin-bottom: 5px;
+}
+.apiList .buttons {
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+.apiList Button {
+  margin-right: 5px;
+}
+.evn_name {
+  width: 120px!important;
+  display: inline-block;
+  margin-right: 10px!important;
+}
+.evn_uri {
+  width: 270px!important;
+  display: inline-block;
+  margin-right: 10px!important;
+}
+.saveButton {
+  background: #1DA57A;
+  color: #fff;
+}
+.api-container {
+  position: absolute;
+  top: 151px;
+  left: 260px;
+  width: 80%;
+  max-height: 76%;
+  overflow-y: auto;
+  /* 滚动条的滑轨背景颜色 */
+  /* 滑块颜色 */
+}
+.api-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.api-container::-webkit-scrollbar {
+  width: 5px;
+  height: 16px;
+  background-color: transparent;
+}
+.api-container::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  border-radius: 10px;
+}
+.api-container tr {
+  cursor: pointer;
+}

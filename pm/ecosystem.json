@@ -1,0 +1,17 @@
+{
+  "apps" : [{
+    "name"        : "HF-Apidoc",
+    "script"      : "./pm/index.js",
+    "watch"       : false,
+    "node_args" : "--harmony",
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "env_testing" : {
+      "NODE_ENV": "testing"
+    },
+    "env_production" : {
+      "NODE_ENV": "production"
+    }
+  }]
+}

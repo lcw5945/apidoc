@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>video list</title>
+    <link href="../public/css/bootstrap/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS  -->
+    <link href="../public/css/bootstrap/bootstrap-reset.css" rel="stylesheet"><!-- BOOTSTRAP CSS  -->
+    <link href="../public/css/bootstrap/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="../public/css/bootstrap/style-responsive.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
+    <link href="../public/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!-- FONT AWESOME ICON CSS -->
+    <!--<link href="../public/assets/file-uploader/css/jquery.fileupload-ui.css" rel="stylesheet">&lt;!&ndash; FONT AWESOME ICON CSS &ndash;&gt;-->
+    <link href="../public/assets/bootstrap-fileupload/bootstrap-fileupload.css" rel="stylesheet">
+    <!-- FONT AWESOME ICON CSS -->
+    <link rel="stylesheet" type="text/css" href="../public/assets/jquery-multi-select/css/multi-select.css">
+    <!-- JQUERY MULTI SELECT PLUGIN CSS -->
+
+</head>
+<body>
+<!-- BEGIN SECTION -->
+<section id="container">
+    <!-- BEGIN HEADER -->
+    <header class="header white-bg">
+        <!-- SIDEBAR TOGGLE BUTTON -->
+        <div class="sidebar-toggle-box">
+            <div data-placement="right" class="fa fa-bars tooltips">
+            </div>
+        </div>
+        <!-- SIDEBAR TOGGLE BUTTON  END-->
+        <a href="home.html" class="logo">
+            Hefantv
+            <span>
+            Admin
+          </span>
+        </a>
+
+        <!-- START USER LOGIN DROPDOWN  -->
+
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="../public/assets/images/olive/avatar1_small.jpg">
+                        <span class="username">
+                  Cray
+                </span>
+                        <b class="caret">
+                        </b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <li class="log-arrow-up">
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog">
+                                </i>
+                                进入管理后台
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-key">
+                                </i>
+                                登出
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- END USER LOGIN DROPDOWN  -->
+    </header>
+    <!-- END HEADER -->
+    <!-- BEGIN SIDEBAR -->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs">
+                        </i>
+                        <span>
+                  账号管理
+                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-user">
+                        </i>
+                        <span>
+                  资料监控权限分配
+                </span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th">
+                        </i>
+                        <span>
+                 视频监控分组
+                </span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-sitemap">
+                        </i>
+                        <span>
+                  资料监控分组
+                </span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-bar-chart-o">
+                        </i>
+                        <span>
+                  高危主播列表
+                </span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks">
+                        </i>
+                        <span>
+                  高危视频库
+                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.html" target="_blank">
+                        <i class="fa fa-laptop">
+                        </i>
+                        <span>
+                  视频监控
+                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="./punish.html" target="_blank">
+                        <i class="fa fa-tasks">
+                        </i>
+                        <span>
+                   处罚列表
+                </span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop">
+                        </i>
+                        <span>
+                  资料监控(主播)
+                </span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="boxed_page.html">
+                                动态
+                            </a>
+                        </li>
+                        <li>
+                            <a href="horizontal_menu.html">
+                                头像
+                            </a>
+                        </li>
+                        <li>
+                            <a href="language_switch_bar.html">
+                                昵称
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                直播间封面
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                直播间标题
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                个人简介
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                个性签名
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                评论
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop">
+                        </i>
+                        <span>
+                 资料监控(用户)
+                </span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="horizontal_menu.html">
+                                头像
+                            </a>
+                        </li>
+                        <li>
+                            <a href="language_switch_bar.html">
+                                昵称
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                个性签名
+                            </a>
+                        </li>
+                        <li>
+                            <a href="email_template.html" target="_blank">
+                                评论
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book">
+                        </i>
+                        <span>
+                  工作日志
+                </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </aside>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN MAIN CONTENT -->
+
+
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                  <span class="label label-primary">
+                   首页轮播图编辑
+                  </span>
+                        </header>
+                        <div class="panel-body">
+                            <form id="bannerform" action="#">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        封面图
+                                    </label>
+                                    <div class="col-md-9">
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail">
+                                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image"
+                                                     alt="">
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail">
+                                            </div>
+                                            <div>
+                            <span class="btn btn-white btn-file">
+                              <span class="fileupload-new">
+                                <i class="fa fa-paper-clip">
+                                </i>
+                                选择图片
+                              </span>
+                              <span class="fileupload-exists">
+                                <i class="fa fa-undo">
+                                </i>
+                                重新选择
+                              </span>
+                              <input type="file" class="default">
+                            </span>
+                                                <a href="#" class="btn btn-danger fileupload-exists"
+                                                   data-dismiss="fileupload">
+                                                    <i class="fa fa-trash">
+                                                    </i>
+                                                    删除
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="titleInput">标题*(30字)</label>
+                                    <input type="email" class="form-control" id="titleInput" placeholder="图片标题">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hrefInput">链接</label>
+                                    <input type="email" class="form-control" id="hrefInput" placeholder="点击超链接">
+                                </div>
+                                <div class="form-group">
+                                    <label for="indexInput">顺序*（1-999）</label>
+                                    <input type="password" class="form-control" id="indexInput" placeholder="轮播顺序">
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- END MAIN CONTENT -->
+    <!-- BEGIN FOOTER -->
+    <footer class="site-footer">
+        <div class="text-center">
+            2016 &copy; HefanTv by
+            <a href="" target="_blank">
+                星影聚合
+            </a>
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!-- END  FOOTER -->
+</section>
+<script src="../src/plugins/jquery.js"></script>
+<script src="../src/plugins/bootstrap.min.js"></script>
+<script src="../src/plugins/jquery.dcjqaccordion.2.7.js"></script>
+<script src="../src/plugins/jquery.scrollTo.min.js"></script>
+<script src="../src/plugins/jquery.nicescroll.js"></script>
+<script src="../src/plugins/modernizr.custom.js"></script>
+<script src="../src/plugins/toucheffects.js"></script>
+<script src="../src/plugins/common-scripts.js"></script>
+<script src="../public/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script><!-- BOOTSTRAP FILEUPLOAD JS  -->
+<script src="../public/assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
+<script src="../public/assets/jquery-multi-select/js/jquery.quicksearch.js"></script><!-- BOOTSTRAP MULTISELECT JS  -->
+
+</body>
+</html>
+
+
