@@ -2,23 +2,23 @@ var path = require('path');
 
 module.exports = {
     server: {
-        port: 9013,
+        port: 3000,
         host: "http://localhost",
     },
     db: {
-        //mongodb 配置
+         //mongodb 配置
         DB_DEV: {
-            url: 'mongodb://admin:hefantv.123@47.93.89.11:28017/apidoc-dev',
+            url: 'mongodb://dbname:dbpwd@ip:port/db', //修改数据库配置 dbname 数据库账号 dbpwd 数据库密码
             options: {
             }
         },
         DB_TEST: {
-            url: 'mongodb://admin:hefantv.123@47.93.89.11:28017/apidoc-test',
+            url: 'mongodb://dbname:dbpwd@ip:port/db',
             options: {
             }
         },
         DB_PRO: {
-            url: 'mongodb://admin:hefantv.123@47.93.89.11:28017/apidoc',
+            url: 'mongodb://dbname:dbpwd@ip:port/db',
             options: {
             }
         }
