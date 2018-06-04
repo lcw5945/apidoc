@@ -4,28 +4,34 @@
  * Module dependencies.
  */
 
-const app = require('../server/app')
-const debug = require('debug')
-const http = require('http')
-const https = require('https')
-const fs = require('fs')
-const opn = require('opn')
+const app = require("../server/app");
+const debug = require("debug");
+const http = require("http");
+const https = require("https");
+const fs = require("fs");
+const opn = require("opn");
 
-var config = require('../config/web')
+let config = require("../config/web");
 // import cooper from '../controls/api/project/cooper'
 
 // console.log(cooper);
 const options = {
-  key: fs.readFileSync(__dirname + '/data/keys/server_gen.key'),
-  cert: fs.readFileSync(__dirname + '/data/keys/server_gen.pem')
+  key: fs.readFileSync(__dirname + "/data/keys/server_gen.key"),
+  cert: fs.readFileSync(__dirname + "/data/keys/server_gen.pem")
 };
 
+process.once("SIGTERM", function() {
+  console.log("process", process.pid);
+  // gracefulShutdown(function() {
+  //   process.kill(process.pid, "SIGTERM");
+  // });
+});
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(config.server.port || '3000');
-app.set('port', port);
+let port = normalizePort(config.server.port || "3000");
+app.set("port", port);
 
 /**
  * Create HTTPS server.
@@ -40,20 +46,20 @@ app.set('port', port);
  */
 
 function onErrors(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = 'Port ' + 443;
+  let bind = "Port " + 443;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -65,35 +71,34 @@ function onErrors(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListenings() {
-  var addr = servers.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-    debug.log('Listening on ' + bind);
-}
-
+// function onListenings() {
+//   let addr = servers.address();
+//   let bind = typeof addr === 'string'
+//     ? 'pipe ' + addr
+//     : 'port ' + addr.port;
+//     debug.log('Listening on ' + bind);
+// }
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+let server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.on("error", onError);
+server.on("listening", onListening);
 
 /**
  * Normalize a port into a number, string, or false.
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  let port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -113,22 +118,20 @@ function normalizePort(val) {
  */
 
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  let bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:
@@ -141,16 +144,14 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-    var uri = config.server.host + ':' + port;
-    debug.log('Listening on ' + bind);
-    debug.log(uri);
-    // if (process.env.NODE_ENV !== 'testing') {
-    //     opn(uri)
-    // }
+  let addr = server.address();
+  let bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
+  let uri = config.server.host + ":" + port;
+  debug.log("Listening on " + bind);
+  debug.log(uri);
+  // if (process.env.NODE_ENV !== 'testing') {
+  //     opn(uri)
+  // }
 
-    // cooper.start()
+  // cooper.start()
 }

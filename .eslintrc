@@ -1,19 +1,20 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "plugins": [
-    "react"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
+  "plugins": ["react"],
   "env": {
     "es6": true,
     "browser": true,
@@ -22,14 +23,13 @@
     "mocha": true
   },
   "settings": {
-    "import/ignore": [
-      "node_modules"
-    ]
+    "import/ignore": ["node_modules"]
   },
   "rules": {
     "quotes": 0,
     "no-console": 1,
     "no-debugger": 1,
+    "no-unresolved": 0,
     "no-var": 1,
     "semi": [1, "always"],
     "no-trailing-spaces": 0,
@@ -39,8 +39,8 @@
     "no-alert": 0,
     "no-lone-blocks": 0,
     "jsx-quotes": 1,
-    "react/display-name": [ 1, {"ignoreTranspilerName": false }],
-    "react/forbid-prop-types": [1, {"forbid": ["any"]}],
+    "react/display-name": [1, { "ignoreTranspilerName": false }],
+    "react/forbid-prop-types": [1, { "forbid": ["any"] }],
     "react/jsx-boolean-value": 1,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-curly-spacing": 1,

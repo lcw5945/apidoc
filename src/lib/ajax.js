@@ -1,10 +1,10 @@
 /**
  * Created by Cray on 2017/7/12.
  */
-import {API_HOST, H5API_HOST} from '../constants/api-host';
-import _ from 'lodash';
-import {hasResponseError} from '../common/http';
-import Utils from '~utils'
+import { API_HOST } from "../constants/api-host";
+import _ from "lodash";
+import { hasResponseError } from "../common/http";
+import Utils from "~utils";
 
 let fetch = window.fetch;
 
@@ -14,13 +14,13 @@ let fetch = window.fetch;
  * @returns {*}
  */
 function checkStatus(response) {
-    if (response.status >= 200 && response.status < 300) {
-        return response;
-    } else {
-        let error = new Error(response.statusText);
-        error.response = response;
-        throw error;
-    }
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  } else {
+    let error = new Error(response.statusText);
+    error.response = response;
+    throw error;
+  }
 }
 
 /**
@@ -28,7 +28,7 @@ function checkStatus(response) {
  * @param response
  */
 function parseJSON(response) {
-    return response.json();
+  return response.json();
 }
 
 /**
@@ -36,11 +36,11 @@ function parseJSON(response) {
  * @param data
  */
 function parseData(data) {
-    let result = data;
-    if (!hasResponseError(data)) {
-        result = data.data;
-    }
-    return result;
+  let result = data;
+  if (!hasResponseError(data)) {
+    result = data.data;
+  }
+  return result;
 }
 
 /**
@@ -50,27 +50,25 @@ function parseData(data) {
  * @returns {string}
  */
 function transfrom(url, params) {
+  if (Utils.isObject(params)) {
+    let paramsArray = [];
+    _.forOwn(params, function(value, key) {
+      if (Utils.isObject(value)) {
+        value = JSON.stringify(value);
+      }
+      paramsArray.push(key + "=" + value);
+    });
 
-    if (Utils.isObject(params)) {
-        let paramsArray = [];
-        _.forOwn(params, function (value, key) {
-            if(Utils.isObject(value)){
-                value = JSON.stringify(value)
-            }
-            paramsArray.push(key + '=' + value);
-        });
+    params = paramsArray.join("&");
+  }
 
-        params = paramsArray.join('&');
+  if (url.search(/\?/) === -1) {
+    url += "?" + params;
+  } else {
+    url += "&" + params;
+  }
 
-    }
-
-    if (url.search(/\?/) === -1) {
-        url += '?' + params;
-    } else {
-        url += '&' + params;
-    }
-
-    return url;
+  return url;
 }
 
 /**
@@ -79,15 +77,15 @@ function transfrom(url, params) {
  * @param host
  */
 function formatUrl(url, host) {
-    if(url.indexOf("http://") !== -1){
-        return url
-    }
-    if (host) {
-        url = `${host}${url}`
-    } else {
-        url = `${API_HOST}${url}`
-    }
+  if (url.indexOf("http://") !== -1) {
     return url;
+  }
+  if (host) {
+    url = `${host}${url}`;
+  } else {
+    url = `${API_HOST}${url}`;
+  }
+  return url;
 }
 
 /**
@@ -96,32 +94,29 @@ function formatUrl(url, host) {
  * @param host
  */
 export const fetchJSONGet = (url, host) => params => {
-    const variableData = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'accept': 'application/json'
-        },
-        credentials: "include"
-    };
-    let fullUrl = formatUrl(url, host);
-    return new Promise(function (resolve, reject) {
-        fetch(transfrom(fullUrl, params), variableData)
-            .then(checkStatus)
-            .then(parseJSON)
-            .then(parseData)
-            .then(function (data) {
-                if (data.code)
-                    reject({status: data.code, msg: data.msg});
-                else
-                    resolve(data);
-            })
-            .catch(function (error) {
-                reject({status: error});
-                console.log('request failed', error);
-            });
-    });
-
+  const variableData = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      accept: "application/json"
+    },
+    credentials: "include"
+  };
+  let fullUrl = formatUrl(url, host);
+  return new Promise(function(resolve, reject) {
+    fetch(transfrom(fullUrl, params), variableData)
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(parseData)
+      .then(function(data) {
+        if (data.code) reject({ status: data.code, msg: data.msg });
+        else resolve(data);
+      })
+      .catch(function(error) {
+        reject({ status: error });
+        console.log("request failed", error);
+      });
+  });
 };
 
 /**
@@ -129,90 +124,90 @@ export const fetchJSONGet = (url, host) => params => {
  * @param url
  * @param host
  */
-export const fetchJSONPost = (url, host) => (params) => {
-    const variableData = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'accept': 'application/json'
-        },
-        credentials: "include",
-        body: JSON.stringify(params)
-    };
-    // console.log(`post fetch url ${url} params ${params}`);
-    let fullUrl = formatUrl(url, host);
-    return new Promise(function (resolve, reject) {
-        fetch(fullUrl, variableData)
-            .then(checkStatus)
-            .then(parseJSON)
-            .then(parseData)
-            .then(function (data) {
-                if (data.code)
-                    reject({status: data.code, msg: data.msg});
-                else
-                    resolve(data);
-            }).catch(function (error) {
-            console.log('request failed', error);
-            reject({status: error});
-        })
-    });
-
+export const fetchJSONPost = (url, host) => params => {
+  const variableData = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      accept: "application/json"
+    },
+    credentials: "include",
+    body: JSON.stringify(params)
+  };
+  // console.log(`post fetch url ${url} params ${params}`);
+  let fullUrl = formatUrl(url, host);
+  return new Promise(function(resolve, reject) {
+    fetch(fullUrl, variableData)
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(parseData)
+      .then(function(data) {
+        if (data.code) reject({ status: data.code, msg: data.msg });
+        else resolve(data);
+      })
+      .catch(function(error) {
+        console.log("request failed", error);
+        reject({ status: error });
+      });
+  });
 };
-
 
 /**
  * @param options
  * @returns {Promise}
  */
-export const fetchTest = (options = {
-    url: '',
-    host: '',
-    method: 'GET',
+export const fetchTest = (
+  options = {
+    url: "",
+    host: "",
+    method: "GET",
     params: {},
     header: {}
-}) => {
-    // console.log(`post fetch url ${url} params ${params}`);
-    let fullUrl = formatUrl(options.url, options.host);
-    return new Promise(function (resolve, reject) {
+  }
+) => {
+  // console.log(`post fetch url ${url} params ${params}`);
+  let fullUrl = formatUrl(options.url, options.host);
+  return new Promise(function(resolve, reject) {
+    let variableData = {
+      method: options.method,
+      headers: Object.assign(
+        {
+          "Content-Type": "application/json",
+          accept: "application/json"
+        },
+        options.header
+      )
+    };
 
-        let variableData = {
-            method: options.method,
-            headers: Object.assign({
-                'Content-Type': 'application/json',
-                'accept': 'application/json'
-            }, options.header)
-        };
+    // console.log('fetch headers', variableData)
 
-        // console.log('fetch headers', variableData)
+    if (options.method === "POST") {
+      variableData = Object.assign(variableData, {
+        body: JSON.stringify(options.params)
+      });
 
-        if (options.method === "POST") {
-            variableData = Object.assign(variableData, {body: JSON.stringify(options.params)})
-
-            fetch(fullUrl, variableData)
-                .then(checkStatus)
-                .then(parseJSON)
-                // .then(parseData)
-                .then(function (data) {
-                    resolve(data);
-                }).catch(function (error) {
-                reject({status: error});
-            })
-        } else {
-            fetch(transfrom(fullUrl, options.params), variableData)
-                .then(checkStatus)
-                .then(parseJSON)
-                // .then(parseData)
-                .then(function (data) {
-                    resolve(data);
-                })
-                .catch(function (error) {
-                    reject({status: error});
-                    console.log('request failed', error);
-                });
-        }
-
-    });
+      fetch(fullUrl, variableData)
+        .then(checkStatus)
+        .then(parseJSON)
+        // .then(parseData)
+        .then(function(data) {
+          resolve(data);
+        })
+        .catch(function(error) {
+          reject({ status: error });
+        });
+    } else {
+      fetch(transfrom(fullUrl, options.params), variableData)
+        .then(checkStatus)
+        .then(parseJSON)
+        // .then(parseData)
+        .then(function(data) {
+          resolve(data);
+        })
+        .catch(function(error) {
+          reject({ status: error });
+          console.log("request failed", error);
+        });
+    }
+  });
 };
-
-
-
