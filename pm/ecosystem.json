@@ -1,22 +1,24 @@
 {
-  "apps" : [{
-    "name"        : "HF-Apidoc",
-    "script"      : "./pm/index.js",
-    "log_file"    : "./logs/combined.log",
-    "error_file"  : "./logs/error.log",
-    "out_file"    : "./logs/out.log",
-    "merge_logs"  : true,
-    "log_date_format" : "YYYY-MM-DD HH:mm Z",
-    "watch"       : false,
-    "node_args" : "--harmony",
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "env_testing" : {
-      "NODE_ENV": "testing"
-    },
-    "env_production" : {
-      "NODE_ENV": "production"
+  "apps": [
+    {
+      "name": "Apidoc",
+      "script": "./pm/index.js",
+      "log_file": "./logs/combined.log",
+      "error_file": "./logs/error.log",
+      "out_file": "./logs/out.log",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "watch": false,
+      "node_args": "--harmony",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "env_testing": {
+        "NODE_ENV": "testing"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
     }
-  }]
+  ]
 }
