@@ -8,9 +8,9 @@ import {Table, Button, Modal, Input, Form, Select, message, Popconfirm, notifica
 import {paramsFormat} from '~common/http'
 import {wapper} from '../../WapperContainer';
 import Utils from '~utils/index'
+import {ProjectUserAuth} from '~components/project/ProjectUserAuthority';
 
-@wapper('statecode')
-export default class CodeContainer extends React.Component {
+class CodeContainer extends React.Component {
     constructor(props) {
         super(props);
         let that = this;
@@ -67,24 +67,24 @@ export default class CodeContainer extends React.Component {
                     title: '操作',
                     key: 'action',
                     render: (data) => {
-                        let hfApiUserInfo = that.props.user;
-                        for (let i = 0; i < data.cooperGroup.length; i++) {
-                            let cooperGroup = data.cooperGroup[i];
-                            if (cooperGroup === hfApiUserInfo.userId) {
-                                return (
-                                    <div>
-                                        <Button icon="copy" onClick={this.setCopyDate.bind(this,data)}>拷贝</Button>
-                                        <Button icon="edit" onClick={this.getUpdateDialog.bind(this, data)}>修改</Button>
-                                        <Popconfirm title="确定删除此状态码吗？" okText="确定" cancelText="取消"
-                                                    onConfirm={this.codeDel.bind(this, data)}>
-                                            <Button icon="delete" type="danger"
-                                                    style={{display: (this.state.adminId && this.state.userId && this.state.adminId === this.state.userId) ? 'inline-block' : "none"}}
-                                                    onClick={this.deleteHandle.bind(this)}>删除</Button>
-                                        </Popconfirm>
-                                    </div>
-                                )
-                            }
+
+                        let user = that.props.user.proUserAuth||{};
+
+                        if (user.authority > 0) { //0 mock权限 2接口权限 只有接口权限显示
+                            return (
+                                <div>
+                                    <Button icon="copy"  onClick={this.setCopyDate.bind(this,data)}>拷贝</Button>
+                                    <Button icon="edit" onClick={this.getUpdateDialog.bind(this, data)}>修改</Button>
+                                    <Popconfirm title="确定删除此状态码吗？" okText="确定" cancelText="取消"
+                                                onConfirm={this.codeDel.bind(this, data)}>
+                                        <Button icon="delete" type="danger"
+                                                onClick={this.deleteHandle.bind(this)}>删除</Button>
+                                    </Popconfirm>
+                                </div>
+                            )
                         }
+
+
                         return (<div></div>);
                     },
                 },
@@ -220,9 +220,15 @@ export default class CodeContainer extends React.Component {
                                 cooperGroup.push(...obj.cooperGroup);
                             }
                         });
+                        items = _.filter(items, function (_data) {
+                            if (_data._id) {
+                                return true;
+                            }
+                        });
                         if (searchConent) {
+                            searchConent = searchConent.toLowerCase()
                             items = _.filter(items, function (_data) {
-                                if (_data.scode.indexOf(searchConent) > -1 || _data.description.indexOf(searchConent) > -1) {
+                                if (_data.scode.toLowerCase().indexOf(searchConent) > -1 || _data.description.toLowerCase().indexOf(searchConent) > -1) {
                                     return true;
                                 }
                             });
@@ -243,6 +249,7 @@ export default class CodeContainer extends React.Component {
                     visible={this.state.modalVisible}
                     title='提示'
                     width={400}
+                    onCancel={this.modalClickHandle.bind(this,'cancel')}
                     footer={[
                         <Button key="back" size="large" onClick={this.modalClickHandle.bind(this,'cancel')}>取消</Button>,
                         <Button key="submit" type="primary" size="large" disabled={this.state.disabled} onClick={this.modalClickHandle.bind(this,'ok')}>
@@ -256,3 +263,5 @@ export default class CodeContainer extends React.Component {
         )
     }
 }
+
+export default wapper('statecode')(ProjectUserAuth(CodeContainer))

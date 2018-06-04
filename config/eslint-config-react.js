@@ -88,7 +88,7 @@ module.exports = {
 
     globals: {
         __DEV: true,
-        "var2": false
+        "Log": true
     },
 
     rules: {

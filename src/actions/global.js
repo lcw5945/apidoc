@@ -18,3 +18,6 @@ export const groupClear = createAction(ActionType.GROUP_CLEAR, (payload) => payl
 
 export const interfaceDetail = createAction(ActionType.INTERFACE_DETAIL, (payload) => payload,
     () => ({ subreddit: 'detail' }));
+
+export const projectPageStatus = createAction(ActionType.IF_PAGE_STATUS, (payload) => payload,
+    () => ({ subreddit: 'pageStatus' }));

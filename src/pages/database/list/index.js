@@ -12,11 +12,8 @@ import Utils from '~utils'
 import  DataBase  from '~containers/database/TableContainer';
 import  MainNav  from '~components/common/MainNav';
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...fieldActions, ...groupActions}, dispatch)
-)
-export default class DatabaseList extends React.Component {
+
+class DatabaseList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -42,3 +39,8 @@ export default class DatabaseList extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...fieldActions, ...groupActions}, dispatch)
+)(DatabaseList)

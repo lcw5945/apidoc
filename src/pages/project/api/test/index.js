@@ -11,23 +11,20 @@ import  MainNav  from '~components/common/MainNav';
 import  SubNav  from '~components/common/SubNav';
 import  ApiTestContainer  from '~containers/project/api/ApiTestContainer';
 import {paramsFormat} from '~common/http';
+import Utils from '~utils'
 
-
-
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...interfaceActions, ...testenvActions}, dispatch)
-)
-export default class ApiTests extends React.Component {
+class ApiTests extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            queryData: Utils.parseUrlToData(this.props.location.search) || {}
+        }
     }
 
     componentWillMount() {
-
         if (!this.props.entity['testenv'] || this.props.entity['testenv'].didInvalidate) {
-            this.props.fetchTestEnvCheckList(paramsFormat({}));
+            this.props.fetchTestEnvCheckList(paramsFormat({projectid: this.state.queryData.projectId}));
         }
     }
 
@@ -41,3 +38,8 @@ export default class ApiTests extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...interfaceActions, ...testenvActions}, dispatch)
+)(ApiTests)

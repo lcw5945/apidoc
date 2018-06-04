@@ -33,6 +33,7 @@ const Md5Component = asyncComponent(() => import("~pages/tool/md5"));
 const Base64Component = asyncComponent(() => import("~pages/tool/base64"));
 const QRcodeComponent = asyncComponent(() => import("~pages/tool/qrcode"));
 const HttpComponent = asyncComponent(() => import("~pages/tool/http"));
+const UnixTimestampComponent = asyncComponent(() => import("~pages/tool/timestamp"));
 
 const Home = userIsAuthenticatedRedir(HomeComponent);
 const Tool = userIsAuthenticatedRedir(ToolComponent);
@@ -58,7 +59,7 @@ const Md5 = userIsAuthenticatedRedir(Md5Component);
 const Base64 = userIsAuthenticatedRedir(Base64Component);
 const QRcode = userIsAuthenticatedRedir(QRcodeComponent);
 const Http = userIsAuthenticatedRedir(HttpComponent);
-
+const UnixTimestamp = userIsAuthenticatedRedir(UnixTimestampComponent);
 const NoMatch = ({location}) => (
     <div>
         <h3>无法匹配 <code>{location.pathname}</code></h3>
@@ -98,6 +99,7 @@ export const routes = (
                     <Route location={location}  path="/tool/base64" component={Base64}/>
                     <Route location={location}  path="/tool/qrcode" component={QRcode}/>
                     <Route location={location}  path="/tool/http" component={Http}/>
+                    <Route location={location}  path="/tool/timestamp" component={UnixTimestamp}/>
                     <Route component={NoMatch}/>
                 </Switch>
                 {/*<DevTools/>*/}

@@ -28,6 +28,7 @@ export default class UserContainer extends React.Component {
                 console.log('Received values of form: ', values);
 
                 this.props.fetchUpdateUser(paramsFormat(values), ()=>{
+                    console.log(11111111111111);
                     message.success('更新成功!');
                 });
                 this.props.form.resetFields();
@@ -111,6 +112,8 @@ export default class UserContainer extends React.Component {
                             {getFieldDecorator('password', {
                                 rules: [{
                                     required: true, message: '请输入新密码!',
+                                },{
+                                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/, message: '请输入8-16个字符，至少1个大写字母，1个小写字母和1个数字!',
                                 }, {
                                     validator: this.checkConfirm,
                                 }],

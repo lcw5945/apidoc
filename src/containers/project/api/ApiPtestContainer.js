@@ -2,51 +2,75 @@
  * Created by VULCAN on 2017/8/18.
  */
 import React from 'react';
-import {Table, Button, Modal, Select, Input, Popconfirm, Col, Icon, Switch, message, Progress} from 'antd';
+import {Table, Button, Modal, Select, message, Progress, Collapse, Tag, Card, Row, Col} from 'antd';
 import {Link} from 'react-router-dom';
 import {paramsFormat} from '~common/http';
 import ProjectSubnav from "~components/common/ProjectSubnav";
 import EnvSelecter from '~components/project/EnvSelecter';
 import Utils from '~utils';
-import jsoneditor from 'jsoneditor';
+import ArrayUtils from '~utils/arrayUtils';
 import {API_HOST} from '~constants/api-host';
+import {useCaseAlert} from '~components/project/useCaseAlert';
 import Request from '~common/project/request';
+import JsonEditorBox from "~components/project/JsonEditorBox";
+import ApiTestLogin from "~components/project/ApiTestLogin/index";
 import _ from 'lodash';
 import * as ajax from '~lib/ajax';
 
-export default class ApiPtestContainer extends React.Component {
+class ApiPtestContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            unaskedColumns: [
+            useCaseColumns: [{
+                title: '用例名称',
+                dataIndex: 'name',
+                render: (text, record, index) => (
+                    <div>
+                        {record.history[record.index].useCase.name}
+                    </div>
+                )
+            },
                 {
-                    title: '项目名称',
-                    dataIndex: 'name',
+                    title: '接口名称',
+                    dataIndex: 'featureName',
                     render: (text, record, index) => (
-                        <div className="featureName">
-                            {record.featureName}
-                        </div>
-                    )
-                }, {
-                    title: '链接地址',
-                    dataIndex: 'uri',
-                    render: (text, record, index) => (
-                        <div className="featureName">
-                            {this.state.envStatus + '/' + record.URI}
-                        </div>
-                    )
-                }
-            ],
-            requestColumns: [
-                {
-                    title: '项目名称',
-                    dataIndex: 'name',
-                    render: (text, record, index) => (
-                        <div className="featureName">
+                        <div>
                             {record.featureName}
                         </div>
                     )
                 },
+                {
+                    title: '接口地址',
+                    dataIndex: 'url',
+                    render: (text, record, index) => (
+                        <div className="featureName">
+                            {record.history[record.index].options.url}
+                        </div>
+                    )
+                },
+                {
+                    title: '操作',
+                    width: '330px',
+                    render: (obj) => {
+                        return (<div>
+                            <Button onClick={this.props.changeUseCase.bind(this, obj, obj.index, this)}
+                                    icon="edit" style={{marginLeft: '50px'}}>修改断言</Button>
+                            <Button
+                                onClick={this.props.addPtestCheck.bind(this, obj, obj.index, 0, this)}
+                                icon="delete" type="danger" style={{marginLeft: '50px'}}>删除</Button>
+                        </div>);
+                    },
+                }
+            ],
+            requestColumns: [{
+                title: '项目名称',
+                dataIndex: 'name',
+                render: (text, record, index) => (
+                    <div className="featureName">
+                        {record.featureName}
+                    </div>
+                )
+            },
                 {
                     title: '链接地址',
                     dataIndex: 'uri',
@@ -83,6 +107,7 @@ export default class ApiPtestContainer extends React.Component {
             requestArr: [],
             queryData: '',
             request: 'http',
+            unit: 'all',
             envStatus: API_HOST.substring(7) + '/mock',
             requestNum: 0,
             interfacesAllItemsLength: 0,
@@ -104,36 +129,11 @@ export default class ApiPtestContainer extends React.Component {
         this.props.history.push(`/project/api/list?projectId=${this.state.queryData.projectId}&groupId=-1`);
     }
 
-    /*
-     * 初始化 jsonEditor
-     * */
-
+    /**
+     *  初始化 jsonEditor
+     **/
     componentDidUpdate() {
-        if (this.state.jsonEditorFlag && this.jsoneditor) {
-            let options = {
-                history: false,
-                mode: 'tree',
-                indentation: 3,
-                keep_oneof_values: true,
-                onError: (message) => {
-
-                }
-            };
-            /*这里需要优化--------------------*/
-
-            this.state.jsoneditor = new jsoneditor(this.jsoneditor, options, '');
-            this.state.jsoneditor.set(this.state.editor);
-            this.setState.jsonEditorFlag = false
-            /*try {
-             this.state.jsoneditor = new jsoneditor(this.jsoneditor, options, '');
-
-             this.setState.jsonEditorFlag = false
-             } catch (e) {
-
-             }*/
-        }
     }
-
 
     /**
      * 通过组件传值修改url
@@ -145,10 +145,12 @@ export default class ApiPtestContainer extends React.Component {
     /**
      * 给下拉框 绑定事件 赋值
      **/
-    testSelect_changeHandler(val) {
-        this.setState({
-            request: val
-        })
+    testSelect_changeHandler(type, val) {
+        if (type === 'http') {
+            this.setState({request: val})
+        } else {
+            this.setState({unit: val})
+        }
     }
 
     /**
@@ -186,10 +188,18 @@ export default class ApiPtestContainer extends React.Component {
      **/
     sendAjax(item, interfacesAllItems) {
         let options = '';
+        let loginData = this.refs.apiTestLogin.getLoginData(); //登录信息数据
         item.history.forEach((data, index) => {
             if (data.envStatus === this.state.envStatus) options = Utils.copy(data.options);
         })
         this.state.ajaxEnvStatus = this.state.envStatus;
+
+        if(!options.header) options.header={}
+        if(!options.params) options.params={}
+
+        Request.formateForRequestHead( options.header, loginData);
+        Request.formateHFRequestParame(options.params, loginData);
+
         ajax.fetchTest(options).then((data) => {
             item.data = data;
             item.dataStatus = 1;
@@ -205,132 +215,150 @@ export default class ApiPtestContainer extends React.Component {
      * AJAX完成后
      **/
     AJAXComplete(item, interfacesAjaxItems) {
-        let requestArr = this.state.requestArr;
         let progressUrl = item.URI;
-        requestArr.push(item);
         this.state.percent++;
         let interfacesPercent = parseInt((this.state.percent / this.state.interfacesTotalLength) * 100);
-
-        this.setState({
-            requestArr,
-            progressUrl,
-            interfacesPercent
-        })
+        this.setState({progressUrl, interfacesPercent})
         this.againBatchRequest(interfacesAjaxItems);
-    }
-
-
-    /*点击每一条 弹出框*/
-    showApiInfo_clickHandler(record, index, event) {
-        this.setState({editor: record.data});
-        this.apiInfo(true, record)
+        this.isUseCaseSucccess(item, interfacesAjaxItems);
     }
 
     /**
-     * 接口 详细 信息 弹出框
+     * 判断断言是否正确
      **/
-    apiInfo(ModalVisible, record) {
-        let opt = '';
-        record.history.forEach((data, index) => {
-            if (data.envStatus === this.state.ajaxEnvStatus) opt = Utils.copy(data.options);
+    isUseCaseSucccess(item, interfacesAjaxItems) {
+        let requestArr = this.state.requestArr;
+        let useCases = item.history[item.index].useCase.useCases;
+        item.error = [];
+        useCases.forEach((data, index) => {
+            let reparam = {};
+            let param = data.param;
+            let paramType = '';
+            this.queryUseCase(item.data, param, reparam);
+            let {value} = reparam;
+            if (item.dataStatus === 0) item.error.push('接口访问失败');
+            if (value === undefined ) {
+                item.error.push('返回内容中没有找到'+ param);
+            }else {
+                switch (data.type) {
+                    case 'int':
+                    case 'long':
+                        Utils.isNumber(value) ? paramType = 'number' : item.error.push(param + '不是数字类型');
+                        break;
+                    case 'string':
+                        Utils.isString(value) ? paramType = 'string' : item.error.push(param + '不是字符串类型');
+                        break;
+                    case 'object':
+                        Utils.isObject(value) ? paramType = 'object' : item.error.push(param + '不是对象类型');
+                        break;
+                    case 'array':
+                        ArrayUtils.isArray(value) ? paramType = 'array' : item.error.push(param + '不是数组类型');
+                        break;
+                    default:
+                        break;
+                }
+                switch (data.judge) {
+                    case 'equal':
+                        if (paramType === 'number' || paramType === 'string') {
+                            if (value.toString() !== data.value.toString()) {
+                                item.error.push(param + '不等于' + data.value);
+                            }
+                        } else if (paramType === 'object' || paramType === 'array') {
+                            try {
+                                if (!_.isEqual(value, JSON.parse(data.value))) {
+                                    item.error.push(param + '不等于' + data.value);
+                                }
+                            } catch (e) {
+                                item.error.push(param + '不等于' + data.value);
+                            }
+                        }
+                        break;
+                    case 'big':
+                        if (paramType === 'number') {
+                            if (value <= data.value) item.error.push(param + '不大于' + data.value);
+                        } else {
+                            item.error.push(param + '不大于' + data.value);
+                        }
+                        break;
+                    case 'min':
+                        if (paramType === 'number') {
+                            if (value >= data.value) item.error.push(param + '不小于' + data.value);
+                        } else {
+                            item.error.push(param + '不大于' + data.value);
+                        }
+                        break;
+                    case 'contain':
+                        if (paramType === 'array' || paramType === 'object') {
+                            if (JSON.stringify(value).indexOf(data.value) === -1) {
+                                item.error.push(param + '不包含' + data.value);
+                            }
+                        } else if (paramType === 'string') {
+                            if (value.indexOf(data.value) === -1) {
+                                item.error.push(param + '不包含' + data.value);
+                            }
+                        } else {
+                            item.error.push(param + '不包含' + data.value);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
         })
-        let requestHead = opt['header'];
-        let enable = '';
-        if (parseInt(record.enable) === 0) {
-            enable = '弃用';
-        } else if (parseInt(record.enable) === 1) {
-            enable = '启用';
-        } else if (parseInt(record.enable) === 2) {
-            enable = '维护';
+
+        if (item.error.length > 0) {
+            requestArr.push(item);
+            this.setState({requestArr});
         }
+    }
 
-        this.setState({
-            jsoneditorJson: JSON.stringify(record.data),
-            jsonEditorFlag: true
+    /**
+     * 匹配断言字段
+     **/
+    queryUseCase(data, param, reparam) {
+        _.forIn(data, (value, key) => {
+            if (key === param) return reparam.value = value;
+            if (Utils.isObject(value)) {
+                this.downQueryUseCase(value, param, reparam);
+            } else if (ArrayUtils.isArray(value)) {
+                value.forEach((all, index) => {
+                    if (Utils.isObject(all)) {
+                        this.downQueryUseCase(value, param, reparam);
+                    }
+                    if (all === param) return reparam.value = value;
+                })
+            }
         })
-        Modal.info({
-            title: '接口详情',
-            content: (
-                <div className='apiDetail-modal'>
-                    <ul>
-                        <li>
-                            <span className='apiDetail-name'>接口名称 ：</span>
-                            <span className='apiDetail-data'>{record.featureName}</span>
-                        </li>
-                        <li>
-                            <span className='apiDetail-name'>接口地址 ：</span>
-                            <span className='apiDetail-data'>{record.URI}</span>
-                        </li>
-                        <li>
-                            <span className='apiDetail-name'>接口状态 ：</span>
-                            <span className='apiDetail-data'>{enable}</span>
-                        </li>
-                        <li>
-                            <span className='apiDetail-name'>接口类型 ：</span>
-                            <span className='apiDetail-data'>{opt['method']}</span>
-                        </li>
-                        <li>
-                            <span className='apiDetail-name'>请求头 ：</span>
-                            {
-                                (() => {
-                                    return (
-                                        <div>
-                                            <div key={Math.random()}>
-                                                <span className='apiDetail-data'>{JSON.stringify(requestHead)}</span>
-                                            </div>
-                                        </div>
-                                    )
-                                })()
-                            }
-                        </li>
-                        <li>
-                            <span className='apiDetail-name'>请求参数 ：</span>
-                            {
-                                (() => {
-                                    let paramsArr = opt['params'];
-                                    return (
-                                        <div>
-                                            <div key={Math.random()}>
-                                                <span className='apiDetail-data'>{JSON.stringify(paramsArr)}</span>
-                                            </div>
-                                        </div>
-                                    )
-                                })()
-                            }
+    }
 
-                        </li>
-                        <li>
-                            <span className='apiDetail-name'>返回结果 ：</span>
-                            <div className='jsonTabEditCont' style={{'left': 0}}
-                                 ref={jsoneditor => this.jsoneditor = jsoneditor}></div>
-                        </li>
-                    </ul>
-                </div>
-            ),
-            visible: ModalVisible,
-            onOk() {
-            },
-        });
-
+    /**
+     * 向下循环queryUseCase
+     **/
+    downQueryUseCase(data, param, reparam) {
+        this.queryUseCase(data, param, reparam);
     }
 
 
     render() {
         const {groupCmp} = this.props.global;
         const {interfaces} = this.props.entity;
+        const Panel = Collapse.Panel;
         const queryData = this.state.queryData = Utils.parseUrlToData(this.props.location.search);
         const Option = Select.Option;
         let interfacesAllItems = [];
         let interfacesAjaxItems = [];
-        let interfacesItems = [];
         let interfacesItemsPagination;
+        let unitOption = [];
         if (this.state.jsoneditor) {
             this.state.jsoneditor.set(this.state.jsoneditorJson)
         }
-
+        if (this.refs.json1) {
+            this.refs.json1.setEditorSuc(this.state.requestArr[0].data)
+        }
         return (
             <div>
-                <ProjectSubnav />
+                <ProjectSubnav {...this.props} />
                 {
                     interfaces && (() => {
                         if (interfaces.hasOwnProperty(queryData.projectId)) {
@@ -340,24 +368,30 @@ export default class ApiPtestContainer extends React.Component {
                                     if (item.groupId !== -2) interfacesAllItems.push(item);
                                 });
                                 interfacesAllItems.map((item, index) => {
-                                    if (item.history.length > 0) {
-                                        let addItem = true;
-                                        for (let i = 0; i < item.history.length; i++) {
-                                            let history = item.history[i];
-                                            if (history.envStatus === this.state.envStatus) {
-                                                addItem = false;
-                                                interfacesAjaxItems.push(item);
-                                                break;
+                                    if (ArrayUtils.isArray(item.history) && item.history.length > 0) {
+                                        item.history.forEach((history, i) => {
+                                            if (history.envStatus === this.state.envStatus && history.addPtest) {
+                                                let obj = Utils.copy(item);
+                                                obj.key = new Date().getTime() + Math.random();
+                                                obj.index = i;
+                                                if (_.findIndex(unitOption, o => o.props.value === history.useCase.unit) === -1) {
+                                                    unitOption.push(<Option value={history.useCase.unit}
+                                                                            key={index + 1}>
+                                                        {history.useCase.unit}
+                                                    </Option>)
+                                                }
+                                                if (this.state.unit === 'all') {
+                                                    interfacesAjaxItems.push(obj);
+                                                } else if (this.state.unit === history.useCase.unit) {
+                                                    interfacesAjaxItems.push(obj);
+                                                }
                                             }
-                                        }
-                                        if (addItem) interfacesItems.push(item);
-                                    } else {
-                                        interfacesItems.push(item);
+                                        })
                                     }
                                 });
                             }
                             interfacesItemsPagination = {
-                                total: interfacesItems.length,
+                                total: interfacesAjaxItems.length,
                                 pageSize: 5
                             }
                         }
@@ -370,14 +404,22 @@ export default class ApiPtestContainer extends React.Component {
                                         onClick={this.batchRequest.bind(this, interfacesAjaxItems)}>批量请求接口</Button>
                                 <div className="request">
                                     <Select value={this.state.request}
-                                            onChange={this.testSelect_changeHandler.bind(this)}>
+                                            onChange={this.testSelect_changeHandler.bind(this, 'http')}>
                                         <Option value="http">http</Option>
                                         <Option value="https">https</Option>
+                                    </Select>
+                                </div>
+                                <div className="unit">
+                                    <Select value={this.state.unit}
+                                            onChange={this.testSelect_changeHandler.bind(this, 'unit')}>
+                                        <Option value="all" key='0'>全部</Option>
+                                        {unitOption}
                                     </Select>
                                 </div>
                                 <EnvSelecter onSubmitUrl={this.handleReturnUrl.bind(this)} {...this.props}/>
                             </div>
                             <div className="apiPtest-main">
+                                <ApiTestLogin ref="apiTestLogin" {...this.props}/>
                                 <div className='apiPtest-progress'
                                      style={{display: this.state.interfacesPercent === 0 ? 'none' : 'block'}}>
                                     <h3 >当前进度 ：</h3>
@@ -385,25 +427,43 @@ export default class ApiPtestContainer extends React.Component {
                                     <span
                                         className='progress-tips'>{this.state.interfacesPercent == 100 ? '已完成' : this.state.request + '://' + this.state.envStatus + '/' + this.state.progressUrl}</span>
                                 </div>
-                                <div className="apiPtest-request"
-                                     style={{display: this.state.interfacesPercent === 0 ? 'none' : 'block'}}>
-                                    <h3>测试结果</h3>
+                                <div className="apiPtest-useCase">
+                                    <h3>需测试列表</h3>
                                     <Table
-                                        dataSource={ this.state.requestArr }
-                                        columns={ this.state.requestColumns}
-                                        bordered={true}
-                                        onRowClick={this.showApiInfo_clickHandler.bind(this)}
-                                    />
-                                </div>
-                                <div className="apiPtest-unasked">
-                                    <h3>无测试记录</h3>
-                                    <Table
-                                        dataSource={ interfacesItems }
-                                        columns={ this.state.unaskedColumns}
+                                        dataSource={ interfacesAjaxItems }
+                                        columns={ this.state.useCaseColumns}
                                         bordered={true}
                                         pagination={interfacesItemsPagination}
-                                        rowKey="_id"
                                     />
+                                </div>
+                                <div style={{paddingBottom: '50px'}}>
+
+                                    <Tag className='noPoint' color="green" style={{marginBottom: '20px'}}>返回结果</Tag>
+                                    <Collapse defaultActiveKey={['1']}>{
+                                        this.state.requestArr.length > 0 && (() => this.state.requestArr.map((val, index) => (
+                                            <Panel header={val.history[val.index].useCase.name} key={"res" + index}>
+                                                <Row>
+                                                    <Col span={12}>
+                                                        <div style={{borderRight: '1px dashed #1DA57A'}}>
+                                                            <JsonEditorBox successResult={val.data}/>
+                                                        </div>
+                                                    </Col>
+                                                    <Col span={12}>
+                                                        <div style={{background: '#ECECEC'}}>
+                                                            <Card title="测试未通过原因" bordered={false} noHovering={true}>
+                                                                {(() => val.error.length > 0 && val.error.map((item, itemIndex) => (
+                                                                    <p key={'item' + itemIndex}
+                                                                       style={{'color': '#FA5555'}}>{(itemIndex + 1) + '. ' + item}</p>)))()}
+                                                            </Card>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+
+
+                                            </Panel>
+                                        )))()
+                                    }
+                                    </Collapse>
                                 </div>
                             </div>
                         </div>)
@@ -413,3 +473,5 @@ export default class ApiPtestContainer extends React.Component {
         );
     }
 }
+
+export default useCaseAlert()(ApiPtestContainer)

@@ -7,11 +7,7 @@ import {bindActionCreators} from 'redux';
 import * as globalActions from '~actions/global';
 import  MainNav  from '~components/common/MainNav';
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators(globalActions, dispatch)
-)
-export default class News extends React.Component {
+class News extends React.Component {
 
     componentWillMount() {
     }
@@ -29,3 +25,8 @@ export default class News extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators(globalActions, dispatch)
+)(News)

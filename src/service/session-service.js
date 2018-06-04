@@ -6,6 +6,6 @@ import * as userActions from '../actions/user'
 
 export default {
     logout(){
-        store.dispatch(userActions.logoutUser({ res: { token: '' }}))
+        store.dispatch(userActions.logoutUser({ res: { token: '' , userId: '', username: '', auth: ''}}))
     }
 }

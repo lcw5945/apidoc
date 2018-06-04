@@ -26,12 +26,15 @@ const ActionType = {
     IF_RC_LIST: 'receive interface list',
     IF_DEL: 'delete interface',
     IF_UPDATE_ADD: 'update add interface',
+    IF_PAGE_STATUS:'interface page status',
 
      /** itemplete **/
      ITEMP_RQ_LIST: 'request itemplete list',
      ITEMP_RC_LIST: 'receive itemplete list',
      ITEMP_DEL: 'delete itemplete',
      ITEMP_UPDATE_ADD: 'update add itemplete',
+
+
 
     /** state code **/
     SC_RQ_LIST: 'request state-code list',
@@ -72,6 +75,7 @@ const ActionType = {
     USER_UPDATE: 'update user',
     USER_RESET: 'reset user',
     USER_LOGIN: 'login user',
+    USER_AUTOLOGIN: 'auto login user',
     USER_LOGOUT: 'logout user',
     USER_SEARCH: 'search user',
     USER_MULTIPLE: 'get multiple user',
@@ -86,6 +90,10 @@ const ActionType = {
     GROUP_CLEAR: 'group_clear',
 
     INTERFACE_DETAIL:'interface detail',
+
+    LOGIN_TEST:'login test',
+
+
 };
 
 export default ActionType;

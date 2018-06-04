@@ -113,10 +113,10 @@ export default class MaybeModal extends React.Component {
 
         switch (inputType) {
             case 'valueCont' :
-                maybeData[index].valueCont = e.target.value;
+                maybeData[index].valueCont = e.target.value.trim();
                 break;
             case 'valueDes' :
-                maybeData[index].valueDes = e.target.value;
+                maybeData[index].valueDes = e.target.value.trim();
                 break;
         }
 

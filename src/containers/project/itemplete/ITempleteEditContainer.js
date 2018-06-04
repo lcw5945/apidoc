@@ -11,14 +11,17 @@ import ProjectSubnav from "~components/common/ProjectSubnav";
 import RequestParam from "~components/project/RequestParam/index";
 import ReturnParam from "~components/project/ReturnParam";
 import JsonEditorBox from "~components/project/JsonEditorBox";
+import JsonMockBox from "~components/project/JsonMockBox";
 import TemplateSelect from "~components/project/TemplateSelect";
 import Utils from '~utils'
 import _ from 'lodash';
 import ReactQuill from 'react-quill';
 import {quill} from "~constants/param-type";
+import {ProjectUserAuth} from '~components/project/ProjectUserAuthority';
+
 const Option = Select.Option;
 
-export default class ApiEditContainer extends React.Component {
+class ApiEditContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,7 +38,9 @@ export default class ApiEditContainer extends React.Component {
             hasEmptyReturnData: false,
             successResult:{},
             errorResult:{},
-            errorClickStatus:false
+            mockResult:{},
+            errorClickStatus:false,
+            userAuthority:this.getUserAuthority(),
         }
     }
 
@@ -57,6 +62,7 @@ export default class ApiEditContainer extends React.Component {
             parameter_list = [],
             returnData_list = [],
             successResult = {},
+            mockResult = {},
             errorResult = {};
 
 
@@ -76,6 +82,9 @@ export default class ApiEditContainer extends React.Component {
 
                     if (dataResult.apiJson && dataResult.apiJson.errorResult) {
                         errorResult = dataResult.apiJson.errorResult;
+                    }
+                    if (dataResult.apiJson && dataResult.apiJson.mockResult) {
+                        mockResult = dataResult.apiJson.mockResult;
                     }
 
                     if (dataResult['params'] && _.isArray(dataResult['params'])) {
@@ -118,11 +127,13 @@ export default class ApiEditContainer extends React.Component {
                     returnData_list,
                     quillText:dataResult.remark||'',
                     successResult,
-                    errorResult
+                    errorResult,
+                    mockResult
                 })
 
                 this.refs.jsonEditorBox.setEditorSuc(successResult);
                 this.refs.jsonEditorBox.setEditorErr(errorResult);
+                this.refs.jsonMockBox.setEditorMock(mockResult);
 
 
             } catch (e) {
@@ -193,6 +204,7 @@ export default class ApiEditContainer extends React.Component {
             returnData = this.state.returnData_list, //返回说明
             successResult = {}, //成功结果
             errorResult = {}, //失败结果
+            mockResult = {},
             canClick = true;
 
         this.setState({
@@ -226,6 +238,17 @@ export default class ApiEditContainer extends React.Component {
             message.error('失败结果 json 格式有错误 请检查后重试');
             canClick = false
         }
+        try {
+            mockResult = this.refs.jsonMockBox.getEditorMock();
+        } catch (e) {
+            message.error('mock结果 json 格式有错误 请检查后重试');
+            canClick = false
+        }
+        if (!canClick) {
+            this.setState({
+                loading: false,
+            });
+        }
 
         //封装数据并提交
         if (canClick) {
@@ -236,22 +259,25 @@ export default class ApiEditContainer extends React.Component {
             opt.returnData= returnData;
             opt.apiJson= {
                 successResult,
-                errorResult
+                errorResult,
+                mockResult
             };
 
             let itemplate = this.state.itemplateObj;
-                itemplate.data = opt;
+
+            itemplate.data = opt;
+            itemplate.projectId= this.state.queryData.projectId;
 
             if (id!="0") {
                 itemplate.id = id;
             }
 
             this.props.fetchUpdateAddITemplete(paramsFormat(itemplate), (data) => {
-                this.props.history.push(`/project/itemplete/edit?itempleteId=0`);
-
+                this.props.history.push(`/project/itemplete/edit?itempleteId=0&projectId=${this.state.queryData.projectId}&groupId=-1&apiId=${this.state.queryData.apiId}`);
                 this.clearState();
-
             });
+
+
         }
 
     }
@@ -279,6 +305,7 @@ export default class ApiEditContainer extends React.Component {
 
         this.refs.jsonEditorBox.setEditorSuc({});
         this.refs.jsonEditorBox.setEditorErr({});
+        this.refs.jsonMockBox.setEditorMock({});
         this.refs.requestParam.fromFatherData([]);
         this.refs.returnParam.fromEditContainerData([]);
         this.refs.ApiEditBase.clearData()
@@ -327,11 +354,22 @@ export default class ApiEditContainer extends React.Component {
         })
     }
 
+    /*
+     * 用户权限
+     * */
+    getUserAuthority(){
+
+        let userAuthority = this.props.user.proUserAuth||{};
+
+
+        return userAuthority.authority;
+
+    }
 
 
     render() {
         let state = this.state;
-        const {queryData,dataResult={},itemplateObj,itempleteId} = this.state;
+        const {queryData,dataResult={},itemplateObj,itempleteId,userAuthority} = this.state;
         let key=itempleteId;
 
 
@@ -370,7 +408,9 @@ export default class ApiEditContainer extends React.Component {
                                  key={"ApiEditBase"+key}
                                  {...this.props}
                                  option={dataResult}
-                                 verify={false}     />
+                                 verify={false}
+                                 userAuthority={userAuthority}
+                                />
 
 
                     {
@@ -382,19 +422,24 @@ export default class ApiEditContainer extends React.Component {
                                     <RequestParam ref='requestParam'
                                                   key={"requestParam"+key}
                                                   { ...this.props }
-                                                  requestParame={this.state.parameter_list} />
+                                                  requestParame={this.state.parameter_list}
+                                                  userAuthority={userAuthority}
+                                    />
                                     {/*----------------------- 返回说明----------------------------*/}
                                     <h4 className='edit_parameter_box'>返回说明：</h4>
                                     <ReturnParam ref='returnParam'
                                                  key={"ReturnParam"+key}
                                                  returnParame={this.state.returnData_list}
                                                  fromReturnParamData={this.fromReturnParamData.bind(this)}
-                                                 { ...this.props }/>
+                                                 { ...this.props }
+                                                 userAuthority={userAuthority}
+                                    />
                                     {/*----------------------- 返回结果----------------------------*/}
                                     <section>
                                         <JsonEditorBox ref='jsonEditorBox'
                                                        successResult={this.state.successResult}
                                                        errorResult={this.state.errorResult}
+                                                       mode="itemplate"
                                                        options={{
                                                            history: false,
                                                            mode: 'code',
@@ -403,6 +448,22 @@ export default class ApiEditContainer extends React.Component {
                                                                this.modalError(message)
                                                            }
                                                        }}
+                                        />
+                                    </section>
+                                    {/*----------------------- mock结果----------------------------*/}
+                                    <section>
+                                        <JsonMockBox ref='jsonMockBox'
+                                                     mockResult={this.state.mockResult}
+                                                     userAuthority={userAuthority}
+                                                     mode="eidt"
+                                                     options={{
+                                                         history: false,
+                                                         mode: 'code',
+                                                         indentation: 3,
+                                                         onError: (message) => {
+                                                             this.modalError(message)
+                                                         }
+                                                     }}
                                         />
                                     </section>
 
@@ -433,5 +494,4 @@ export default class ApiEditContainer extends React.Component {
 
 }
 
-
-
+export default ProjectUserAuth(ApiEditContainer)

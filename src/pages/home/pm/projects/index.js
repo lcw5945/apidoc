@@ -8,18 +8,18 @@ import * as globalActions from '~actions/global';
 import * as projectActions from '~actions/project';
 import PropTypes from 'prop-types';
 import {paramsFormat} from '~common/http';
-import  SubNav  from '~components/common/SubNav';
-import  ProjectContainer  from '~containers/home/ProjectContainer';
-import  MainNav  from '~components/common/MainNav';
+import SubNav  from '~components/common/SubNav';
+import ProjectContainer  from '~containers/home/ProjectContainer';
+import MainNav  from '~components/common/MainNav'
+import PersistConf from '~constants/persist-config'
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...projectActions}, dispatch)
-)
-export default class Projects extends React.Component {
+
+class Projects extends React.Component {
 
     componentWillMount() {
-        if (!this.props.entity['projects'] || this.props.entity['projects'].didInvalidate) {
+
+        let pjData = this.props.entity['projects']
+        if (!pjData || pjData.didInvalidate || (Date.now() - pjData.lastUpdated > PersistConf.expires)) {
             this.props.fetchProjectCheckList(paramsFormat({}));
         }
     }
@@ -28,7 +28,7 @@ export default class Projects extends React.Component {
         return (
             <div>
                 <MainNav/>
-                <SubNav subNavType='homeList'/>
+                <SubNav subNavType='homeList' { ...this.props }/>
                 <ProjectContainer { ...this.props }/>
             </div>
         )
@@ -40,3 +40,8 @@ Projects.propTypes = {
     location: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...projectActions}, dispatch)
+)(Projects)

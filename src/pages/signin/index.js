@@ -8,23 +8,28 @@ import {connect} from 'react-redux'
 import {Form, Icon, Input, Button, Row, Col} from 'antd'
 import * as userActions from '~actions/user';
 import * as globalActions from '~actions/global';
+import {paramsFormat} from '~common/http';
 import {canvasAnt} from '~utils/canvasAnt';
+import {AUTH_DOMAIN} from '~constants/const-config'
 import Logo from '../../assets/images/logo.png';
+import ReduxPersist from '~constants/persist-config';
+import Local from '~utils/local';
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
-)
-@Form.create({})
-export default class Login extends Component {
+
+class Login extends Component {
     constructor(props) {
         super(props);
 
         this.submit_handler = this.submit_handler.bind(this);
     }
 
+    componentWillMount() {
+        this.props.fetchAutoLoginUser(paramsFormat({autlogin:true}));
+    }
+
     componentDidMount() {
         canvasAnt("login");
+        // window.location.href = AUTH_DOMAIN
     }
 
     /**
@@ -36,7 +41,7 @@ export default class Login extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 this.props.fetchLoginUser(values, (data)=>{
-                        // Local.setItem(ReduxPersist.cacheType.USERINFO, data);
+                        Local.setItem(ReduxPersist.cacheType.USERINFO, data);
                         this.props.history.push('/home/pm/project');
                 });
             }
@@ -95,3 +100,8 @@ export default class Login extends Component {
         )
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+)(Form.create({})(Login))

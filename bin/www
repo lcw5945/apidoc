@@ -4,11 +4,21 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug');
-var http = require('http');
-var opn = require('opn');
-var config = require('../config/web');
+const app = require('../server/app')
+const debug = require('debug')
+const http = require('http')
+const https = require('https')
+const fs = require('fs')
+const opn = require('opn')
+
+var config = require('../config/web')
+// import cooper from '../controls/api/project/cooper'
+
+// console.log(cooper);
+const options = {
+  key: fs.readFileSync(__dirname + '/data/keys/server_gen.key'),
+  cert: fs.readFileSync(__dirname + '/data/keys/server_gen.pem')
+};
 
 /**
  * Get port from environment and store in Express.
@@ -16,6 +26,53 @@ var config = require('../config/web');
 
 var port = normalizePort(config.server.port || '3000');
 app.set('port', port);
+
+/**
+ * Create HTTPS server.
+ */
+// var servers = https.createServer(options, app)
+// servers.listen(443);
+// servers.on('error', onErrors);
+// servers.on('listening', onListenings);
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onErrors(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = 'Port ' + 443;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListenings() {
+  var addr = servers.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+    debug.log('Listening on ' + bind);
+}
+
 
 /**
  * Create HTTP server.
@@ -94,4 +151,6 @@ function onListening() {
     // if (process.env.NODE_ENV !== 'testing') {
     //     opn(uri)
     // }
+
+    // cooper.start()
 }

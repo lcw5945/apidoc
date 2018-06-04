@@ -145,6 +145,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             _: "lodash",
             "window._": "lodash",
+            "Log": 'hefan-log'
         }),
     ],
     node: {

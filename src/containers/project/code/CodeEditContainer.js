@@ -7,12 +7,15 @@ import { Link } from "react-router-dom";
 import { Button, Input, Modal, Select, message } from "antd";
 import { paramsFormat } from "~common/http";
 import ProjectSubnav from "~components/common/ProjectSubnav";
+import RequestParam from "~components/project/RequestParam/index";
 import JsonEditorBox from "~components/project/JsonEditorBox";
 import Utils from '~utils'
 import _ from 'lodash';
 import Quill from '~components/common/Quill';
-import SearchParam from '~components/project/SearchParam';
-export default class CodeEditContainer extends React.Component {
+import SearchParam from '~components/project/SearchParam'
+import {ProjectUserAuth} from '~components/project/ProjectUserAuthority';
+
+class CodeEditContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,8 +47,6 @@ export default class CodeEditContainer extends React.Component {
             codeData = null,
             codeId = queryData.codeId || '-1',
             groupId = queryData.groupId || '-1',
-            paramList = [],
-            codeList = this.props['entity']['statecodes'][queryData['projectId']]['items'],
             codeDataCopy = {
                 description: "",
                 groupId: "-1",
@@ -57,23 +58,35 @@ export default class CodeEditContainer extends React.Component {
                 projectId: queryData['projectId'],
                 groupId: queryData['groupId'],
                 id: queryData['codeId'] == -1 ? '' : queryData['codeId']
-            };
-        paramList = codeList.map(val => ({ name: val.scode, paramList: val.paramList }))
-        paramList = paramList.filter(val => val.paramList.length > 0)
+            },
+            dataResult;
         if (String(codeId) !== '-1') {
             try {
-                codeData = _.filter(codeList, ['_id', codeId])[0];
-                codeDataCopy = Object.assign(codeDataCopy, Utils.copy(codeData));
-                console.log('22222', paramList)
+                this.props.fetchStateCodeCheckList(paramsFormat({projectId: queryData.projectId}), data => {
+                    Object.assign(codeDataCopy, _.filter(data['details'], ['_id', codeId])[0]);
+                    dataResult = Utils.copy(codeDataCopy);
+                    this.initState(dataResult)
+                });
             } catch (e) {
                 console.log(e)
             }
+        }else{
+            this.initState(codeDataCopy)
         }
+    }
+
+    initState(dataResult) {
+        let {paramList} = dataResult
         this.setState({
-            scodeData: codeDataCopy,
+            scodeData: dataResult,
             paramList
         })
+        console.log('initState--------------------->', dataResult)
+        if(this.refs['returnParam']){
+            this.refs.returnParam.fromFatherData(paramList);
+        }
     }
+
     /*
      * 保存
      * */
@@ -82,7 +95,8 @@ export default class CodeEditContainer extends React.Component {
             id = queryData.apiId || '';
         let remark = this.refs.remarkRef.getVal(),
             canClick = true,
-            codeJson = '';
+            codeJson = '',
+            returnData = this.refs.returnParam.getParamData()
 
 
 
@@ -93,17 +107,18 @@ export default class CodeEditContainer extends React.Component {
             canClick = false
         }
 
-        if (canClick && !this.refs.searchParam.validate() && this.state.scodeData.description && this.state.scodeData.scode) {
+
+        if (canClick && returnData.isVerify && this.state.scodeData.description && this.state.scodeData.scode) {
             let opt = this.state.scodeData;
             canClick = false
             opt.json = codeJson;
             opt.remark = remark;
+            opt.paramList = returnData.data;
             this.setState({
                 loading: true
             });
             this.props.fetchUpdateAddStateCode(paramsFormat(opt), (data) => {
                 this.props.history.push(`/project/code/list?projectId=${queryData['projectId']}&groupId=-1`);
-
             });
         } else {
             this.setState({
@@ -138,10 +153,9 @@ export default class CodeEditContainer extends React.Component {
         try {
             groupList = _.filter(this.props['entity']['groups'][queryData['projectId']]['items'], ['type', "scode"]);
         } catch (e) {}
-
         return (
             <div>
-                <ProjectSubnav />
+                <ProjectSubnav {...this.props} />
                 <div className="apiEdit" style={{'left': groupCmp.width}}>
                     <header className='apiEditBtnBox'>
                         <Link to={"/project/code/list?projectId=" + queryData.projectId + "&groupId=" + groupId + ""}>
@@ -160,18 +174,18 @@ export default class CodeEditContainer extends React.Component {
                                         value={this.state.scodeData.scode}
                                         onChange={this.inputValHandler.bind(this, this.state.scodeData,'scode')}
                                         placeholder="请输入状态码"/></label>
-                                        <label><span className='edit_name'>类型：</span><Input
-                                        className={"edit_input"}
-                                        defaultValue={this.state.scodeData.type}
-                                        value={this.state.scodeData.type}
-                                        onChange={this.inputValHandler.bind(this, this.state.scodeData,'type')}
-                                        placeholder="请输入类型"/></label>
                                         <label><span className='edit_name'><em>*</em>描 述：</span><Input
                                         className={!this.state.scodeData.description && this.state.errorClickStatus ? "edit_input g-errorTip" : "edit_input"}
                                         defaultValue={this.state.scodeData.description || ''}
                                         value={this.state.scodeData.description}
                                         onChange={this.inputValHandler.bind(this, this.state.scodeData,'description')}
                                         placeholder="请输入描述"/></label>
+                                        <label><span className='edit_name'>类 型：</span><Input
+                                            className={"edit_input"}
+                                            defaultValue={this.state.scodeData.type}
+                                            value={this.state.scodeData.type}
+                                            onChange={this.inputValHandler.bind(this, this.state.scodeData,'type')}
+                                            placeholder="请输入类型"/></label>
                                         {
                                         <label  id='paramGroup'>
                                             <span className='edit_name'>分  组：</span>
@@ -196,11 +210,16 @@ export default class CodeEditContainer extends React.Component {
                                           {/*----------------------- 返回说明----------------------------*/}
                                     <section> 
                                         <h4 className='edit_parameter_box'>字段说明：</h4>
-                                        <SearchParam ref='searchParam'
+                                        {/*<SearchParam ref='searchParam'
                                             searchParam={this.state.paramList}
                                             paramList={this.state.scodeData.paramList}
                                             paramHandler={this.scodeParamHandler.bind(this)}
-                                            { ...this.props }/> 
+                                            { ...this.props }/>*/}
+                                        <RequestParam ref='returnParam'
+                                                      { ...this.props }
+                                                      returnParame={this.state.scodeData.paramList}
+                                                      userAuthority={this.props.user.proUserAuth.authority}
+                                        />
                                         </section>
                                  
                                    <section>
@@ -239,3 +258,5 @@ export default class CodeEditContainer extends React.Component {
     }
 
 }
+
+export default ProjectUserAuth(CodeEditContainer)

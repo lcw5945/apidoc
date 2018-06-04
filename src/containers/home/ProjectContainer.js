@@ -55,6 +55,13 @@ export default class ProjectListContainer extends React.Component {
                     return <Tag className='noPoint' color="green">{text}</Tag>
                 }
             }, {
+                title: '拥有者',
+                dataIndex: 'adminInfo.username',
+                key: 'adminInfo.username',
+                render: (text) => {
+                    return text
+                }
+            }, {
                 title: '项目最后修改时间',
                 dataIndex: 'lastTime',
                 key: 'lastTime',
@@ -68,8 +75,10 @@ export default class ProjectListContainer extends React.Component {
                 dataIndex: 'action',
                 key: 'action',
                 render: (text, record) => {
+
                     let hfApiUserInfo = that.props.user;
-                    if (record.admin === hfApiUserInfo.userId || hfApiUserInfo.auth > 1) {
+
+                    if (record.admin === hfApiUserInfo.userId || hfApiUserInfo.auth > 2) {
                         return (
                             <div>
                                     <Button size="small" icon="edit"
@@ -286,7 +295,9 @@ export default class ProjectListContainer extends React.Component {
      * */
     goApiList(record, index, event) {
         let _id = record._id;
+        this.props.groupClear(); //清除下分组模块的搜索input为初始状态
         this.props.history.push("/project/api/list?projectId=" + _id + "&groupId=-1")
+
     }
 
 
@@ -333,17 +344,26 @@ export default class ProjectListContainer extends React.Component {
             type,
             version
         } = data;
+
+
+
         let dataModal = this.state.addDataSource;
+
 
         if (mType == 'eidt') {
             dataModal.title = "修改项目";
             dataModal.key = data.key;
             dataModal.name = name;
             dataModal.version = version;
+        } else {
+            dataModal.title = "新增项目";
+            dataModal.key = "";
+            dataModal.name = "";
+            dataModal.version = "";
         }
 
-        Utils.setValueById("dataSourceName", name)
-        Utils.setValueById("dataSourceHv", version)
+        Utils.setValueById("dataSourceName", dataModal.name)
+        Utils.setValueById("dataSourceHv", dataModal.version)
         this.setState({
             selectChangeHandleNum: type
         });
@@ -361,7 +381,7 @@ export default class ProjectListContainer extends React.Component {
                             <Col span={15}>
                                 <p>版本号：</p>
                                 <Input defaultValue={dataModal.version} id="dataSourceHv" placeholder="请输入版本号，比如1.0"/>
-            </Col>
+                            </Col>
 
                             <Col span={2}></Col>
                             <Col span={7}>
@@ -407,8 +427,6 @@ export default class ProjectListContainer extends React.Component {
 
     }
 
-
-
     render() {
 
         const {
@@ -429,7 +447,7 @@ export default class ProjectListContainer extends React.Component {
         </Menu>;
 
         return (
-            <div>
+            <div className='ProjectListBox'>
                 <Dialog  ref="getDialog"/>
 
                 <div className="ProjectList">

@@ -10,7 +10,7 @@ export const createAsynAction = (api, requestAction, receiveAction) => (params, 
             .then(function (data) {
                 receiveAction && dispatch(receiveAction({ req: params, res: data, receivedAt: Date.now() }));
                 resolve && resolve(data);
-                catchAction(receiveAction);
+                catchAction(receiveAction, data);
             }, function (error) {
                 reject && reject(error);
                 catchError(error);

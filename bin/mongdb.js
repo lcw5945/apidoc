@@ -14,9 +14,9 @@ const setting = Object.assign({}, {useMongoClient: true}, options);
 console.log(url)
 mongoose.connect(url, setting).then(
     () => {
-        debug.log('Mongoose connection open to: ' + DB.url);
+        console.log('Mongoose connection open to: ' + DB.url);
     },
     err => {
-        debug.log('Mongoose connection error: ' + err);
+        console.log('Mongoose connection error: ' + err);
     }
 );

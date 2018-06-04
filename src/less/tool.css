@@ -1,0 +1,52 @@
+#toolBox > .toolBox-area {
+  height: 86%;
+  overflow-y: scroll;
+  padding-top: 50px;
+  margin-left: 50px;
+}
+#toolBox > .toolBox-area > .content {
+  margin-bottom: 14px;
+}
+#toolBox > .toolBox-area > .content > h6 {
+  font-size: 20px;
+  line-height: 1;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+#toolBox > .toolBox-area > .content > a > .box {
+  float: left;
+  width: 200px;
+  height: 100px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  margin-top: 14px;
+  margin-right: 14px;
+  padding-left: 20px;
+  padding-top: 20px;
+  color: #000;
+  cursor: pointer;
+}
+#toolBox > .toolBox-area > .content > a > .box > .box-title {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+#toolBox > .toolBox-area > .content > a > .box > .box-explain {
+  font-size: 14px;
+  line-height: 1;
+}
+#toolBox > .toolBox-area > .content > a > .box:hover {
+  background-color: #00B7A8;
+  color: #fff;
+}
+.clearfix:after {
+  content: ' ';
+  height: 0;
+  display: block;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}

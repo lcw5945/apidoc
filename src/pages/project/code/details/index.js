@@ -13,12 +13,7 @@ import Utils from '~utils';
 import {paramsFormat} from '~common/http';
 
 
-
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...interfaceActions}, dispatch)
-)
-export default class CodeDetails extends React.Component {
+class CodeDetails extends React.Component {
 
     constructor(props) {
         super(props);
@@ -36,9 +31,15 @@ export default class CodeDetails extends React.Component {
         return (
             <div>
                 <MainNav/>
-                <SubNav subNavType='childList'/>
+                <SubNav {...this.props} subNavType='childList'/>
                 <CodeDetailContainer {...this.props}/>
             </div>
         );
     }
 }
+
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...interfaceActions}, dispatch)
+)(CodeDetails)

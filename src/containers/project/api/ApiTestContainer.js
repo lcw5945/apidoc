@@ -5,7 +5,7 @@
  * Created by Cray on 2017/7/20.
  */
 import React from 'react';
-import {Table, Button, Modal, Select, Input, Popconfirm, Col, Icon, Switch, message} from 'antd';
+import {Table, Button, Modal, Select, Input, Popconfirm, Col, Icon, Switch, message, Checkbox, Row} from 'antd';
 import {Link} from 'react-router-dom';
 import {paramsFormat} from '~common/http';
 import ProjectSubnav from "~components/common/ProjectSubnav";
@@ -18,9 +18,13 @@ import RequestParam from "~components/project/RequestParam/index";
 import RequestHead from "~components/project/requestHead";
 import MoreButton from "~components/project/MoreButton";
 import JsonEditorBox from "~components/project/JsonEditorBox";
+import ApiTestLogin from "~components/project/ApiTestLogin/index";
+import {useCaseAlert} from '~components/project/useCaseAlert';
 import {API_HOST} from '~constants/api-host';
+import _ from 'lodash';
+import {ProjectUserAuth} from '~components/project/ProjectUserAuthority';
 
-export default class ApiTestContainer extends React.Component {
+class ApiTestContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,7 +41,11 @@ export default class ApiTestContainer extends React.Component {
 
     // 跳转回api列表页
     backApiList() {
-        this.props.history.push(`/project/api/list?projectId=${this.state.queryData.projectId}&groupId=${this.state.queryData.groupId}`);
+
+        let proId = this.state.queryData.projectId
+        let pageStatus = this.props.global.interfaceCmp.pageStatus[proId]
+
+        this.props.history.push(`/project/api/list?projectId=${proId}&groupId=${pageStatus.groupId}&from=idetail`);
     }
 
     /**
@@ -99,6 +107,8 @@ export default class ApiTestContainer extends React.Component {
         let params = {} // 请求参数
         let options = '';
         let paramResult = this.refs.requestParam.getParamData();
+        let loginData = this.refs.apiTestLogin.getLoginData(); //登录信息数据
+
         // 有空值
         if (!paramResult.isVerify) {
             return false;
@@ -106,6 +116,9 @@ export default class ApiTestContainer extends React.Component {
         requestParame = paramResult.data;
         Request.forRequestHead(requestHead, header);
         Request.forRequestParame(requestParame, params);
+        Request.formateForRequestHead(header, loginData)
+        Request.formateHFRequestParame(params, loginData)
+
         options = {
             url,
             host,
@@ -119,7 +132,7 @@ export default class ApiTestContainer extends React.Component {
             this.HistoryRecord(item, data, options);
         }).catch((e) => {
             Modal.error({
-                title: 'This is a notification message',
+                title: '错误信息',
                 content: e.status + '',
             });
         });
@@ -129,7 +142,7 @@ export default class ApiTestContainer extends React.Component {
      *  添加历史记录
      **/
     HistoryRecord(item, data, options) {
-        let history = item.history;
+        let history = item.history||[];
         let obj = {
             data,
             options,
@@ -141,18 +154,26 @@ export default class ApiTestContainer extends React.Component {
             username: this.props.user.username
         }
 
-        let historyFlag;
+        let historyFlag, historyLimit = false;
+        let {projects} = this.props.entity;
         history.length > 0 ? historyFlag = false : historyFlag = true;
         history.forEach((obj1) => {
             let objOptions = Object.assign({header: {}}, obj1.options)
-            if (Utils.isObjectValueEqual(objOptions, obj.options)) {
+            if (_.isEqual(objOptions, obj.options)) {
                 historyFlag = false
             } else {
                 historyFlag = true;
             }
         })
 
-        if (historyFlag) {
+        projects = projects.items.find((data,index)=> data._id === item.projectId)
+
+        projects.cooperGroup.forEach((data, index) => {
+            if (data.userId === this.props.user.userId) historyLimit = true;
+        });
+
+
+        if (historyFlag && historyLimit) {
             history.push(obj);
             this.props.fetchUpdateAddInterface(paramsFormat({
                 id: item._id,
@@ -194,20 +215,19 @@ export default class ApiTestContainer extends React.Component {
         this.refs.requestParam.fromFatherData(data.requestParame);
     }
 
-
     render() {
         const {groupCmp} = this.props.global;
         const {interfaces} = this.props.entity;
-        const {projects} = this.props.entity;
         const queryData = this.state.queryData = Utils.parseUrlToData(this.props.location.search);
         const Option = Select.Option;
         let item = {};
+        let host = this.state.request + '://';
 
         return (
             <div>
-                <ProjectSubnav />
+                <ProjectSubnav  {...this.props}/>
                 {
-                    interfaces && projects && (() => {
+                    interfaces && (() => {
                         if (interfaces.hasOwnProperty(queryData.projectId)) {
                             const {items} = interfaces[queryData.projectId];
                             // 查找本页面的数据
@@ -224,100 +244,115 @@ export default class ApiTestContainer extends React.Component {
                             if (!this.state.url) this.state.url = Utils.foramtUrl(API_HOST + '/mock', item.URI);
                         }
 
-                        return (<div className="apiTest" style={{'left': groupCmp.width}}>
-                            <div className="buttons clearfix">
-                                <Button icon="left"
-                                        onClick={this.backApiList.bind(this)}>接口列表</Button>
-                                <Button icon="info-circle"
-                                        onClick={this.goToDetails.bind(this)}>详情</Button>
-                                <Button icon="caret-right" type="primary">测试</Button>
-                                <MoreButton {...this.props} item={item}/>
+                        return (<div>
+                            <div className="apiTest" style={{'left': groupCmp.width}}>
+                                <div className="buttons clearfix">
+                                    <Button icon="left"
+                                            onClick={this.backApiList.bind(this)}>接口列表</Button>
+                                    <Button icon="info-circle"
+                                            onClick={this.goToDetails.bind(this)}>详情</Button>
+                                    <Button icon="caret-right" type="primary">测试</Button>
+                                    <MoreButton {...this.props} item={item}/>
 
-                                <EnvSelecter onSubmitUrl={this.handleReturnUrl.bind(this)} item={item} {...this.props}/>
-                            </div>
-                            <div className="apiTest-main">
-                                <div className="address clearfix">
-                                    <div className="request">
-                                        <Select value={this.state.request}
-                                                onChange={this.testSelect_changeHandler.bind(this, 'request')}>
-                                            <Option value="http">http</Option>
-                                            <Option value="https">https</Option>
-                                        </Select>
-                                    </div>
-                                    <div className="colon">:</div>
-                                    <div className="url">
-                                        <Input value={this.state.url}
-                                               onChange={this.testInputUrl_changeHandler.bind(this)}/>
-                                    </div>
-                                    <div className="api-status">
-                                        <Select value={this.state.dataType || item.dataType}
-                                                onChange={this.testSelect_changeHandler.bind(this, 'dataType')}>
-                                            <Option value="GET">GET</Option>
-                                            <Option value="POST">POST</Option>
-                                            <Option value="PUT">PUT</Option>
-                                            <Option value="DELETE">DELETE</Option>
-                                            <Option value="HEAD">HEAD</Option>
-                                            <Option value="PATCH">PATCH</Option>
-                                            <Option value="OPTIONS">OPTIONS</Option>
-                                        </Select>
-                                    </div>
-                                    <div className="send">
-                                        <Button icon="rocket" type="primary"
-                                                onClick={this.sendAjax.bind(this, item)}>发送</Button>
-                                    </div>
+                                    <EnvSelecter onSubmitUrl={this.handleReturnUrl.bind(this)}
+                                                 item={item} {...this.props}/>
                                 </div>
-                                <div className="request-head">
-                                    <div className="request-head-top">请求头部</div>
-                                    <RequestHead requestHead={this.state.requestHead}
-                                                 OnfromSubRequestHeadData={this.fromSubRequestHeadData.bind(this)}/>
-                                </div>
-                                <div className="request-parame">
-                                    <div className="request-parame-top">请求参数</div>
-                                    <RequestParam ref='requestParam' {...this.props}
-                                                  requestParame={this.state.requestParame}/>
-                                </div>
-                                <JsonEditorBox ref='jsonEditorBox'/>
-                                <div className="history">
-                                    <div className="history-top">请求历史</div>
-                                    <div className="history-list">
-                                        <ul>
-                                            {
-                                                item.history && item.history.map((data, index) => {
-                                                    let date = <span className="list-span"></span>;
-                                                    if (data.date) {
-                                                        date = <span className="list-span">
+                                <div className="apiTest-main">
+                                    <div className="address clearfix">
+                                        <div className="request">
+                                            <Select value={this.state.request}
+                                                    onChange={this.testSelect_changeHandler.bind(this, 'request')}>
+                                                <Option value="http">http</Option>
+                                                <Option value="https">https</Option>
+                                            </Select>
+                                        </div>
+                                        <div className="colon">:</div>
+                                        <div className="url">
+                                            <Input value={this.state.url}
+                                                   onChange={this.testInputUrl_changeHandler.bind(this)}/>
+                                        </div>
+                                        <div className="api-status">
+                                            <Select value={this.state.dataType || item.dataType}
+                                                    onChange={this.testSelect_changeHandler.bind(this, 'dataType')}>
+                                                <Option value="GET">GET</Option>
+                                                <Option value="POST">POST</Option>
+                                                <Option value="PUT">PUT</Option>
+                                                <Option value="DELETE">DELETE</Option>
+                                                <Option value="HEAD">HEAD</Option>
+                                                <Option value="PATCH">PATCH</Option>
+                                                <Option value="OPTIONS">OPTIONS</Option>
+                                            </Select>
+                                        </div>
+                                        <div className="send">
+                                            <Button icon="rocket" type="primary"
+                                                    onClick={this.sendAjax.bind(this, item)}>发送</Button>
+                                        </div>
+                                    </div>
+                                    <ApiTestLogin ref="apiTestLogin" loginEnvStatus={host+this.state.envStatus} {...this.props}/>
+                                    <div className="request-head">
+                                        <div className="request-head-top">请求头部</div>
+                                        <RequestHead requestHead={this.state.requestHead}
+                                                     OnfromSubRequestHeadData={this.fromSubRequestHeadData.bind(this)}/>
+                                    </div>
+                                    <div className="request-parame">
+                                        <div className="request-parame-top">请求参数</div>
+                                        <RequestParam ref='requestParam' {...this.props}
+                                                      requestParame={this.state.requestParame}
+                                                      userAuthority={true}
+                                        />
+                                    </div>
+                                    <JsonEditorBox ref='jsonEditorBox'/>
+                                    <div className="history">
+                                        <div className="history-top">请求历史</div>
+                                        <div className="history-list">
+                                            <ul>
+                                                {
+                                                    item.history && item.history.map((data, index) => {
+                                                        let date = <span className="list-span"></span>;
+                                                        if (data.date) {
+                                                            date = <span className="list-span">
                                                                     {Utils.formatDate(new Date(parseInt(data.date)))}
                                                                 </span>
-                                                    }
-                                                    return (
-                                                        <li key={'history-list' + data.key}>
-                                                            <div className="list_row">
-                                                                <span className='list_count'>{index + 1}</span>
-                                                                <b onClick={this.removeHistoryRecord.bind(this, index, item)}>
-                                                                    <Icon
-                                                                        type="minus-square"
-                                                                        style={{fontSize: '27px', color: '#43a074'}}
-                                                                        className='close_list'/>
-                                                                </b>
-                                                                <div className="list_name"
-                                                                     onClick={this.CheckHistoryRecord.bind(this, data)}>
+                                                        }
+                                                        return (
+                                                            <li key={'history-list' + data.key}>
+                                                                <div className="list_row">
+                                                                    <span className='list_count'>{index + 1}</span>
+                                                                    <b onClick={this.removeHistoryRecord.bind(this, index, item)}>
+                                                                        <Icon
+                                                                            type="minus-square"
+                                                                            style={{fontSize: '27px', color: '#43a074'}}
+                                                                            className='close_list'/>
+                                                                    </b>
+                                                                    <div className="list_name"
+                                                                         onClick={this.CheckHistoryRecord.bind(this, data)}>
                                                                     <span className="list-span">
                                                                         {data.options.method}
                                                                     </span>
-                                                                    <span className="list-span">
+                                                                        <span className="list-span">
                                                                         {data.options.host + data.options.url}
                                                                     </span>
-                                                                    <span className="list-span">
+                                                                        <span className="list-span">
                                                                         {data.username}
                                                                     </span>
-                                                                    {date}
+                                                                        {date}
+                                                                    </div>
+                                                                    <Checkbox
+                                                                        defaultChecked={data.addPtest}
+                                                                        checked={data.addPtest}
+                                                                        onChange={this.props.addPtest.bind(this, item, index)}>
+                                                                        添加到批处理
+                                                                    </Checkbox>
+                                                                    <Button icon="edit" type="primary"
+                                                                            style={{display: data.addPtest ? 'block' : 'none'}}
+                                                                            onClick={this.props.changeUseCase.bind(this, item, index, this)}>修改断言</Button>
                                                                 </div>
-                                                            </div>
-                                                        </li>
-                                                    )
-                                                })
-                                            }
-                                        </ul>
+                                                            </li>
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -328,6 +363,9 @@ export default class ApiTestContainer extends React.Component {
         );
     }
 }
+
+export default useCaseAlert()(ProjectUserAuth(ApiTestContainer))
+
 
 
 

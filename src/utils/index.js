@@ -1,7 +1,7 @@
 /**
  * Created by Cray on 2016/12/6.
  */
-
+let crypto = require('crypto');
 
 Date.prototype.format = function (fmt) {
     const o = {
@@ -30,8 +30,26 @@ Date.prototype.format = function (fmt) {
 
 class Utils {
 
+    /**
+     * 用户名密码加密
+     * @param str
+     * @param key
+     * @returns {*}
+     */
+    static md5(str, key) {
+        let decipher = crypto.createHash('md5', key)
+        if (key) {
+            return decipher.update(str).digest()
+        }
+        return decipher.update(str).digest('hex')
+    }
+
     static isNumber(value) {
         return typeof value === 'number' && isFinite(value);
+    }
+
+    static isString(value) {
+        return typeof value === 'string';
     }
 
     static toUrl(url) {
@@ -229,7 +247,7 @@ class Utils {
     }
 
     static formatDate(d) {
-        return d.getFullYear() + "-" + this.getMonth1(d.getMonth()) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes();
+        return d.getFullYear() + "-" + this.getMonth1(d.getMonth()) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
     }
 
     static getMonth1(m) {
@@ -343,9 +361,8 @@ class Utils {
      * 把uri（http://后）的链接的 // 替换成 /
      * */
     static resolveUrl(uri) {
-        return uri.replace(/\/\//g,"/").replace(/:\//g,"://")
+        return uri.replace(/\/\//g, "/").replace(/:\//g, "://")
     }
-
 
 
     /**
@@ -370,6 +387,13 @@ class Utils {
         }
 
         return true;
+    }
+
+    /**
+     * 获取唯一的key值
+     **/
+    static createOnlyKey(index) {
+        return new Date().getTime() + index + Math.random() * 100000;
     }
 }
 

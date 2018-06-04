@@ -32,9 +32,19 @@
   > .content {
     float: left;
     width: 50%;
-    height: 550px;
+    position: relative;
     > li {
       display: none;
+      .jsonTabEditCont {
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 550px;
+      }
+      .jsoneditor-treepath {
+        display: none;
+      }
       .jsoneditor{
         border: 1px solid #66bb6a;
         color:#66bb6a

@@ -9,11 +9,11 @@ import * as userActions from '~actions/user';
 import  MainNav  from '~components/common/MainNav';
 import  RegisterContainer  from '~containers/user/RegisterContainer';
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
-)
-export default class RegisterUser extends React.Component {
+// @connect(
+//     state => state,
+//     dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+// )
+class RegisterUser extends React.Component {
 
     render() {
         return (
@@ -24,3 +24,8 @@ export default class RegisterUser extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+)(RegisterUser)

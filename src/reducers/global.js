@@ -34,7 +34,12 @@ export const global = handleActions({
         return Object.assign({}, state, {
             "interfaceCmp": combination(state.interfaceCmp, action)
         })
-    }
+    },
+    [ActionType.IF_PAGE_STATUS] (state, action) {
+        return Object.assign({}, state, {
+            "interfaceCmp": combination(state.interfaceCmp, action)
+        })
+    },
 }, {
     groupCmp: {
         searchConent: '',
@@ -42,8 +47,11 @@ export const global = handleActions({
         listId : '-1'
     },
     interfaceCmp:{
-        detail:{}
+        detail:{},
+        ipageStatus:{}
     }
+
+
 });
 
 /**

@@ -19,8 +19,7 @@ class ParamDom extends React.Component {
 
         let option = props.option,
             multi = props.multi.toString(),
-            isShowSwitch = multi.split(",").length < MAX_MULIT ;
-
+            isShowSwitch = multi.split(",").length < MAX_MULIT
 
         let setting = {
             require:"", //参数名称 0 选填 1必填
@@ -39,6 +38,10 @@ class ParamDom extends React.Component {
 
 
         this.state = {values:{...option,multi},...props,isShowSwitch};
+
+
+
+
 
     }
     /**
@@ -59,7 +62,7 @@ class ParamDom extends React.Component {
         let ele=e.target,
             _stateValue = this.state.values;
 
-         _stateValue[Valuetype]=ele.value;
+         _stateValue[Valuetype]=ele.value.trim();
         if(Valuetype == 'key' && !_stateValue[Valuetype]){
             ele.classList.add("g-errorTip");
         }else{
@@ -128,38 +131,60 @@ class ParamDom extends React.Component {
     }
 
 
+
     render(){
 
         var _state = this.state;
         var _values = this.state.values;
         var paramId = "param"+_values.multi;
 
+        let selectOptionOne = '非必含',
+            selectOptionTwo = '必含',
+            labelName = '字段名称',
+            labelType = '字段类型',
+            labelExplain = '字段说明',
+            buttonValue = '字段值可能性'
 
+        if (this.props.isRequestParame) {
+            selectOptionOne = '选填'
+            selectOptionTwo = '必填'
+            labelName = '参数名称'
+            labelType = '参数类型'
+            labelExplain = '参数说明'
+            buttonValue = '参数值可能性'
+        }
         return  <div className="list_row" id={paramId}>
                     <span className='list_count'>{_state.multiKey+1}</span>
-                    <b onClick={this.delete.bind(this)}>
+                    <b onClick={this.delete.bind(this)} style={{display:_state.userAuthority?'block':'none'}}>
                         <Icon className='close_list' type="minus-square" style={{fontSize: '27px',color: '#43a074'}} />
                     </b>
                     <Select  onChange={this.changeSelect.bind(this,'require')}
-                             defaultValue={_values.require}
+                             defaultValue={String(_values.require || 0)}
                              className='edit_method' style={{minWidth: '60px'}}
                              getPopupContainer={() => document.getElementById(paramId)}
+                             disabled = {!_state.userAuthority}
                     >
-                        <Option value="0">选填</Option>
-                        <Option value="1">必填</Option>
+                        <Option value="0">{selectOptionOne}</Option>
+                        <Option value="1">{selectOptionTwo}</Option>
                     </Select>
-                    <label className='list_name'>参数名称：
+                    <label className='list_name'>{labelName}：
                         <Input onChange={this.changeValue.bind(this,'key')}
-                               defaultValue={_values.key} className="list_input paramName" placeholder="Basic usage" id="key"/>
+                               defaultValue={_values.key || _values.name}
+                               className="list_input paramName"
+                               placeholder="Basic usage"
+                               // id="key"
+                               disabled = {!_state.userAuthority}
+                        />
                     </label>
-                    <label className='list_name'>参数类型：
+                    <label className='list_name'>{labelType}：
                         <Select
                             showSearch
                             onChange={this.changeSelect.bind(this,'type')}
-                            defaultValue={_values.type}
+                            defaultValue={_values.type || 'string'}
                             style={{ width: 80 }}
                             placeholder="参数类型"
                             optionFilterProp="children"
+                            disabled = {!_state.userAuthority}
                             getPopupContainer={() => document.getElementById(paramId)}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                         >
@@ -170,27 +195,27 @@ class ParamDom extends React.Component {
                             }
                         </Select>
                     </label>
-                    <label className='list_explain'>参数说明：
+                    <label className='list_explain'>{labelExplain}：
                         <Tooltip placement="topLeft" title={_values.des} trigger={['hover']}>
                             <Input  defaultValue={_values.des}
                                     onChange={this.changeValue.bind(this,'des')}
-                                    placeholder="Basic usage" className="list_input" />
+                                    disabled = {!_state.userAuthority}
+                                    placeholder="Basic usage"
+                                    className="list_input" />
                         </Tooltip>
 
                     </label>
                     <Button className='list_addMaybe' type="primary" icon="plus"
                             onClick={this.addConfig.bind(this)}
-                            style={{display:((_values.subParams &&_values.subParams.length>0 ))  ? 'none':'block' }}>参数值可能性</Button>
-
-
+                            disabled = {!_state.userAuthority}
+                            style={{display:((_values.subParams &&_values.subParams.length>0 ))  ? 'none':'block' }}>{buttonValue}</Button>
                     <Switch onChange={checked => {this.change_switch( checked)}} style={{display:this.state.isShowSwitch?"block":"none"}}
                         defaultChecked={_values.display == 'block' ? true : false}
                         checkedChildren="简单"
                         unCheckedChildren="更多"
+                        disabled = {!_state.userAuthority}
                         checked={_values.display == 'block' ? true : false}
                         className='switch_btn'/>
-
-
             </div>
 
 

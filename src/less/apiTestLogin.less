@@ -1,0 +1,129 @@
+.apiTestLogin{
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 0 1%;
+
+    .apiTestLoginTitle{
+        height: 34px;
+        font-weight: 700;
+        color: #1DA57A;
+        line-height: 34px;
+        border-bottom: 1px solid #eee;
+
+        > span{
+            margin-right: 20px;
+            float: left;
+        }
+        .apiLoginSwitch{
+            margin-top: 5px;
+        }
+    }
+    .apiTestLoginCont{
+        width: 95%;
+        margin: 0 auto;
+
+        > h3{
+            height: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 40px;
+            border-bottom: 1px solid #eee;
+
+            > button{
+                float: right;
+                margin-top: 6px;
+                background-color: darkorange;
+                border: none 0;
+            }
+        }
+
+        > label{
+            display: block;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        > button{
+            margin-bottom:10px;
+        }
+
+        >.loginUserData{
+            padding-bottom: 10px;
+            > h3{
+                height: 40px;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 40px;
+
+                > span{
+                    font-weight: 300;
+                }
+                > button{
+                    margin: 6px;
+                    border: none;
+                    background: none;
+                    color: #00b17d;
+                }
+            }
+
+            > p{
+                line-height: 30px;
+                > label{
+                    margin-right: 10px;
+
+                    > span{
+                        cursor: pointer;
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+
+.loginDialog{
+    em{
+        color:red;
+        margin-right: 5px;
+    }
+    >div{
+        margin-top: 10px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+    }
+
+    .edit_name{
+        height:100%;
+        line-height: 100%;
+        width:15%;
+        display: inline-block;
+    }
+    textarea,input{
+        width:80%;
+    }
+    .ant-select{
+        width:80%;
+    }
+}
+.ant-tooltip-content > .ant-tooltip-inner {
+    max-width: 500px;
+}
+
+.treeDialog{
+    .ant-modal-body{
+        max-height: 500px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+}

@@ -19,11 +19,11 @@ hs.listen(function (location) {
     return location
 });
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
-)
-export default class App extends React.Component {
+// @connect(
+//     state => state,
+//     dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+// )
+ class App extends React.Component {
 
     /**
      * 组件将要创建
@@ -50,3 +50,8 @@ export default class App extends React.Component {
         return  <Router>{routes}</Router>;
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+)(App)

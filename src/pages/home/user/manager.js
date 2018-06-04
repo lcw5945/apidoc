@@ -10,11 +10,7 @@ import {paramsFormat} from '~common/http';
 import  MainNav  from '~components/common/MainNav';
 import  ManagerContainer  from '~containers/user/ManagerContainer';
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
-)
-export default class Manager extends React.Component {
+ class Manager extends React.Component {
     componentWillMount() {
         const {auth} = this.props.user;
         if (auth > 0 && (!this.props.entity['users'] || this.props.entity['users']['didInvalidate'])) {
@@ -31,3 +27,8 @@ export default class Manager extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+)(Manager)

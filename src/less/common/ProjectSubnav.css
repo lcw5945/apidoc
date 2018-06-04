@@ -54,17 +54,7 @@
   height: 55px;
   line-height: 55px;
   position: relative;
-}
-.ProjectSubnav .searchBox input {
-  display: block;
-  margin: 10px auto;
-  outline: none;
-  height: 33px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  -webkit-border-radius: 17px;
-  border-radius: 17px;
-  text-indent: 10px;
+  padding-left: 10px;
 }
 .ProjectSubnav .searchBox .searchIcon {
   position: absolute;
@@ -127,6 +117,9 @@
 .ProjectSubnav aside .asideBox .asideCont::-webkit-scrollbar-thumb {
   background-color: #ddd;
   border-radius: 10px;
+}
+.ProjectSubnav aside .asideBox .asideCont a:focus {
+  text-decoration: none;
 }
 .ProjectSubnav aside .asideBox .asideCont .all_dataBtn {
   height: 44px;

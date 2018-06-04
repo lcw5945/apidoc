@@ -17,6 +17,7 @@ export const resetRegistUser = ajax.fetchJSONPost('/api/resetRegistUser');
 export const updateUser = ajax.fetchJSONPost('/api/updateUser');
 export const register = ajax.fetchJSONPost('/api/register');
 export const login = ajax.fetchJSONPost('/api/login');
+export const autologin = ajax.fetchJSONPost('/api/autologin');
 export const logout = ajax.fetchJSONPost('/api/logout');
 /**
  * params= {ids:'id1,id2,id3, ...'}

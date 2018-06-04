@@ -16,9 +16,25 @@ export default class JsonEditorBox extends React.Component {
         }
     }
 
-    componentDidUpdate(nextProps, nextState) {
+    componentDidMount(nextProps, nextState) {
         if (this.jsoneditorSuc && this.state.jsoneditorOne) {
-            const options = this.props.options ? this.props.options : {history: false, mode: 'view'};
+
+            //权限userAuthority , -1或空表示无权限  0 表示mock权限 2表示编辑权限 3表示创建者或root
+
+            let options = {
+                history: false,
+                mode: 'view'
+            }
+            if (this.props.mode == 'eidt') {
+                if (this.props.options && this.props.userAuthority >= 2) {
+                    options = this.props.options
+                }
+            } else  {
+                if (this.props.options) {
+                    options = this.props.options
+                }
+            }
+
 
             this.state.editorSuc = new jsoneditor(this.jsoneditorSuc, options);
             if (this.props.successResult) {
@@ -34,6 +50,23 @@ export default class JsonEditorBox extends React.Component {
 
             this.state.jsoneditorOne = false;
         }
+    }
+
+
+    componentWillUpdate(nextProps, nextState) {
+
+        if (nextProps.mode == 'show') {
+            if (nextProps.successResult) {
+                this.state.editorSuc.set(nextProps.successResult);
+                this.preSucContent.innerText = JSON.stringify(nextProps.successResult, null, 2);
+            }
+
+            if (nextProps.errorResult) {
+                this.state.editorErr.set(nextProps.errorResult);
+                this.preErrContent.innerText = JSON.stringify(nextProps.errorResult, null, 2);
+            }
+        }
+
     }
 
 
@@ -80,14 +113,14 @@ export default class JsonEditorBox extends React.Component {
      * 获取成功结果的数据对象
      **/
     getEditorSuc() {
-        return this.state.editorSuc.get();
+        return this.state.editorSuc.get() || {};
     }
 
     /**
      * 获取失败结果的数据对象
      **/
     getEditorErr() {
-        return this.state.editorErr.get();
+        return this.state.editorErr.get() || {};
     }
 
     /**
@@ -110,7 +143,8 @@ export default class JsonEditorBox extends React.Component {
         let jsonTabTitle = '',
             font = '',
             button = '',
-            display = 'none';
+            display = 'none',
+            editDisplay = 'block';
         if (this.props.errorResult) {
             jsonTabTitle = <ul className='jsonTabTitle'>
                 <li onClick={this.changeJsonTab.bind(this, 'success')}
@@ -127,10 +161,11 @@ export default class JsonEditorBox extends React.Component {
             font = <p>尚无返回结果</p>
         }
 
-        if (!this.props.options) {
+        if (!this.props.options || (this.props.mode == 'eidt' && this.props.userAuthority < 2)) {
             button = <Button icon="rocket" type="primary"
                              onClick={this.josnFormat.bind(this)}>JSON格式整理</Button>
             display = 'block';
+            editDisplay = 'none'
         }
 
         return (
@@ -140,20 +175,23 @@ export default class JsonEditorBox extends React.Component {
                     {jsonTabTitle}
                     <div className='jsonTabCont'
                          style={{marginLeft: this.state.jsonTabClickStatus ? '0' : '-100%'}}>
+                        {/*成功*/}
                         <div className="jsonTabContPre" ref={preSuc => this.preSuc = preSuc}
                              style={{'left': 0, 'display': display}}>
                             <pre ref={preSucContent => this.preSucContent = preSucContent}>
                                 {font}
                             </pre>
                         </div>
-                        <div className='jsonTabEditCont' style={{'left': 0}}
+                        <div className='jsonTabEditCont' style={{'left': 0, 'display': editDisplay}}
                              ref={jsoneditor => this.jsoneditorSuc = jsoneditor}></div>
+
+                        {/*失败*/}
                         <div className="jsonTabContPre" ref={preErr => this.preErr = preErr}
                              style={{'left': '100%', 'display': display}}>
                             <pre ref={preErrContent => this.preErrContent = preErrContent}
                                  style={{'display': display}}></pre>
                         </div>
-                        <div className='jsonTabEditCont' style={{'left': '100%'}}
+                        <div className='jsonTabEditCont' style={{'left': '100%', 'display': editDisplay}}
                              ref={jsoneditor => this.jsoneditorErr = jsoneditor}></div>
                     </div>
                 </div>

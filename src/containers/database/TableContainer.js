@@ -198,7 +198,7 @@ export default class TableContainer extends React.Component {
         const {getFieldDecorator} = this.props.form;
         const FormItem = Form.Item;
         const Option = Select.Option;
-        this.state.isAdmin = (this.getDatabaseAdmin() == this.props.user.userId) ? true : false;
+        this.state.isAdmin = (this.getDatabaseAdmin() == this.props.user.userId || this.props.user.authority > 2) ? true : false;
         let tableGroupList = this.state.tableList = this.getGroupList();
         const typeList = ['tinyint','smallint','mediumint','int','integer','bigint','bit','real','double','float','decimal','numeric','char','varchar','date','time','year','timestamp','datetime','tinyblob','blob','mediumblob','longblob','tinytext','text','mediumtext','longtext','enum','set','binary','varbinary','point','linestring','polygon','geometry','multipoint','multilinestring','multipolygon','geometrycollection'];
         const formItemLayout = {labelCol: {xs: {span: 24}, sm: {span: 6},}, wrapperCol: {xs: {span: 24}, sm: {span: 14},},};
@@ -215,7 +215,7 @@ export default class TableContainer extends React.Component {
 
         return (
             <div>
-                <ProjectSubnav />
+                <ProjectSubnav {...this.props} />
                 <div className="tableList" style={{'marginLeft': groupCmp.width}}>
                     <div className="buttons">
                         <Button type="primary" icon="plus" onClick={this.updateField.bind(this,null)} style={{display:this.state.isAdmin?'inline-block':'none'}}>添加字段</Button>

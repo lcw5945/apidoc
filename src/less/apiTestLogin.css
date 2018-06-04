@@ -1,0 +1,110 @@
+.apiTestLogin {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding: 0 1%;
+}
+.apiTestLogin .apiTestLoginTitle {
+  height: 34px;
+  font-weight: 700;
+  color: #1DA57A;
+  line-height: 34px;
+  border-bottom: 1px solid #eee;
+}
+.apiTestLogin .apiTestLoginTitle > span {
+  margin-right: 20px;
+  float: left;
+}
+.apiTestLogin .apiTestLoginTitle .apiLoginSwitch {
+  margin-top: 5px;
+}
+.apiTestLogin .apiTestLoginCont {
+  width: 95%;
+  margin: 0 auto;
+}
+.apiTestLogin .apiTestLoginCont > h3 {
+  height: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+}
+.apiTestLogin .apiTestLoginCont > h3 > button {
+  float: right;
+  margin-top: 6px;
+  background-color: darkorange;
+  border: none 0;
+}
+.apiTestLogin .apiTestLoginCont > label {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+}
+.apiTestLogin .apiTestLoginCont > button {
+  margin-bottom: 10px;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData {
+  padding-bottom: 10px;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData > h3 {
+  height: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 40px;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData > h3 > span {
+  font-weight: 300;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData > h3 > button {
+  margin: 6px;
+  border: none;
+  background: none;
+  color: #00b17d;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData > p {
+  line-height: 30px;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData > p > label {
+  margin-right: 10px;
+}
+.apiTestLogin .apiTestLoginCont > .loginUserData > p > label > span {
+  cursor: pointer;
+}
+.loginDialog em {
+  color: red;
+  margin-right: 5px;
+}
+.loginDialog > div {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.loginDialog .edit_name {
+  height: 100%;
+  line-height: 100%;
+  width: 15%;
+  display: inline-block;
+}
+.loginDialog textarea,
+.loginDialog input {
+  width: 80%;
+}
+.loginDialog .ant-select {
+  width: 80%;
+}
+.ant-tooltip-content > .ant-tooltip-inner {
+  max-width: 500px;
+}
+.treeDialog .ant-modal-body {
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

@@ -15,7 +15,7 @@ import Utils from '~utils';
         let setting = {
             width:'400px',
             title: '',
-            content:'',
+            content: '',
             visible:false,
             onOk:()=>{return false},
             onCancel:()=>{return false},
@@ -55,7 +55,8 @@ import Utils from '~utils';
 
     render(){
 
-        return  <Modal width={this.state.width}
+        return  <Modal  key={this.state.key}
+                        width={this.state.width}
                        title={this.state.title}
                        visible={this.state.visible}
                        onOk={this.okModal.bind(this)}

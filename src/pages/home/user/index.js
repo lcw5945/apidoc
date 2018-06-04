@@ -9,11 +9,8 @@ import * as userActions from '~actions/user';
 import  MainNav  from '~components/common/MainNav';
 import  UserContainer  from '~containers/user/UserContainer';
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
-)
-export default class User extends React.Component {
+
+class User extends React.Component {
 
     render() {
         return (
@@ -24,3 +21,8 @@ export default class User extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...userActions}, dispatch)
+)(User)

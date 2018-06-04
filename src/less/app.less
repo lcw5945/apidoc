@@ -25,6 +25,9 @@
 @import "requestParam";
 @import "jsonEditorBox";
 @import "itempleteContainer";
+@import "useCase";
+@import "apiTestLogin";
+@import "./timestampContainer";
 
 html,
 body {
@@ -32,6 +35,7 @@ body {
     -ms-overflow-style: scrollbar;
     overflow: hidden;
 }
+
 body {
     background-color: #e7ebee;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -40,31 +44,37 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased !important;
 }
-#root{
+
+#root {
     width: 100%;
     height: 100%;
-    > div{
+    > div {
         width: 100%;
         height: 100%;
+
+        > div {
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 
-.ant-btn i ,.ant-btn span{
+.ant-btn i, .ant-btn span {
     pointer-events: none;
 }
-.ant-select-dropdown-menu-item{
-    height:30px;
+
+.ant-select-dropdown-menu-item {
+    height: 30px;
     line-height: 15px;
 }
 
-
-
-.g-errorTip{
-    border-color:rgba(255,51,102, 0.9) !important;
-    outline: 0!important;
-    box-shadow: 0 0 0 2px rgba(255,51,102, 0.2)!important;
+.g-errorTip {
+    border-color: rgba(255, 51, 102, 0.9) !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 2px rgba(255, 51, 102, 0.2) !important;
 }
-.g-toolTipBreak{
-    word-break:break-all;
-    word-wrap:break-word;
+
+.g-toolTipBreak {
+    word-break: break-all;
+    word-wrap: break-word;
 }

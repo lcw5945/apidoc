@@ -63,7 +63,8 @@ module.exports = merge(baseWebpackConfig, {
             },
         }),
         new webpack.DefinePlugin(Object.assign({}, env.stringified, {
-                __DEV: false
+            __DEV: false,
+            _PJKEY: JSON.stringify({key:'c5dfe3ddf76c0777c44b73f08bf1d0b8'})
             })),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

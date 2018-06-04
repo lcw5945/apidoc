@@ -37,10 +37,10 @@ export default class MoreButton extends React.Component {
         const projectId = this.state.queryData.projectId;
         let str = '';
         if (this.props.delete) {
-            str = `/project/code/${position}?projectId=${projectId}&groupId=-1`;
+            str = `/project/code/${position}?projectId=${projectId}&groupId=${this.state.queryData.groupId}`;
             str = position === 'list' ? str : str + `&codeId=${this.state.queryData.codeId}`;
         } else {
-            str = `/project/api/${position}?projectId=${projectId}&groupId=-1`;
+            str = `/project/api/${position}?projectId=${projectId}&groupId=${this.state.queryData.groupId}`;
             str = position === 'list' ? str : str + `&apiId=${this.state.queryData.apiId}`;
         }
         return str;
@@ -120,7 +120,9 @@ export default class MoreButton extends React.Component {
         const that = this;
         this.state.userId = this.props.user.userId;
         if (projects) {
-            this.state.adminId = (_.filter(projects['items'], ['_id', queryData.projectId]))[0].admin;
+            let ary = _.filter(projects['items'], ['_id', queryData.projectId])
+            if(ary.length>0)
+            this.state.adminId = ary[0].admin;
         }
         let more = '';
 
@@ -128,19 +130,18 @@ export default class MoreButton extends React.Component {
             <div>
                 {
                     projects && (() => {
-                        const projectsItems = projects.items;
-                        projectsItems.map((obj) => {
-                            if (queryData.projectId === obj._id) {
-                                let hfApiUserInfo = that.props.user;
-                                for (let i = 0; i < obj.cooperGroup.length; i++) {
-                                    let cooperGroup = obj.cooperGroup[i];
-                                    if (cooperGroup === hfApiUserInfo.userId) {
-                                        that.state.moreShow = true;
-                                        break;
-                                    }
-                                }
-                            }
-                        });
+
+                        let user = that.props.user.proUserAuth||{};
+
+                        console.log("MoreButton------------------->",that.props);
+
+
+                        //如果父组件是状态码，并且权限是接口权限， 显示按钮  如果如果父组件是接口，mock权限和接口权限 均显示，
+                        if ((this.props.compType == 'code' && user.authority > 0)  ||(this.props.compType != 'code' && user.authority >= 0)  ) {
+                            that.state.moreShow = true;
+                        }
+
+
                         if (parseInt(item.groupId) === -2) {
                             more = (<div className="more" onMouseEnter={this.moreShow.bind(this)}
                                          onMouseLeave={this.moreHide.bind(this)}
@@ -167,11 +168,11 @@ export default class MoreButton extends React.Component {
                                 <div className="more-hide" ref={moreHideDiv => this.moreHideDiv = moreHideDiv}>
                                     <Button icon="edit"
                                             onClick={this.goToEdit.bind(this)}>修改</Button>
-                                    <Popconfirm placement="rightTop" title='确认删除'
+                                    <Popconfirm placement="rightTop" title='确定将此接口移入回收站吗？'
                                                 onConfirm={this.deleteApi.bind(this, item)}
                                                 okText="Yes" cancelText="No">
                                         <Button icon="delete"
-                                                style={{display: (!this.props.delete || (this.deleteBtnShow())) ? 'inline-block' : "none"}}
+                                                style={{display: user.authority ? 'inline-block' : "none"}}
                                         >删除</Button>
                                     </Popconfirm>
 
@@ -185,4 +186,4 @@ export default class MoreButton extends React.Component {
         )
 
     }
-}
+};

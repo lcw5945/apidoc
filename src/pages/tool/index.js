@@ -44,6 +44,16 @@ export default class Tool extends React.Component {
                         </Link>
                     </div>
                     <div className="content clearfix">
+                        <h6>时间戳转换</h6>
+                        <Link to="/tool/timestamp">
+                            <div className="box">
+                                <div className="box-title">Timestamp</div>
+                                <div className="box-explain">时间戳转换</div>
+                            </div>
+                        </Link>
+                    </div>
+
+                    <div className="content clearfix">
                         <h6>其他</h6>
                         <Link to="/tool/qrcode">
                             <div className="box">

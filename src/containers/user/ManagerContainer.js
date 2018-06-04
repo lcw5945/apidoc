@@ -5,7 +5,7 @@
 import React from 'react';
 import {paramsFormat} from '~common/http';
 import Utils from '~utils'
-import { Button, Table, Card, Popconfirm , message} from 'antd';
+import {Button, Table, Card, Popconfirm, message, Input} from 'antd';
 
 
 export default class ManagerContainer extends React.Component {
@@ -26,7 +26,7 @@ export default class ManagerContainer extends React.Component {
                     title: '注册时间',
                     dataIndex: 'regTime',
                     render: (value) => {
-                        if(value){
+                        if (value) {
                             return Utils.formatDate(new Date(parseInt(value)))
                         }
                         return "";
@@ -36,7 +36,7 @@ export default class ManagerContainer extends React.Component {
                     title: '登陆时间',
                     dataIndex: 'loginTime',
                     render: (value) => {
-                        if(value){
+                        if (value) {
                             return Utils.formatDate(new Date(parseInt(value)))
                         }
                         return "";
@@ -60,6 +60,7 @@ export default class ManagerContainer extends React.Component {
                     },
                 }
             ],//表格的数据结构
+            search: ''
         }
     }
 
@@ -72,10 +73,17 @@ export default class ManagerContainer extends React.Component {
         if (operaType === 'reset') {
             this.props.fetchResetUser(paramsFormat({userId}));
         } else {
-            this.props.fetchDelUser(paramsFormat({userId}), ()=>{
+            this.props.fetchDelUser(paramsFormat({userId}), () => {
                 message.success('删除成功!');
             });
         }
+    }
+
+    /**
+     * 给搜索输入框 绑定事件 赋值
+     **/
+    InputSearch_changeHandler(event) {
+        this.setState({search: event.target.value});
     }
 
     /**
@@ -84,10 +92,9 @@ export default class ManagerContainer extends React.Component {
      */
     render() {
         const {users} = this.props.entity;
-
         return (
             <div>
-                <Card  title="用户管理列表" className='userList'>
+                <Card title="用户管理列表" className='userList'>
                     {
                         users && (() => {
                             let dataSource = null;
@@ -95,9 +102,24 @@ export default class ManagerContainer extends React.Component {
                             items.map((obj) => {
                                 obj.key = obj._id;
                             });
-                            dataSource = items;
+
+                            if (!this.state.search) {
+                                dataSource = items;
+                            } else {
+                                dataSource = [];
+                                items.forEach((data, index) => {
+                                    if (data.username.indexOf(this.state.search) > -1) {
+                                        dataSource.push(data);
+                                    }
+                                })
+                            }
+
 
                             return (<div className="user-c-admin-box">
+                                    <div className="search">
+                                        搜索用户：<Input value={this.state.search}
+                                                    onChange={this.InputSearch_changeHandler.bind(this)}/>
+                                    </div>
                                     <Table dataSource={ dataSource} columns={ this.state.tableColumns}
                                     />
                                 </div>

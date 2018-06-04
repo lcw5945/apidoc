@@ -14,11 +14,8 @@ import Utils from '~utils';
 import {paramsFormat} from "~common/http";
 
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions,...stateActions,...groupActions}, dispatch)
-)
-export default class ApiEdit extends React.Component {
+
+class ApiEdit extends React.Component {
     constructor(props) {
         super(props);
         this.queryData = null;
@@ -49,3 +46,8 @@ export default class ApiEdit extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions,...stateActions,...groupActions}, dispatch)
+)(ApiEdit)

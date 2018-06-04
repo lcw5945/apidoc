@@ -15,11 +15,7 @@ import Utils from '~utils';
 import {paramsFormat} from "~common/http";
 
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions,...interfaceActions,...groupActions,...itempleteActions}, dispatch)
-)
-export default class ITempleteEdit extends React.Component {
+class ITempleteEdit extends React.Component {
     constructor(props) {
         super(props);
         this.queryData = null;
@@ -50,3 +46,8 @@ export default class ITempleteEdit extends React.Component {
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions,...interfaceActions,...groupActions,...itempleteActions}, dispatch)
+)(ITempleteEdit)

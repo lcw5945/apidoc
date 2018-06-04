@@ -27,6 +27,7 @@
 
     .ant-modal-body{
         height: 450px;
+        overflow-y: scroll;
     }
 }
 //.ant-popover-placement-bottomLeft{
@@ -61,10 +62,23 @@
             cursor: pointer;
         }
 
-        > span{
+        > .ant-switch{
+            float: right;
+            margin-top: 8px;
+            margin-right: 10px;
+        }
+        > .authText{
+            width: 80px;
+            margin-right: 10px;
+            float: right;
+            font-size: 14px;
+            text-align: right;
+            color: #b5b5b5;
+        }
+        > .userName{
             float: left;
             display: block;
-            width: 200px;
+            width: 150px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

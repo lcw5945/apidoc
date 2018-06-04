@@ -8,10 +8,8 @@ import { Link } from 'react-router-dom';
 import { logOut } from '~common/http';
 import Logo from '../../assets/images/apidocIcon.png'
 
-@connect(
-    state => state,
-)
-export default class MainNav extends React.Component {
+
+class MainNav extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -35,7 +33,6 @@ export default class MainNav extends React.Component {
     }
     render() {
         const {auth, username} = this.props.user;
-
         const menu = auth > 0 ? (
             <Menu onClick={this.handleMenuClick.bind(this)}>
                 <Menu.Item className='navUserName' key="1">
@@ -48,6 +45,7 @@ export default class MainNav extends React.Component {
                 <Menu.Item key="3">
                     <Link to="/home/user/register">注册账号</Link>
                 </Menu.Item>
+
                 <Menu.Item key="4">
                     <Link to="/home/user/manager">用户管理</Link>
                 </Menu.Item>
@@ -82,3 +80,6 @@ export default class MainNav extends React.Component {
         )
     }
 }
+
+export default connect(
+    state => state)(MainNav)

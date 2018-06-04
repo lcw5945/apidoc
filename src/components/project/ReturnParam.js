@@ -11,6 +11,7 @@ export default class ApiEditContainer extends React.Component {
         this.state = {
             returnData_list: [],
             queryData: Utils.parseUrlToData(this.props.location.search),
+            userAuthority:(props.userAuthority||props.userAuthority>0)?true:false
         }
     }
 
@@ -182,7 +183,7 @@ export default class ApiEditContainer extends React.Component {
 
     render() {
         const Option = Select.Option;
-        const {returnData_list} = this.state;
+        const {returnData_list,userAuthority} = this.state;
 
         return (
             <div>
@@ -196,7 +197,7 @@ export default class ApiEditContainer extends React.Component {
                                         <li id='returnParamsList' key={'returnData_list' + data.keyIndex}>
                                             <div className="list_row">
                                                 <span className='list_count'>{index + 1}</span>
-                                                <b onClick={this.close_clickHandler.bind(this, index)}>
+                                                <b onClick={this.close_clickHandler.bind(this, index)}  style={{display:userAuthority?'block':'none'}}>
                                                     <Icon
                                                         type="minus-square"
                                                         style={{
@@ -209,20 +210,27 @@ export default class ApiEditContainer extends React.Component {
                                                         getPopupContainer={() => document.getElementById('returnParamsList')}
                                                         style={{minWidth: '30px'}}
                                                         onChange={this.editParams_changeHandler.bind(this, 'include', index)}
+                                                        disabled = {!userAuthority}
                                                         className='edit_method'>
                                                     <Option value="1">必含</Option>
                                                     <Option value="0">非必含</Option>
                                                 </Select>
-                                                <label className='list_name'>字段名称 ：<Input
-                                                    className="list_input"
-                                                    placeholder="Basic usage"
-                                                    onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataKey', index, -1)}
-                                                    defaultValue={data.returnDataKey || ''}/></label>
-                                                <label className='list_name'>字段说明 ：<Input
-                                                    className="list_input"
-                                                    defaultValue={data.returnDataDes || ''}
-                                                    onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataDes', index, -1)}
-                                                    placeholder="Basic usage"/></label>
+                                                <label className='list_name'>字段名称 ：
+                                                    <Input
+                                                        className="list_input"
+                                                        placeholder="Basic usage"
+                                                        disabled = {!userAuthority}
+                                                        onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataKey', index, -1)}
+                                                        defaultValue={data.returnDataKey || ''}/>
+                                                </label>
+                                                <label className='list_name'>字段说明 ：
+                                                    <Input
+                                                        className="list_input"
+                                                        defaultValue={data.returnDataDes || ''}
+                                                        onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataDes', index, -1)}
+                                                        disabled = {!userAuthority}
+                                                        placeholder="Basic usage"/>
+                                                </label>
                                                 <Switch onChange={checked => {
                                                     this.switchMore_changeHandler(index, checked)
                                                 }}
@@ -247,7 +255,8 @@ export default class ApiEditContainer extends React.Component {
                                                                         type="minus-square"
                                                                         style={{
                                                                             fontSize: '27px',
-                                                                            color: '#43a074'
+                                                                            color: '#43a074',
+                                                                            display:userAuthority?'block':'none'
                                                                         }}
                                                                         className='close_list'/>
                                                                     <label
@@ -255,15 +264,19 @@ export default class ApiEditContainer extends React.Component {
                                                                         <Input
                                                                             defaultValue={paramsData.valueCont || ''}
                                                                             onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataMayBeName', index, paramsIndex)}
+                                                                            disabled = {!userAuthority}
                                                                             className="list_mayBe_input"
                                                                             placeholder="Basic usage"/>
                                                                     </label>
                                                                     <label
-                                                                        className='list_mayBe_name'><span>值说明：</span><Input
-                                                                        defaultValue={paramsData.valueDes || ''}
-                                                                        onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataMayBeDes', index, paramsIndex)}
-                                                                        className="list_mayBeDescribe_input"
-                                                                        placeholder="Basic usage"/></label>
+                                                                        className='list_mayBe_name'><span>值说明：</span>
+                                                                        <Input
+                                                                            defaultValue={paramsData.valueDes || ''}
+                                                                            onChange={this.editParamsInput_changeHandler.bind(this, 'returnDataMayBeDes', index, paramsIndex)}
+                                                                            disabled = {!userAuthority}
+                                                                            className="list_mayBeDescribe_input"
+                                                                            placeholder="Basic usage"/>
+                                                                    </label>
                                                                 </div>
                                                             )
                                                         })
@@ -274,7 +287,7 @@ export default class ApiEditContainer extends React.Component {
                                                     <Button
                                                         onClick={this.addParams_clickHandler.bind(this, index)}
                                                         type="primary" icon="plus"
-                                                        style={{padding: '0 10px'}}>添加</Button>
+                                                        style={{padding: '0 10px',display:userAuthority?'block':'none'}}>添加</Button>
                                                 </div>
                                             </div>
                                         </li>
@@ -286,7 +299,7 @@ export default class ApiEditContainer extends React.Component {
                     </div>
                     <div className="list_addBtn">
                         <Button type="primary" icon="plus" onClick={this.add_clickHandler.bind(this)}
-                                style={{padding: '0 10px'}}>添加</Button>
+                                style={{padding: '0 10px',display:userAuthority?'block':'none'}}>添加</Button>
                     </div>
                 </section>
             </div>

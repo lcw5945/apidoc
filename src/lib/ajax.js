@@ -1,7 +1,7 @@
 /**
  * Created by Cray on 2017/7/12.
  */
-import {API_HOST} from '../constants/api-host';
+import {API_HOST, H5API_HOST} from '../constants/api-host';
 import _ from 'lodash';
 import {hasResponseError} from '../common/http';
 import Utils from '~utils'
@@ -50,7 +50,8 @@ function parseData(data) {
  * @returns {string}
  */
 function transfrom(url, params) {
-    if (params) {
+
+    if (Utils.isObject(params)) {
         let paramsArray = [];
         _.forOwn(params, function (value, key) {
             if(Utils.isObject(value)){
@@ -59,12 +60,16 @@ function transfrom(url, params) {
             paramsArray.push(key + '=' + value);
         });
 
-        if (url.search(/\?/) === -1) {
-            url += '?' + paramsArray.join('&');
-        } else {
-            url += '&' + paramsArray.join('&');
-        }
+        params = paramsArray.join('&');
+
     }
+
+    if (url.search(/\?/) === -1) {
+        url += '?' + params;
+    } else {
+        url += '&' + params;
+    }
+
     return url;
 }
 
@@ -74,6 +79,9 @@ function transfrom(url, params) {
  * @param host
  */
 function formatUrl(url, host) {
+    if(url.indexOf("http://") !== -1){
+        return url
+    }
     if (host) {
         url = `${host}${url}`
     } else {
@@ -93,7 +101,8 @@ export const fetchJSONGet = (url, host) => params => {
         headers: {
             'Content-Type': 'application/json',
             'accept': 'application/json'
-        }
+        },
+        credentials: "include"
     };
     let fullUrl = formatUrl(url, host);
     return new Promise(function (resolve, reject) {
@@ -127,6 +136,7 @@ export const fetchJSONPost = (url, host) => (params) => {
             'Content-Type': 'application/json',
             'accept': 'application/json'
         },
+        credentials: "include",
         body: JSON.stringify(params)
     };
     // console.log(`post fetch url ${url} params ${params}`);
@@ -173,7 +183,7 @@ export const fetchTest = (options = {
             }, options.header)
         };
 
-        console.log('fetch headers', variableData)
+        // console.log('fetch headers', variableData)
 
         if (options.method === "POST") {
             variableData = Object.assign(variableData, {body: JSON.stringify(options.params)})

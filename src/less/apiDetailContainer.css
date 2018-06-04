@@ -103,6 +103,19 @@
 .apiDetail > .apiDetail-main > .top-show > .top-show-ul > .top-show-ul-li {
   margin-bottom: 6px;
 }
+.apiDetail > .apiDetail-main > .top-show > .right-ul {
+  float: right;
+  color: #000;
+  margin-right: 6px;
+  text-align: right;
+}
+.apiDetail > .apiDetail-main > .top-show > .right-ul > li {
+  line-height: 1;
+  padding: 2px 0px;
+}
+.apiDetail > .apiDetail-main > .top-show > .right-ul > .top-show-ul-li {
+  margin-bottom: 6px;
+}
 .apiDetail > .apiDetail-main > .top-show > .top-show-time {
   float: right;
   margin-right: 50px;

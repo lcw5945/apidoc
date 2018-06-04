@@ -13,7 +13,7 @@ export default class ApiEnvContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            queryData: {},
+            queryData: Utils.parseUrlToData(this.props.location.search) || {},
             modal: '',
             url: '',
             envStatus: ''
@@ -47,7 +47,7 @@ export default class ApiEnvContainer extends React.Component {
                                                         onClick={this.editEnvironmental.bind(this, index)}></Button>
 
                                                 <Popconfirm placement="rightTop" title='确认删除'
-                                                            onConfirm={this.deleteEnvironmental.bind(this, index)}
+                                                            onConfirm={this.deleteEnvironmental.bind(this,testenv, index)}
                                                             okText="Yes" cancelText="No">
                                                     <Button type="primary" icon="delete"></Button>
                                                 </Popconfirm>
@@ -127,7 +127,8 @@ export default class ApiEnvContainer extends React.Component {
         if (name === '' || URI === '') return;
         this.props.fetchUpdateAddTestEnv(paramsFormat({
             name,
-            URI
+            URI,
+            projectid: this.state.queryData.projectId
         }));
 
         this.state.modal.destroy();
@@ -156,7 +157,8 @@ export default class ApiEnvContainer extends React.Component {
         this.props.fetchUpdateAddTestEnv(paramsFormat({
             id: testenv[index]['_id'],
             name,
-            URI
+            URI,
+            projectid: this.state.queryData.projectId
         }));
         this.state.modal.destroy();
     }

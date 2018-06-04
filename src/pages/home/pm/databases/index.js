@@ -12,11 +12,7 @@ import  MainNav  from '~components/common/MainNav';
 import  DatabaseContainer  from '~containers/home/DatabaseContainer';
 
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...databaseActions}, dispatch)
-)
-export default class Databases extends React.Component {
+class Databases extends React.Component {
 
     componentWillMount() {
         if (!this.props.entity['databases'] || this.props.entity['databases'].didInvalidate) {
@@ -31,9 +27,14 @@ export default class Databases extends React.Component {
         return (
                 <div>
                     <MainNav/>
-                    <SubNav subNavType='homeList'/>
+                    <SubNav { ...this.props } subNavType='homeList'/>
                     <DatabaseContainer { ...this.props }/>
                 </div>
             )
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...databaseActions}, dispatch)
+)(Databases)

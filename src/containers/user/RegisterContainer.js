@@ -105,135 +105,88 @@ export default class RegisterContainer extends React.Component {
                 },
             },
         };
+        const authority = auth == 3
+            ?<FormItem
+                label="权限选择"
+                {...formItemLayout} >
+                {getFieldDecorator('authority', {
+                    rules: [{ required: true, message: 'Please select authority!' }],
+                })(
+                    <Select
+                        placeholder="select authority"
+                        onChange={this.handleSelectChange}
+                    >
+                        <Option value="1">Normal</Option>
+                        <Option value="2">Admin</Option>
+                    </Select>
+                )}
+            </FormItem>
+            :''
 
-        let FormHTML = <Form onSubmit={this.handleSubmit}>
-            <FormItem
-                {...formItemLayout}
-                label={(
-                    <span>用户名&nbsp;
-                        <Tooltip title="用户名不允许数据特殊字符和中文?">
-                                        <Icon type="question-circle-o"/>
-                                    </Tooltip>
-                                </span>
-                )}
-                hasFeedback
-            >
-                {getFieldDecorator('username', {
-                    rules: [{required: true, message: '请输入用户名!', whitespace: true}],
-                })(
-                    <Input />
-                )}
-            </FormItem>
-            <FormItem
-                {...formItemLayout}
-                label="密码"
-                hasFeedback
-            >
-                {getFieldDecorator('password', {
-                    rules: [{
-                        required: true, message: '请输入密码!',
-                    }, {
-                        validator: this.checkConfirm,
-                    }],
-                })(
-                    <Input type="password"/>
-                )}
-            </FormItem>
-            <FormItem
-                {...formItemLayout}
-                label="确认密码"
-                hasFeedback
-            >
-                {getFieldDecorator('confirm', {
-                    rules: [{
-                        required: true, message: '请确认密码!',
-                    }, {
-                        validator: this.checkPassword,
-                    }],
-                })(
-                    <Input type="password" onBlur={this.handleConfirmBlur}/>
-                )}
-            </FormItem>
-            <FormItem {...tailFormItemLayout} wrapperCol={{span: 8, offset: 10}}>
-                <Button type="primary" htmlType="submit">注册</Button>
-            </FormItem>
-        </Form>
-        if(auth === 3){
-            FormHTML = <Form onSubmit={this.handleSubmit}>
-                <FormItem
-                    {...formItemLayout}
-                    label={(
-                        <span>用户名&nbsp;
-                            <Tooltip title="用户名不允许数据特殊字符和中文?">
-                                        <Icon type="question-circle-o"/>
-                                    </Tooltip>
-                                </span>
-                    )}
-                    hasFeedback
-                >
-                    {getFieldDecorator('username', {
-                        rules: [{required: true, message: '请输入用户名!', whitespace: true}],
-                    })(
-                        <Input placeholder="username"/>
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="密码"
-                    hasFeedback
-                >
-                    {getFieldDecorator('password', {
-                        rules: [{
-                            required: true, message: '请输入密码!',
-                        }, {
-                            validator: this.checkConfirm,
-                        }],
-                    })(
-                        <Input type="password" placeholder="password"/>
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="确认密码"
-                    hasFeedback
-                >
-                    {getFieldDecorator('confirm', {
-                        rules: [{
-                            required: true, message: '请确认密码!',
-                        }, {
-                            validator: this.checkPassword,
-                        }],
-                    })(
-                        <Input type="password" placeholder="confirm password" onBlur={this.handleConfirmBlur}/>
-                    )}
-                </FormItem>
-                <FormItem
-                    label="权限选择"
-                    {...formItemLayout}
-                >
-                    {getFieldDecorator('authority', {
-                        rules: [{ required: true, message: 'Please select authority!' }],
-                    })(
-                        <Select
-                            placeholder="select authority"
-                            onChange={this.handleSelectChange}
-                        >
-                            <Option value="1">Normal</Option>
-                            <Option value="2">Admin</Option>
-                        </Select>
-                    )}
-                </FormItem>
-                <FormItem {...tailFormItemLayout} wrapperCol={{span: 8, offset: 10}}>
-                    <Button type="primary" htmlType="submit">注册</Button>
-                </FormItem>
-            </Form>
-        }
+
 
 
         return (
             <div className="user-c-box">
                 <Card title="注册用户" style={{width: 800, top: 40, left: 30}}>
-                    { FormHTML }
+                    <Form onSubmit={this.handleSubmit}>
+                        <FormItem
+                            {...formItemLayout}
+                            label={(
+                                <span>用户名&nbsp;
+                                    <Tooltip title="用户名不允许数据特殊字符和中文?">
+                                        <Icon type="question-circle-o"/>
+                                    </Tooltip>
+                                </span>
+                            )}
+                            hasFeedback
+                        >
+                            {getFieldDecorator('username', {
+                                rules: [{required: true, message: '请输入用户名!', whitespace: true}],
+                            })(
+                                <Input />
+                            )}
+                        </FormItem>
+                        <FormItem
+                            {...formItemLayout}
+                            label="密码"
+                            hasFeedback
+                        >
+                            {getFieldDecorator('password', {
+                                rules: [{
+                                    required: true, message: '请输入密码!',
+                                }, {
+                                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/, message: '请输入8-16个字符，至少1个大写字母，1个小写字母和1个数字!',
+                                },{
+                                    validator: this.checkConfirm,
+                                }],
+                            })(
+                                <Input type="password"/>
+                            )}
+                        </FormItem>
+                        <FormItem
+                            {...formItemLayout}
+                            label="确认密码"
+                            hasFeedback
+                        >
+                            {getFieldDecorator('confirm', {
+                                rules: [{
+                                    required: true, message: '请确认密码!',
+                                }, {
+                                    validator: this.checkPassword,
+                                }],
+                            })(
+                                <Input type="password" onBlur={this.handleConfirmBlur}/>
+                            )}
+                        </FormItem>
+
+                        {authority}
+
+                        <FormItem {...tailFormItemLayout} wrapperCol={{span: 8, offset: 10}}>
+                            <Button type="primary" htmlType="submit">注册</Button>
+                        </FormItem>
+
+                    </Form>
                 </Card>
             </div>
         );

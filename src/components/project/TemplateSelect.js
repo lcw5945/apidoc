@@ -81,7 +81,7 @@ export default class TemplateSelect extends React.Component {
      * 数据获取
      * */
     dealData() {
-        this.props.fetchITempleteCheckList(paramsFormat(), (data) => {
+        this.props.fetchITempleteCheckList(paramsFormat({projectId:this.state.queryData.projectId}), (data) => {
             this.setState({
                 tempData: data.details
             })

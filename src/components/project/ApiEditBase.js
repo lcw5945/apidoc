@@ -7,17 +7,18 @@ import {Link} from "react-router-dom";
 import {Button, Icon, Input, Modal, Select, Switch, message, Radio, Form} from "antd";
 import Utils from '~utils'
 import _ from 'lodash';
-
+import Local from '~utils/local';
+import {project_searchTag_key} from '~constants/persist-config'
+const verifySort = ['URI', 'featureName'];
 const Option = Select.Option;
-const verifySort = ['URI','featureName'];
 
 export default class ApiEditBase extends React.Component {
 
     constructor(props) {
         super(props);
-
-        let {option}= props;
-
+        this.localkey = project_searchTag_key
+        let opt = props.option;
+        this.searchTimer = null;
         let defaultValue = {
             URI: "",
             featureName: "", //名称
@@ -27,83 +28,119 @@ export default class ApiEditBase extends React.Component {
             active: "0", //接口激活状态
             proxyHost: "",//代理域名
             groupId: "-1", //分 组
+            tag: '',//tag名称
+            manager:props.user.auth>2?' ':String(props.user.username)//管理者
         };
 
         this.state = {
             defaultValue,
-            values: Object.assign({},defaultValue,option),
+            values: Object.assign({}, defaultValue, opt),
             queryData: Utils.parseUrlToData(this.props.location.search),
             verify: props.verify,//是否验证
-            errorClickStatus:false
+            errorClickStatus: false,
+            userAuthority: props.userAuthority > 0 ? false : true,
+            tagList:[],
+            cooperationArr:[] //协作者
         }
 
 
     }
 
+    componentWillMount() {
+        this.getLocalTag()
+
+        let items = this.getItemsData()
+        if (items.length > 0) {
+            let _data = Utils.copy(items[0]['cooperGroup']);
+
+            this.setState({
+                // cooperationArr: _.pullAllBy(_data, [{'userId': items[0].admin}], 'userId'),
+                cooperationArr: _data,
+            });
+        }
+    }
+
     /**
-    * 得到数据，并作出验证
+     *  处理数据
+     *  */
+    getItemsData() {
+        const queryData = Utils.parseUrlToData(this.props.location.search);
+        const {projects} = this.props.entity;
+        let items = [];
+        try {
+            items = _.filter(projects['items'], ['_id', queryData.projectId]);
+        } catch (e) {
+        }
+
+        return items;
+    }
+
+    setData(option) {
+        this.setState({
+            values: Object.assign({}, this.state.defaultValue, option)
+        })
+    }
+
+
+    /**
+     * 得到数据，并作出验证
      * @return data 表单的数据
      * @return isVerify 是否验证通过，true表示验证通过，false表示验证不通过
-    * */
-    getData(){
+     * */
+    getData() {
         let result = true,
             values = this.state.values;
 
-
-        if(this.state.verify){
-            if(!values.URI||!values.featureName){
+        if (this.state.verify) {
+            if (!values.URI || !values.featureName || !values.host) {
                 result = false;
             }
         }
 
-        if(values.active=="1"&&!values.proxyHost){
+        if (values.active == "1" && !values.proxyHost) {
             result = false;
         }
 
-        console.log(result,!result)
-
-        if(!result){
+        if (!result) {
             this.setState({
-                errorClickStatus:true
+                errorClickStatus: true
             })
         }
 
 
         return {
-            data:values,
-            isVerify:result
+            data: values,
+            isVerify: result
         }
 
     }
 
-    clearData(){
+    clearData() {
         this.setState({
-            values:this.state.defaultValue,
-            errorClickStatus:false
+            values: this.state.defaultValue,
+            errorClickStatus: false
         })
     }
-
 
 
     /*
      * 给input 绑定事件 赋值
      * */
-    editInput_changeHandler(selectType, e){
+    editInput_changeHandler(selectType, e) {
         let ele = e.target,
             values = this.state.values;
 
-        if((this.state.verify&&_.indexOf(verifySort, selectType)>-1)||selectType == 'proxyHost'){
-            if(!ele.value){
+        if ((this.state.verify && _.indexOf(verifySort, selectType) > -1) || selectType == 'proxyHost') {
+            if (!ele.value) {
                 ele.classList.add("g-errorTip");
-            }else{
+            } else {
                 ele.classList.remove("g-errorTip");
             }
         }
 
         values[selectType] = ele.value;
-
         this.setState({
-            values:values
+            values: values
         })
 
     }
@@ -118,18 +155,68 @@ export default class ApiEditBase extends React.Component {
         values[selectType] = val;
 
         this.setState({
-            values:values
+            values: values
         })
 
     }
 
+    /*
+     * 从localstorage中得到搜索框缓存的内容
+     */
+    getLocalTag() {
+        let key = this.localkey;
+        if (!key) {
+            return
+        }
+        this.setState({
+            tagList: JSON.parse(Local.getItem(key)) || []
+        })
+    }
 
+    /*
+     * 设置localstorage中搜索框缓存的内容
+     */
+    setLocalTag(value) {
+        let key = this.localkey;
+        if (!value || !key) {
+            return
+        }
 
-    render(){
-        let state= this.state;
+        let tagList = JSON.parse(Local.getItem(key)) || []
+        let index = tagList.indexOf(value)
+
+        if (index > -1) {
+            tagList.splice(index, 1)
+        }
+        tagList.unshift(value)
+        if (tagList.length > 10) {
+            tagList = tagList.slice(0, 10)
+        }
+        this.setState({
+            tagList
+        })
+        Local.setItem(key, JSON.stringify(tagList))
+
+    }
+
+    tag_changeHander(value) {
+        clearTimeout(this.searchTimer)
+
+        this.editSelect_changeHandler('tag', value)
+
+        this.searchTimer = setTimeout(() => {
+            this.setLocalTag(value)
+        }, 2000)
+    }
+
+    componentWillUnmount(){
+        clearTimeout(this.searchTimer)
+    }
+
+    render() {
+        let state = this.state;
         let {values} = this.state;
-        let requiredDisplay = state.verify?'inline-block':'none';
-
+        let requiredDisplay = state.verify ? 'inline-block' : 'none';
 
         let groupList = [];
 
@@ -140,35 +227,41 @@ export default class ApiEditBase extends React.Component {
 
         }
 
+        const options = !values.tag?this.state.tagList.map(d => <Option key={d}>{d}</Option>):''
+
         return (
             <div className='ApiEditBase'>
                 <section>
                     <label>
-                        <span className='edit_name'><em style={{display:requiredDisplay}} >*</em>URL：</span>
+                        <span className='edit_name'><em style={{display: requiredDisplay}}>*</em>URL：</span>
                         <Input
                             className={!values.URI && state.errorClickStatus ? "edit_input g-errorTip" : "edit_input"}
                             defaultValue={values.URI}
                             value={values.URI}
                             onChange={this.editInput_changeHandler.bind(this, 'URI')}
-                            placeholder="请输入URL"/>
+                            placeholder="请输入URL"
+                            disabled={state.userAuthority}
+                        />
                     </label>
                     <label>
-                        <span className='edit_name'><em style={{display:requiredDisplay}} >*</em>名 称：</span>
+                        <span className='edit_name'><em style={{display: requiredDisplay}}>*</em>名 称：</span>
                         <Input
                             className={!values.featureName && state.errorClickStatus ? "edit_input g-errorTip" : "edit_input"}
                             defaultValue={values.featureName || ''}
                             value={values.featureName || ''}
                             onChange={this.editInput_changeHandler.bind(this, 'featureName')}
+                            disabled={state.userAuthority}
                             placeholder="请输入接口名称"/>
                     </label>
                 </section>
                 <section>
                     <label>
-                        <span className='edit_name'>线上地址：</span>
+                        <span className='edit_name'><em>*</em>线上地址：</span>
                         <Input
-                            className='edit_input'
+                            className={!values.host && state.errorClickStatus ? "edit_input g-errorTip" : "edit_input"}
                             defaultValue={values.host || ''}
                             value={values.host || ''}
+                            disabled={state.userAuthority}
                             onChange={this.editInput_changeHandler.bind(this, 'host')}
                             placeholder="请输入线上地址"/>
                     </label>
@@ -179,8 +272,9 @@ export default class ApiEditBase extends React.Component {
                                 defaultValue={values.dataType}
                                 style={{minWidth: '165px'}}
                                 getPopupContainer={() => document.getElementById('methodType')}
-                                className='edit_method' >
-                            <Option value="GET" >GET</Option>
+                                disabled={state.userAuthority}
+                                className='edit_method'>
+                            <Option value="GET">GET</Option>
                             <Option value="POST">POST</Option>
                             <Option value="PUT">PUT</Option>
                             <Option value="DELETE">DELETE</Option>
@@ -196,6 +290,7 @@ export default class ApiEditBase extends React.Component {
                                 value={String(values.enable)}
                                 style={{minWidth: '65px'}}
                                 getPopupContainer={() => document.getElementById('apiStatus')}
+                                disabled={state.userAuthority}
                                 className='edit_method'>
                             <Option value="1">启用</Option>
                             <Option value="2">维护</Option>
@@ -209,31 +304,34 @@ export default class ApiEditBase extends React.Component {
                                 defaultValue={String(values.active)}
                                 value={String(values.active)}
                                 style={{minWidth: '65px'}}
+                                disabled={state.userAuthority}
                                 className='edit_method'>
                             <Option value="1">激活</Option>
                             <Option value="0">未激活</Option>
                         </Select>
                     </label>
-                    <label style={{display: values.active=='1'?"block":"none"}}>
+                    <label style={{display: values.active == '1' ? "block" : "none"}}>
                         <span className='edit_name'><em>*</em>代理域名：</span>
                         <Input
                             className={!values.proxyHost && state.errorClickStatus ? "edit_input g-errorTip" : "edit_input"}
                             defaultValue={values.proxyHost}
                             value={values.proxyHost}
                             onChange={this.editInput_changeHandler.bind(this, 'proxyHost')}
+                            disabled={state.userAuthority}
                             placeholder="请输入代理域名"/>
                     </label>
-                    <label  id="group">
+                    <label id="group">
                         <span className='edit_name'>分  组：</span>
                         <Select
-                                onChange={this.editSelect_changeHandler.bind(this, 'groupId')}
-                                getPopupContainer={() => document.getElementById('group')}
-                                defaultValue={String(values.groupId)}
-                                value={String(values.groupId)}
-                                className='edit_method'>
+                            onChange={this.editSelect_changeHandler.bind(this, 'groupId')}
+                            getPopupContainer={() => document.getElementById('group')}
+                            defaultValue={String(values.groupId)}
+                            value={String(values.groupId)}
+                            disabled={state.userAuthority}
+                            className='edit_method'>
                             <Option key={'-1'} value='-1'>无分组</Option>
                             {
-                                groupList&&groupList.map((groupDtat) => {
+                                groupList && groupList.map((groupDtat) => {
                                     return (
                                         <Option key={groupDtat._id}
                                                 value={groupDtat._id}>{groupDtat.name}</Option>
@@ -242,9 +340,44 @@ export default class ApiEditBase extends React.Component {
                             }
                         </Select>
                     </label>
+                    <label>
+                        <span className='edit_name'>Tag名称 ：</span>
+
+                        <Select
+                            mode="combobox"
+                            className='edit_method'
+                            value={values.tag}
+                            placeholder="请输入Tag名称"
+                            defaultActiveFirstOption={false}
+                            allowClear={true}
+                            showArrow={false}
+                            filterOption={false}
+                            onChange={this.tag_changeHander.bind(this)}
+                        >
+                            {options}
+                        </Select>
+
+                    </label>
+                    <label id="manager">
+                        <span className='edit_name'>负责人：</span>
+                        <Select
+                            onChange={this.editSelect_changeHandler.bind(this, 'manager')}
+                            getPopupContainer={() => document.getElementById('manager')}
+                            defaultValue={String(values.manager)}
+                            value={String(values.manager)}
+                            disabled={state.userAuthority}
+                            className='edit_method'>
+                            {
+                                this.state.cooperationArr && this.state.cooperationArr.map((item) => {
+                                    return (
+                                        <Option key={item.username}
+                                                value={item.username}>{item.username}</Option>
+                                    )
+                                })
+                            }
+                        </Select>
+                    </label>
                 </section>
-
-
             </div>
         )
     }

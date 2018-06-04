@@ -30,15 +30,13 @@ export const hasResponseError = function (data) {
  * @param error
  */
 export const catchError = function (error) {
-    switch (error.status) {
-        case '209':
-        case '210':
-        case '211':
+    switch (parseInt(error.status)) {
+        case 401:
         {
             logOut();
             break;
         }
-        case '208':
+        case 208:
         {
             break;
         }
@@ -55,19 +53,18 @@ export const catchError = function (error) {
  * 捕获action
  * @param action
  */
-export const catchAction = (action) => {
-
+export const catchAction = (action, res) => {
     const type = action().type;
     switch (type){
         case ActionType.USER_RESET :
-            openNotificationWithIcon('success', '重置密码', '重置密码成功，密码：hefan123');
+            openNotificationWithIcon('success', '重置密码', '重置密码成功，密码：'+res.password);
             break;
         case ActionType.IF_UPDATE_ADD :
+        case ActionType.PJ_ADD_COOPER :
             break;
         case ActionType.ITEMP_UPDATE_ADD :
         case ActionType.SC_UPDATE_ADD :
         case ActionType.FIELD_UPDATE_ADD :
-        case ActionType.PJ_ADD_COOPER :
         case ActionType.GROUP_UPDATE_ADD :
             openNotificationWithIcon('success', '操作成功');
             break;
@@ -78,6 +75,9 @@ export const catchAction = (action) => {
         case ActionType.PJ_DEL_COOPER :
         case ActionType.GROUP_RC_DEL :
             openNotificationWithIcon('success', '删除成功');
+            break;
+        case ActionType.LOGIN_TEST :
+            openNotificationWithIcon('success', '登录成功');
             break;
         default:
             break

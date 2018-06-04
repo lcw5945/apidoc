@@ -22,6 +22,7 @@ export const resetUser = createAction(ActionType.USER_RESET);
 export const loginUser = createAction(ActionType.USER_LOGIN);
 export const logoutUser = createAction(ActionType.USER_LOGOUT);
 export const getMulUser = createAction(ActionType.USER_MULTIPLE);
+export const autoLoginUser = createAction(ActionType.USER_AUTOLOGIN);
 
 /**
  * 接口请求
@@ -33,5 +34,6 @@ export const fetchResetUser = createAsynAction( user.resetRegistUser, null, rese
 export const fetchSearchUser = createAsynAction( user.searchRegistUsers, null, searchUser );
 export const fetchRegUser = createAsynAction( user.register, null, regUser );
 export const fetchLoginUser = createAsynAction( user.login, null, loginUser );
+export const fetchAutoLoginUser = createAsynAction( user.autologin, null, autoLoginUser );
 export const fetchLogoutUser = createAsynAction( user.logout, null, logoutUser );
 export const fetchMulUser = createAsynAction( user.getMulUser, null, getMulUser );

@@ -14,21 +14,16 @@ import  SubNav  from '~components/common/SubNav';
 import  MainNav  from '~components/common/MainNav';
 import  CodeContainer  from '~containers/project/code/CodeContainer';
 
-
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...statecodeActions, ...groupActions, ...projectActions}, dispatch)
-)
-export default class StateCode extends React.Component {
+class StateCode extends React.Component {
     constructor(props) {
         super(props);
         this.queryData = null;
     }
     componentWillMount() {
-        this.queryData = Utils.parseUrlToData(this.props.location.search);
-        let projectId = this.queryData.projectId;
-
-        if (!this.props.entity['statecodes'] || !this.props.entity['statecodes'][projectId] || this.props.entity['statecodes'][projectId].didInvalidate) {
+        this.queryData = Utils.parseUrlToData(this.props.location.search)
+        let projectId = this.queryData.projectId
+        let scData  = this.props.entity['statecodes']
+        if (!scData || !scData[projectId] || scData[projectId].didInvalidate || (Date.now() - scData[projectId].lastUpdated > 10 * 60 * 1000)) {
             this.props.fetchStateCodeCheckList(paramsFormat({projectId: projectId}));
         }
     }
@@ -37,9 +32,14 @@ export default class StateCode extends React.Component {
         return (
             <div key={this.props.location.pathname}>
                 <MainNav/>
-                <SubNav subNavType='childList'/>
+                <SubNav subNavType='childList'  {...this.props}/>
                 <CodeContainer {...this.props}/>
             </div>
         );
     }
 }
+
+export default connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...statecodeActions, ...groupActions, ...projectActions}, dispatch)
+)(StateCode)

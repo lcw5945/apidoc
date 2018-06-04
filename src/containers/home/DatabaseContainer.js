@@ -2,7 +2,7 @@
  * Created by Cray on 2017/7/20.
  */
 import React from 'react';
-import {Table, Button, Modal, Input, Message,Popconfirm,Tag} from 'antd';
+import {Table, Button, Modal, Input, Message, Popconfirm, Tag} from 'antd';
 import {paramsFormat} from '~common/http';
 import Utils from '~utils';
 import  Dialog  from '~components/common/Dialog';
@@ -23,7 +23,7 @@ export default class DatabaseContainer extends React.Component {
                     dataIndex: 'version',
                     key: 'version',
                     render: (text) => {
-                        return  <Tag  className='noPoint' color="#82d886">{text}</Tag>
+                        return <Tag className='noPoint' color="#82d886">{text}</Tag>
                     }
                 }, {
                     title: '数据库最后修改时间',
@@ -40,12 +40,12 @@ export default class DatabaseContainer extends React.Component {
                     key: 'action',
                     render: (text, record) => {
                         let hfApiUserInfo = that.props.user;
-                        if (record.admin === hfApiUserInfo.userId) {
+                        if (record.admin === hfApiUserInfo.userId || hfApiUserInfo.authority > 2) {
                             return (
                                 <div>
                                     <Button size="small" icon="edit"
-                                            onClick={this.editHandle.bind(this, record,'edit')}>修改</Button>
-                                    <Popconfirm title='确定删除' okText="Yes" cancelText="No"  placement="rightTop"
+                                            onClick={this.editHandle.bind(this, record, 'edit')}>修改</Button>
+                                    <Popconfirm title='确定删除' okText="Yes" cancelText="No" placement="rightTop"
                                                 onConfirm={this.deletePopconfirmHandle.bind(this, record)}>
                                         <Button size="small" icon="delete"
                                                 onClick={this.deleteHandle.bind(this, record)}>删除</Button>
@@ -67,29 +67,29 @@ export default class DatabaseContainer extends React.Component {
     }
 
     // 修改项目
-    editHandle(dataSource,pageType, event) {
+    editHandle(dataSource, pageType, event) {
 
         event.stopPropagation();
         event.preventDefault();
         let _this = this;
 
         this.refs.getDialog.confirm({
-            title: pageType == 'add'?'增加数据库':'修改数据库',
+            title: pageType == 'add' ? '增加数据库' : '修改数据库',
             content: <div>
-                        <p>数据库名称：</p>
-                        <Input defaultValue={dataSource.name} id="dataSourceName"/>
-                        <p>版本号：</p>
-                        <Input defaultValue={dataSource.version} id="dataSourceHv"/>
-                    </div>,
+                <p>数据库名称：</p>
+                <Input defaultValue={dataSource.name} id="dataSourceName"/>
+                <p>版本号：</p>
+                <Input defaultValue={dataSource.version} id="dataSourceHv"/>
+            </div>,
             onOk() {
                 dataSource.name = document.getElementById('dataSourceName').value;
                 dataSource.version = document.getElementById('dataSourceHv').value;
 
-                if(!dataSource.name){
+                if (!dataSource.name) {
                     Message.error("请输入数据库名称");
                     return false;
                 }
-                if(!dataSource.version){
+                if (!dataSource.version) {
                     Message.error("请输入版本号");
                     return false;
                 }
@@ -146,10 +146,10 @@ export default class DatabaseContainer extends React.Component {
         return (
             <div>
                 <div className="ProjectList">
-                    <Dialog  ref="getDialog"/>
+                    <Dialog ref="getDialog"/>
                     <div className="buttons">
                         <Button type="primary" icon="plus"
-                                onClick={this.editHandle.bind(this, this.state.addDataSource,'add')}>新增数据库</Button>
+                                onClick={this.editHandle.bind(this, this.state.addDataSource, 'add')}>新增数据库</Button>
                     </div>
                     {
                         databases && (() => {

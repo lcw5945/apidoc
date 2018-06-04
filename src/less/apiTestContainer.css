@@ -14,7 +14,7 @@
   -ms-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
-  padding: 0 10px;
+  padding: 0 10px 100px 10px;
   background: #f8f8f8;
 }
 .apiTest::-webkit-scrollbar-track {
@@ -74,7 +74,8 @@
   padding: 0 8px;
 }
 .apiTest > .apiTest-main > .address > .url {
-  width: 1000px;
+  width: 60%;
+  min-width: 300px;
   padding: 8px 0px;
 }
 .apiTest > .apiTest-main > .address > .api-status {
@@ -498,6 +499,14 @@
 .apiTest > .apiTest-main > .history .history-list ul li .list_moreCont .list_mayBeBox .paramsList_row .list_mayBe_name .list_mayBeDescribe_input {
   width: 233px;
   margin: 0 5px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li label {
+  float: left;
+  margin-top: -10px;
+  margin-right: 20px;
+}
+.apiTest > .apiTest-main > .history .history-list ul li button {
+  float: left;
 }
 .modal-line {
   height: 36px;

@@ -15,11 +15,7 @@ import {paramsFormat} from '~common/http';
 
 
 
-@connect(
-    state => state,
-    dispatch => bindActionCreators({...globalActions, ...interfaceActions, ...testenvActions}, dispatch)
-)
-export default class ApiTests extends React.Component {
+class ApiTests extends React.Component {
 
     constructor(props) {
         super(props);
@@ -46,3 +42,9 @@ export default class ApiTests extends React.Component {
         );
     }
 }
+
+
+export default  connect(
+    state => state,
+    dispatch => bindActionCreators({...globalActions, ...interfaceActions, ...testenvActions}, dispatch)
+)(ApiTests)
