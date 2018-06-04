@@ -31,7 +31,7 @@ export const cors = function(req, res, next) {
 
   let allowDomain = [
     "http://39.106.118.58",
-    "http://39.106.118.58",
+    "http://39.106.118.58:9013",
     "http://localhost:3100"
   ];
   let originDomain = req.headers.origin;
