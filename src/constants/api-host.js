@@ -4,9 +4,9 @@
 
 export const API_HOST =
   process.env.NODE_ENV === "production"
-    ? "http://39.106.118.58"
+    ? "http://39.106.118.58:9013"
     : process.env.NODE_ENV === "testing"
-      ? "http://39.106.118.58"
+      ? "http://39.106.118.58:9013"
       : "http://localhost:9013";
 
 // export const H5API_HOST =
