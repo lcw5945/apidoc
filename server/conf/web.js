@@ -12,7 +12,7 @@ export default {
   db: {
     //mongodb 配置
     DB_DEV: {
-      url: "mongodb://admin:apidoc.123@39.106.118.58:28017/apidoc-dev",
+      url: "mongodb://127.0.0.1:28017/apidoc-dev",
       options: {}
     },
     DB_TEST: {
