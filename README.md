@@ -81,6 +81,29 @@ npm run server
 npm run pro
 pm2 restart ./pm/ecosystem.json --env production
 ```
+## 部署
+
+apidoc 
+一 、 开发环境启动
+1. 配置开发环境数据库
+127.0.0.1:28017 
+注意：数据库配置 server/conf/web
+2. 安装项目依赖：cnpm i
+3. 初始化root用户 ： node server/script/init.js
+4. 启动项目：npm run server
+
+二、测试环境部署
+
+1. 配置测试环境数据库
+2. 修改 server/conf/web db.DB_TEST 对应的host port username passsord
+3. 安装项目依赖 ：cnpm i
+4. 初始化root用户 ： node server/script/init.js
+注意：需要修改server/script/init.js 中 process.env.NODE_ENV = "testing"
+5. 修改前端请求地址，在public目录下 全局搜索 127.0.0.1，改为当前的测试环境地址
+或者编译前端，修改src/constants/api-host 文件
+6. 安装pm2 
+7. 启动 pm2 start pm/ecosystem.json --env tesing
+8. 如果出现跨域，修改server/middlewar/index  allowDomain
 
 ## 技术架构
 
