@@ -26,13 +26,15 @@ const AUTH_HOST =
  * @param {*} res
  * @param {*} next
  */
-export const cors = function(req, res, next) {
+export const cors = function (req, res, next) {
   console.log("执行了", req);
 
   let allowDomain = [
     "http://39.106.118.58",
     "http://39.106.118.58:9013",
-    "http://localhost:3100"
+    "http://localhost:3100",
+    "http://localhost:9013",
+    "http://127.0.0.1:9013",
   ];
   let originDomain = req.headers.origin;
   if (allowDomain.includes(originDomain)) {
@@ -56,7 +58,7 @@ export const cors = function(req, res, next) {
  * @param {*} res
  * @param {*} next
  */
-export const auth = async function(req, res, next) {
+export const auth = async function (req, res, next) {
   let params = Params.tokenValidate(req),
     url_arr = ["/api/login", "/api/loginTest"],
     ssoUser,
@@ -213,7 +215,7 @@ export const auth = async function(req, res, next) {
  * @param {*} res
  * @param {*} next
  */
-export const authority = async function(req, res, next) {
+export const authority = async function (req, res, next) {
   let params = Params.tokenValidate(req),
     url_arr = [
       "/api/delInterfaces",
@@ -277,7 +279,7 @@ export const overrideJson = (req, res, next) => {
     "/updateAddGroup": ActionType.GROUP_UPDATE_ADD
   };
 
-  res.json = function(data) {
+  res.json = function (data) {
     //check code & send error log
     let error = Serrors.postError(req, res, data);
     //send socket
