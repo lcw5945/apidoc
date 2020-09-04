@@ -27,7 +27,7 @@
     "jsoneditor": "^5.9.3",
     "moment": "^2.18.1",
     "morgan": "~1.7.0",
-    "node-sass": "~4.5.2",
+    "node-sass": "~4.14.1",
     "nodemon": "^1.11.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
